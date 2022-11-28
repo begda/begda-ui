@@ -12,7 +12,7 @@ module.exports = {
   },
   base: '/', //连接的基础路径
   port: 4002,
-  dest: path.resolve('docs', 'begda-ui'), //编译输出目录
+  dest: path.resolve('docs'), //编译输出目录
   // 国际化相关
   locales: {
     // 键名是该语言所属的子路径
