@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>插件详解 | Begda</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="stylesheet" href="/css/css.css">
+    <script src="https://webapi.amap.com/maps?v=1.4.15&amp;key=abb89bfe34e5be2fe527764105154410"></script>
+    <meta name="description" content="学习系统文章的记录">
+    
+    <link rel="preload" href="/assets/css/0.styles.403dce64.css" as="style"><link rel="preload" href="/assets/js/app.9e4c4490.js" as="script"><link rel="preload" href="/assets/js/2.633b91b6.js" as="script"><link rel="preload" href="/assets/js/18.3b127ad9.js" as="script"><link rel="prefetch" href="/assets/js/10.45bcee58.js"><link rel="prefetch" href="/assets/js/11.2afbb81e.js"><link rel="prefetch" href="/assets/js/12.c41189aa.js"><link rel="prefetch" href="/assets/js/13.40862f6b.js"><link rel="prefetch" href="/assets/js/14.e34a19e2.js"><link rel="prefetch" href="/assets/js/15.f001f208.js"><link rel="prefetch" href="/assets/js/16.db0d2d00.js"><link rel="prefetch" href="/assets/js/17.6983339f.js"><link rel="prefetch" href="/assets/js/19.a0db10f8.js"><link rel="prefetch" href="/assets/js/3.3a941eca.js"><link rel="prefetch" href="/assets/js/4.4e49cc81.js"><link rel="prefetch" href="/assets/js/5.e9377774.js"><link rel="prefetch" href="/assets/js/6.d53b9f3b.js"><link rel="prefetch" href="/assets/js/7.90cb5b09.js"><link rel="prefetch" href="/assets/js/8.9d888226.js"><link rel="prefetch" href="/assets/js/9.b726d7eb.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.403dce64.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="Begda" class="logo"> <span class="site-name can-hide">Begda</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/BegdaUI/" class="nav-link">
+  BegdaUI
+</a></div><div class="nav-item"><a href="/Blog/" class="nav-link router-link-active">
+  Blog
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/BegdaUI/" class="nav-link">
+  BegdaUI
+</a></div><div class="nav-item"><a href="/Blog/" class="nav-link router-link-active">
+  Blog
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Vuepress</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Blog/vuepress/1.问题.html" class="sidebar-link">问题处理</a></li><li><a href="/Blog/vuepress/2.插件.html" class="active sidebar-link">插件详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Blog/vuepress/2.插件.html#auto-sidebar-生成侧边栏" class="sidebar-link">auto-sidebar 生成侧边栏</a></li><li class="sidebar-sub-header"><a href="/Blog/vuepress/2.插件.html#demo-container-组件示例" class="sidebar-link">demo-container 组件示例</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="插件详解"><a href="#插件详解" class="header-anchor">#</a> 插件详解</h1> <h2 id="auto-sidebar-生成侧边栏"><a href="#auto-sidebar-生成侧边栏" class="header-anchor">#</a> auto-sidebar 生成侧边栏</h2> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 安装</span>
+<span class="token function">pnpm</span> <span class="token function">add</span> vuepress-plugin-auto-sidebar <span class="token parameter variable">-D</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 配置 .vuepress -&gt; config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'vuepress-plugin-auto-sidebar'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="demo-container-组件示例"><a href="#demo-container-组件示例" class="header-anchor">#</a> demo-container 组件示例</h2> <p>Demo Container 是一个基于 Vuepress 的插件，它可以帮助你在编写文档的时候增加 Vue 示例，它的诞生初衷是为了降低编写组件文档时增加一些相关示例的难度。</p> <div class="language-shell line-numbers-mode"><pre class="language-shell"><code><span class="token comment"># 安装</span>
+<span class="token function">pnpm</span> <span class="token function">add</span> vuepress-plugin-demo-container <span class="token parameter variable">-D</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">// 配置 .vuepress -&gt; config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'demo-container'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2022/11/28 18:25:08</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Blog/vuepress/1.问题.html" class="prev">
+        问题处理
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9e4c4490.js" defer></script><script src="/assets/js/2.633b91b6.js" defer></script><script src="/assets/js/18.3b127ad9.js" defer></script>
+  </body>
+</html>
