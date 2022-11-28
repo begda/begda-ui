@@ -1,0 +1,50 @@
+// 使用el-scrollbar时，请加上此样式类
+.begda-scrollbar {
+  height: 100%;
+  width: 100%;
+  white-space: initial;
+  position: relative;
+  overflow: hidden;
+  .el-scrollbar__wrap {
+    // 横竖滚动条都直接显示出来，height加上17px把滚动条隐藏掉
+    // width已在el-scrollbar内部样式处理了
+    // overflow: scroll; // 不能设置为overflow-x:hidden,滚动条会重叠
+    // height: calc(100% + 17px);
+    // width: calc(100% + 17px);
+    // 使用margin负值方案在移动端会出现高度、宽度异常问题，改为以下方案
+    height: 100%;
+    overflow: auto;
+    margin: 0 !important;
+    // 火狐
+    scrollbar-width: none !important;
+    // IE
+    -ms-overflow-style: none;
+    // 谷歌
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0 !important;
+    }
+    &.el-scrollbar__wrap--hidden-default {
+      height: 100% !important;
+    }
+    &.el-scrollbar__view {
+    }
+  }
+  > .el-scrollbar__bar {
+    z-index: 1999;
+    &.is-horizontal {
+    }
+    &.is-vertical {
+    }
+  }
+  .el-scrollbar__thumb {
+    background: rgba(211, 211, 211, 0.62);
+    transition: background 0.4s;
+  }
+  .el-scrollbar__thumb:hover {
+    background: darkgray;
+  }
+}

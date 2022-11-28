@@ -1,0 +1,55 @@
+.begda-panel-data {
+  @apply bg-transparent border-0 p-1 text-blue-400;
+  //必须的用 begda-panel 这个名字,因为页面上是这样嵌套的
+  .begda-panel {
+    &__header {
+      @apply border-0;
+      background: linear-gradient(90deg, rgba(28, 80, 215, 0) 0%, rgba(27, 78, 218, 1) 50%, rgba(28, 80, 215, 0) 100%);
+      &-title {
+        @apply text-white;
+      }
+
+      &-left {
+        @apply hover:text-blue-200;
+      }
+
+      &-right {
+        @apply hover:text-blue-200;
+      }
+    }
+
+    &__body {
+      @apply p-3;
+    }
+  }
+}
+
+.begda-panel-data-2 {
+  .begda-panel-data; //混入 .begda-panel-data;
+  .begda-panel {
+    &__header {
+      margin-top: 2px;
+      background: linear-gradient(90deg, rgba(28, 80, 215, 0) 15%, rgba(27, 78, 218, 1) 50%, rgba(28, 80, 215, 0) 85%);
+    }
+  }
+}
+
+.begda-panel-data-3 {
+  .begda-panel-data; //混入 .begda-panel-data;
+  .begda-panel {
+    &__header {
+      margin-top: 5px;
+    }
+  }
+}
+
+.begda-panel-data-4 {
+  .begda-panel-data; //混入 .begda-panel-data;
+  @apply p-2;
+  .begda-panel {
+    &__header {
+      background: transparent !important;
+      @apply border-b border-b-cyan-500;
+    }
+  }
+}
