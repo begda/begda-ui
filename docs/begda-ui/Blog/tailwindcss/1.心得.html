@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>函数和指令 | Begda</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="stylesheet" href="/css/css.css">
+    <script src="https://webapi.amap.com/maps?v=1.4.15&amp;key=abb89bfe34e5be2fe527764105154410"></script>
+    <meta name="description" content="学习系统文章的记录">
+    
+    <link rel="preload" href="/assets/css/0.styles.5198ca13.css" as="style"><link rel="preload" href="/assets/js/app.b9bbbc14.js" as="script"><link rel="preload" href="/assets/js/2.633b91b6.js" as="script"><link rel="preload" href="/assets/js/16.0c05f19e.js" as="script"><link rel="prefetch" href="/assets/js/10.afe5c6fe.js"><link rel="prefetch" href="/assets/js/11.b45ae053.js"><link rel="prefetch" href="/assets/js/12.ee6fc961.js"><link rel="prefetch" href="/assets/js/13.12680622.js"><link rel="prefetch" href="/assets/js/14.847b345a.js"><link rel="prefetch" href="/assets/js/15.5c348ca5.js"><link rel="prefetch" href="/assets/js/17.edd37bb4.js"><link rel="prefetch" href="/assets/js/18.a71bb424.js"><link rel="prefetch" href="/assets/js/19.a3ca2b94.js"><link rel="prefetch" href="/assets/js/3.3a941eca.js"><link rel="prefetch" href="/assets/js/4.9b15ae0f.js"><link rel="prefetch" href="/assets/js/5.eea0a2a1.js"><link rel="prefetch" href="/assets/js/6.f9bbfd08.js"><link rel="prefetch" href="/assets/js/7.1d3e63ef.js"><link rel="prefetch" href="/assets/js/8.9d888226.js"><link rel="prefetch" href="/assets/js/9.f7c22062.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5198ca13.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="Begda" class="logo"> <span class="site-name can-hide">Begda</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/BegdaUI/" class="nav-link">
+  BegdaUI
+</a></div><div class="nav-item"><a href="/Blog/" class="nav-link router-link-active">
+  Blog
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/BegdaUI/" class="nav-link">
+  BegdaUI
+</a></div><div class="nav-item"><a href="/Blog/" class="nav-link router-link-active">
+  Blog
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Tailwindcss</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Blog/tailwindcss/1.心得.html" class="active sidebar-link">函数和指令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Blog/tailwindcss/1.心得.html#_1-layer" class="sidebar-link">1. @layer</a></li><li class="sidebar-sub-header"><a href="/Blog/tailwindcss/1.心得.html#_2-apply" class="sidebar-link">2. @apply</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><p></p><div class="table-of-contents"><ul><li><a href="#_1-layer">1. @layer</a></li><li><a href="#_2-apply">2. @apply</a><ul><li><a href="#important">!important</a></li></ul></li></ul></div><p></p> <h1 id="函数和指令"><a href="#函数和指令" class="header-anchor">#</a> 函数和指令</h1> <blockquote><p><a href="https://tailwindcss.com/docs/functions-and-directives" target="_blank" rel="noopener noreferrer">参考文档地址<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></blockquote> <h2 id="_1-layer"><a href="#_1-layer" class="header-anchor">#</a> 1. @layer</h2> <p>使用 @layer 指令告诉 Tailwind 一组自定义样式应该属于哪个 “bucket”。可用的层有 base, components 和 utilities。</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token atrule"><span class="token rule">@tailwind</span> base<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@tailwind</span> components<span class="token punctuation">;</span></span>
+<span class="token atrule"><span class="token rule">@tailwind</span> utilities<span class="token punctuation">;</span></span>
+
+<span class="token comment">/*添加基础样式,可以重置tailwind的样式
+通过使用 @layer 指令，Tailwind 将自动将这些样式移到 @tailwind base 的同一位置，以避免出现一些意外问题。*/</span>
+<span class="token atrule"><span class="token rule">@layer</span> base</span> <span class="token punctuation">{</span>
+  <span class="token selector">h1</span> <span class="token punctuation">{</span>
+    <span class="token atrule"><span class="token rule">@apply</span> text-2xl<span class="token punctuation">;</span></span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector">h2</span> <span class="token punctuation">{</span>
+    <span class="token atrule"><span class="token rule">@apply</span> text-xl<span class="token punctuation">;</span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">/*Tailwind 会将这些样式自动移到与 @tailwind components 相同的位置，因此您不必担心在源文件中正确放置顺序。
+使用 @layer 指令还将指示 Tailwind 在清除 components 层时考虑使用哪些样式进行清除。*/</span>
+<span class="token atrule"><span class="token rule">@layer</span> components</span> <span class="token punctuation">{</span>
+  <span class="token selector">.btn-blue</span> <span class="token punctuation">{</span>
+    <span class="token atrule"><span class="token rule">@apply</span> bg-blue-500 <span class="token property">hover</span><span class="token punctuation">:</span>bg-blue-700 text-white font-bold py-2 px-4 rounded<span class="token punctuation">;</span></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/*添加新的功能类*/</span>
+<span class="token atrule"><span class="token rule">@layer</span> utilities</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@variants</span> hover<span class="token punctuation">,</span> focus</span> <span class="token punctuation">{</span>
+    <span class="token selector">.filter-none</span> <span class="token punctuation">{</span>
+      <span class="token property">filter</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token selector">.filter-grayscale</span> <span class="token punctuation">{</span>
+      <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span>100%<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><h2 id="_2-apply"><a href="#_2-apply" class="header-anchor">#</a> 2. @apply</h2> <p>使用 @apply 将任何现存的功能类内联到您的自定义 CSS 中。</p> <p>当您在您的 HTML 里找到您想要提取到一个新组件的通用的功能模式时，这非常有用。</p> <div class="language-css line-numbers-mode"><pre class="language-css"><code><span class="token selector">.btn</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@apply</span> font-bold py-2 px-4 rounded<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.btn-blue</span> <span class="token punctuation">{</span>
+  <span class="token atrule"><span class="token rule">@apply</span> bg-blue-500 <span class="token property">hover</span><span class="token punctuation">:</span>bg-blue-700 text-white<span class="token punctuation">;</span></span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="important"><a href="#important" class="header-anchor">#</a> !important</h3> <p>如果您想使用 @apply 内联一个已经存在的类，并且为其设置 !important，只需要把 !important 添加到声明的结尾即可。</p> <p>注意，类是根据其在原始 CSS 中的位置而不是根据在 @apply 指令之后列出它们的顺序来应用的。这是为了确保使用 @apply
+提取类列表时得到的行为与直接在 HTML 中列出的类的行为相匹配。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token comment">/* Input */</span>
+<span class="token selector">.btn</span> <span class="token punctuation">{</span>
+  <span class="token variable">@apply</span> font<span class="token operator">-</span>bold py<span class="token operator">-</span>2 px<span class="token operator">-</span>4 rounded <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 输出这样的css */</span>
+<span class="token selector">.btn</span> <span class="token punctuation">{</span>
+  <span class="token property">font-weight</span><span class="token punctuation">:</span> 700 <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">padding-top</span><span class="token punctuation">:</span> 0.5rem <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">padding-bottom</span><span class="token punctuation">:</span> 0.5rem <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">padding-right</span><span class="token punctuation">:</span> 1rem <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">padding-left</span><span class="token punctuation">:</span> 1rem <span class="token important">!important</span><span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 0.25rem <span class="token important">!important</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>注意，如果您使用的是 Sass/SCSS，则您需要使用 Sass 的插值功能才能使其正常工作。</p> <div class="language-less line-numbers-mode"><pre class="language-less"><code><span class="token selector">.btn</span> <span class="token punctuation">{</span>
+<span class="token atrule">@apply font-bold py-2 px-4 rounded #</span><span class="token punctuation">{</span><span class="token important">!important</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">2022/11/28 18:43:05</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.b9bbbc14.js" defer></script><script src="/assets/js/2.633b91b6.js" defer></script><script src="/assets/js/16.0c05f19e.js" defer></script>
+  </body>
+</html>
