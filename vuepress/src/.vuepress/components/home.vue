@@ -2,8 +2,7 @@
   <div>
     <div style="position: fixed; top: 10px; right: 10px; color: #5ba17c">
       <template v-for="item in nav">
-        <a :href="item.link">{{ item.text }}</a
-        >&nbsp;&nbsp;
+        <a :href="`.${item.link}`">{{ item.text }}</a> &nbsp;&nbsp;
       </template>
     </div>
     <div
@@ -81,7 +80,7 @@
     <div style="margin-top: 100px; text-align: center; padding: 20px; border-top: 1px #ececec solid">
       Copyright © {{ Copyright }} | <a :href="author.link">{{ author.name }}</a> |
       <template v-for="item in nav">
-        <a :href="item.link">{{ item.text }}</a> |
+        <a :href="`.${item.link}`">{{ item.text }}</a> |
       </template>
     </div>
   </div>
