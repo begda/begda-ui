@@ -6,7 +6,6 @@
       </template>
     </div>
     <div
-      class="home-bg"
       style="
         padding-bottom: 180px;
         padding-top: 180px;
@@ -123,7 +122,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.home-bg {
-}
-</style>
+<style scoped></style>
