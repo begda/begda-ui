@@ -24,7 +24,7 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'stylesheet', href: '/css/css.css' }],
+    ['link', { rel: 'stylesheet', href: './css/css.css' }],
     //高德地图key
     ['script', { src: `https://webapi.amap.com/maps?v=1.4.15&key=abb89bfe34e5be2fe527764105154410` }]
     // ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/locale/af.js' }]
