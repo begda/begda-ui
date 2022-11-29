@@ -12,7 +12,7 @@
         padding-top: 180px;
         text-align: center;
         background-color: #2d71b5;
-        background-image: url(./images/bg.jpg);
+        background-image: url(images/bg.jpg);
         background-size: auto;
         color: #ffffff;
       "
@@ -102,7 +102,7 @@ export default {
     };
   },
   created() {
-    this.logo = this.$site.themeConfig.logo;
+    this.logo = '.' + this.$site.themeConfig.logo;
     this.sidebar = this.$site.themeConfig.sidebar;
     this.Copyright = new Date().getFullYear();
     this.author = this.$site.themeConfig.author;
