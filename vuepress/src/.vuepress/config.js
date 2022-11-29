@@ -10,7 +10,7 @@ module.exports = {
     //在https://github.com/vuejs/vuepress/issues/2275中发现，原来是element ui依赖core-js的2.x版本，而webpress项目依赖core-js的3.x版本导致的
     config.resolve.alias.set('core-js/library/fn', 'core-js/features');
   },
-  base: '/begda-ui', //连接的基础路径
+  base: '/begda-ui/', //连接的基础路径
   port: 4002,
   dest: path.resolve('docs'), //编译输出目录
   // 国际化相关
