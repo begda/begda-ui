@@ -1,9 +1,12 @@
 ---
-home: false
+title: Blog
+categories:
 ---
 
-[vuepress 资料](/Blog/vuepress/1.问题)
+# 首页
 
-[rollup 资料](/Blog/rollup/1.问题)
+[vuepress 资料](./vuepress/1.问题)
 
-[tailwindcss 资料](/Blog/tailwindcss/1.心得)
+[rollup 资料](./rollup/1.问题)
+
+[tailwindcss 资料](./tailwindcss/1.心得)

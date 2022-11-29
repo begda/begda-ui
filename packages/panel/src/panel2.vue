@@ -1,141 +1,34 @@
 <template>
   <div>
-    <div class="cardsss">啊上的发上</div>
-
-    <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
-      <div class="shrink-0">asdfasdfas</div>
-      <div>
-        <div class="text-xl font-medium text-black">asdfas</div>
-        <p class="text-slate-500">asdfasd</p>
-      </div>
-    </div>
-    。
-
-    <el-row>
-      <el-button>默认按钮</el-button>
-      <el-button type="primary">主要按钮</el-button>
-      <el-button type="success">成功按钮</el-button>
-      <el-button type="info">信息按钮</el-button>
-      <el-button type="warning">警告按钮</el-button>
-      <el-button type="danger">危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-      <el-button plain>朴素按钮</el-button>
-      <el-button type="primary" plain>主要按钮</el-button>
-      <el-button type="success" plain>成功按钮</el-button>
-      <el-button type="info" plain>信息按钮</el-button>
-      <el-button type="warning" plain>警告按钮</el-button>
-      <el-button type="danger" plain>危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-      <el-button round>圆角按钮</el-button>
-      <el-button type="primary" round>主要按钮</el-button>
-      <el-button type="success" round>成功按钮</el-button>
-      <el-button type="info" round>信息按钮</el-button>
-      <el-button type="warning" round>警告按钮</el-button>
-      <el-button type="danger" round>危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-      <el-button icon="el-icon-search" circle></el-button>
-      <el-button type="primary" icon="el-icon-edit" circle></el-button>
-      <el-button type="success" icon="el-icon-check" circle></el-button>
-      <el-button type="info" icon="el-icon-message" circle></el-button>
-      <el-button type="warning" icon="el-icon-star-off" circle></el-button>
-      <el-button type="danger" icon="el-icon-delete" circle></el-button>
-    </el-row>
-
-    <el-row>
-      <el-button disabled>默认按钮</el-button>
-      <el-button type="primary" disabled>主要按钮</el-button>
-      <el-button type="success" disabled>成功按钮</el-button>
-      <el-button type="info" disabled>信息按钮</el-button>
-      <el-button type="warning" disabled>警告按钮</el-button>
-      <el-button type="danger" disabled>危险按钮</el-button>
-    </el-row>
-
-    <el-row>
-      <el-button plain disabled>朴素按钮</el-button>
-      <el-button type="primary" plain disabled>主要按钮</el-button>
-      <el-button type="success" plain disabled>成功按钮</el-button>
-      <el-button type="info" plain disabled>信息按钮</el-button>
-      <el-button type="warning" plain disabled>警告按钮</el-button>
-      <el-button type="danger" plain disabled>危险按钮</el-button>
-    </el-row>
-
-    <el-button type="text">文字按钮</el-button>
-    <el-button type="text" disabled>文字按钮</el-button>
-
-    <el-row>
-      <el-button>默认按钮</el-button>
-      <el-button size="medium">中等按钮</el-button>
-      <el-button size="small">小型按钮</el-button>
-      <el-button size="mini">超小按钮</el-button>
-    </el-row>
-    <el-row>
-      <el-button round>默认按钮</el-button>
-      <el-button size="medium" round>中等按钮</el-button>
-      <el-button size="small" round>小型按钮</el-button>
-      <el-button size="mini" round>超小按钮</el-button>
-    </el-row>
-    <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
-      <div>
-        <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
-          <svg
-            class="h-6 w-6 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
-          >
-            <!-- ... -->
-          </svg>
-        </span>
-      </div>
-      <h3 class="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
-      <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-        The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer
-        space.
-      </p>
-    </div>
-
-    <button class="btdddd">less设置的</button>
-    <button class="btnaa">mian.css设置的</button>
-    <button
-      class="transition duration-300 py-2 px-4 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75"
-    >
-      拼装出来的d
-    </button>
-    <div class="text-red-500 dark:text-blue-500">啊上的发上的发</div>
-
-    <div class="heise">
-      <h1 class="aaaa bg-blue-500">Dark mode is here!</h1>
-      <div class="aaaa">Lorem ipsum...</div>
-    </div>
-    <div ref="panel" :style="panelStyle" :class="[className, shadow ? 'is-' + shadow + '-shadow' : 'is-always-shadow']">
-      <!--    最顶部区域-->
-      <template v-if="title">
-        <div class="begda-panel__header" ref="header" style="display: flex; justify-content: space-between">
-          <div class="begda-panel__header-title">{{ title }}</div>
-          <template v-if="action">
-            <div @click="$emit('action')" class="begda-panel__header-action">{{ action }}</div>
-          </template>
-          <template v-else>
-            <div>
-              <slot name="action"></slot>
-            </div>
-          </template>
-        </div>
+    <div ref="panel" :style="panelStyle" :class="[className, isShadow]">
+      <template v-if="isNavbar">
+        <template v-if="$slots.header">
+          <div ref="header">
+            <slot name="header"></slot>
+          </div>
+        </template>
+        <template v-else>
+          <div class="begda-panel__header" ref="header">
+            <template v-if="leftText">
+              <div @click="$emit('left')" class="begda-panel__header-left">
+                <i class="el-icon-arrow-left" v-if="leftArrow"></i>{{ leftText }}
+              </div>
+            </template>
+            <template v-else>
+              <slot name="left"></slot>
+            </template>
+            <div :class="['begda-panel__header-title', titlePositionClass]">{{ title }}</div>
+            <template v-if="rightText">
+              <div @click="$emit('right')" class="begda-panel__header-right">
+                {{ rightText }}<i class="el-icon-arrow-right" v-if="rightArrow"></i>
+              </div>
+            </template>
+            <template v-else>
+              <slot name="right"></slot>
+            </template>
+          </div>
+        </template>
       </template>
-      <template v-else>
-        <div ref="header">
-          <slot name="header"></slot>
-        </div>
-      </template>
-
       <!--    头部区域-->
       <div v-if="$slots.top" ref="top" class="top">
         <slot name="top"></slot>
@@ -143,11 +36,11 @@
 
       <!--    中间区域-->
       <template v-if="scroll">
-        <scrollbar class="begda-scrollbar" :style="scrollStyle">
+        <ba-scrollbar class="begda-scrollbar" :style="scrollStyle">
           <div class="begda-panel__body" :style="bodyStyle" ref="body" v-loading="loading">
             <slot></slot>
           </div>
-        </scrollbar>
+        </ba-scrollbar>
       </template>
       <template v-else>
         <div class="begda-panel__body" :style="bodyStyle" ref="body" v-loading="loading">
@@ -174,14 +67,22 @@ export default {
   name: 'Panel',
   data() {
     return {
+      show: true,
+      actions: [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }],
+      value: 'ssss',
       scrollStyle: { height: '' },
       bodyStyle: { height: '' },
       panelStyle: { height: '' }
     };
   },
   props: {
+    isNavbar: { type: Boolean, default: true },
     title: { type: String, default: '' },
-    action: { type: String, default: '' }, //如果title存在,action才回生效
+    titlePosition: { type: String, default: 'center' }, //标题位置, left center right 三个方向
+    leftText: { type: String, default: '' }, //左侧文字
+    rightText: { type: String, default: '' }, //右侧文字
+    leftArrow: { type: Boolean, default: false }, //左侧箭头
+    rightArrow: { type: Boolean, default: false }, //右侧箭头
     scroll: { type: Boolean, default: true }, //是否滚动,默认是滚动的
     fullWindow: { type: Boolean, default: false }, //充满窗口,
     height: { type: Number, default: null }, //设置高度
@@ -189,7 +90,33 @@ export default {
     padding: { type: Boolean, default: true }, //中间区域默认填充
     className: { type: String, default: 'begda-panel' }, //中间区域默认填充
 
-    shadow: { type: String } //显示阴影
+    shadow: { type: String, default: 'always' } //显示阴影
+  },
+  computed: {
+    isShadow() {
+      switch (this.shadow) {
+        case 'always':
+          return 'shadow-md';
+
+        case 'hover':
+          return ' hover:shadow-md';
+
+        case 'never':
+          return '';
+      }
+    },
+    titlePositionClass() {
+      switch (this.titlePosition) {
+        case 'left':
+          return 'text-left';
+
+        case 'center':
+          return 'text-center';
+
+        case 'right':
+          return 'text-right';
+      }
+    }
   },
   created: function () {},
   mounted: function () {

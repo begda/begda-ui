@@ -16,5 +16,5 @@ features:
 ---
 
 ::: slot footer
-MIT Licensed | Copyright © 2022-present [BegdaUI](https://github.com/yyx990803)
+MIT Licensed | Copyright © 2022
 :::

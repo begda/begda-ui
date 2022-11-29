@@ -1,11 +1,10 @@
 // import dataV from '@jiaminghi/data-view/dist/datav.map.vue';
-// import Element from 'element-ui';
+import Element from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // import Vant from 'vant';
 // import 'vant/lib/index.css';
 import begdaUI from './public/begda-ui';
 import './public/begda-ui/theme/index.css';
-
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项

@@ -24,9 +24,9 @@ module.exports = {
     }
   },
   head: [
-    ['link', { rel: 'stylesheet', href: './css/css.css' }],
+    // ['link', { rel: 'stylesheet', href: './css/css.css' }],
     //高德地图key
-    ['script', { src: `https://webapi.amap.com/maps?v=1.4.15&key=abb89bfe34e5be2fe527764105154410` }]
+    // ['script', { src: `https://webapi.amap.com/maps?v=1.4.15&key=abb89bfe34e5be2fe527764105154410` }]
     // ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/locale/af.js' }]
     // ['script', { src: 'https://unpkg.com/element-ui/lib/index.js' }]
   ],
@@ -47,7 +47,8 @@ module.exports = {
     'demo-container',
     [
       'vuepress-plugin-auto-sidebar' //自动侧边栏菜单生成工具
-    ]
+    ],
+    require('tailwindcss')('./tailwind.config.js')
   ],
   themeConfig: {
     logo: '/assets/img/logo.png',
