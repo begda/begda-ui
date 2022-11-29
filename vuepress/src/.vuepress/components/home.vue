@@ -11,7 +11,7 @@
         padding-top: 180px;
         text-align: center;
         background-color: #2d71b5;
-        background-image: url(images/bg.jpg);
+        background-image: url(./begda-ui/images/bg.jpg);
         background-size: auto;
         color: #ffffff;
       "
