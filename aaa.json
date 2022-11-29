@@ -1,0 +1,518 @@
+{
+  "title": "",
+  "description": "",
+  "base": "/begda-ui/",
+  "headTags": [],
+  "pages": [
+    {
+      "title": "Panel 基础面板",
+      "frontmatter": {
+        "title": "Panel 基础面板",
+        "categories": [
+          "src",
+          "comps"
+        ],
+        "tags": [
+          null
+        ]
+      },
+      "regularPath": "/BegdaUI/01.panel.html",
+      "relativePath": "BegdaUI/01.panel.md",
+      "key": "v-4b238ea7",
+      "path": "/BegdaUI/01.panel.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "无标题面板",
+          "slug": "无标题面板"
+        },
+        {
+          "level": 3,
+          "title": "加载状态",
+          "slug": "加载状态"
+        },
+        {
+          "level": 3,
+          "title": "面板投影",
+          "slug": "面板投影"
+        },
+        {
+          "level": 3,
+          "title": "有标题面板",
+          "slug": "有标题面板"
+        },
+        {
+          "level": 3,
+          "title": "插槽",
+          "slug": "插槽"
+        },
+        {
+          "level": 3,
+          "title": "滚动条",
+          "slug": "滚动条"
+        },
+        {
+          "level": 3,
+          "title": "插槽",
+          "slug": "插槽-2"
+        },
+        {
+          "level": 3,
+          "title": "属性/事件/参数",
+          "slug": "属性-事件-参数"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "PanelData 大数据面板",
+      "frontmatter": {
+        "title": "PanelData 大数据面板",
+        "categories": [
+          "src",
+          "comps"
+        ],
+        "tags": [
+          null
+        ]
+      },
+      "regularPath": "/BegdaUI/02.panel-data.html",
+      "relativePath": "BegdaUI/02.panel-data.md",
+      "key": "v-849b8406",
+      "path": "/BegdaUI/02.panel-data.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "无标题面板",
+          "slug": "无标题面板"
+        },
+        {
+          "level": 3,
+          "title": "滚动条",
+          "slug": "滚动条"
+        },
+        {
+          "level": 3,
+          "title": "主题切换",
+          "slug": "主题切换"
+        },
+        {
+          "level": 3,
+          "title": "属性/事件/参数",
+          "slug": "属性-事件-参数"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "Select 选择组件",
+      "frontmatter": {
+        "title": "Select 选择组件",
+        "categories": [
+          "src",
+          "comps"
+        ],
+        "tags": null
+      },
+      "regularPath": "/BegdaUI/03.select.html",
+      "relativePath": "BegdaUI/03.select.md",
+      "key": "v-c45e9b06",
+      "path": "/BegdaUI/03.select.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "固定数据",
+          "slug": "固定数据"
+        },
+        {
+          "level": 3,
+          "title": "自定义弹出框内容",
+          "slug": "自定义弹出框内容"
+        },
+        {
+          "level": 3,
+          "title": "属性/事件/参数",
+          "slug": "属性-事件-参数"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "Cell 单元格",
+      "frontmatter": {
+        "title": "Cell 单元格",
+        "categories": [
+          "src",
+          "comps"
+        ],
+        "tags": [
+          null
+        ]
+      },
+      "regularPath": "/BegdaUI/04.cell.html",
+      "relativePath": "BegdaUI/04.cell.md",
+      "key": "v-5d05b546",
+      "path": "/BegdaUI/04.cell.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "带描述信息的 Cell",
+          "slug": "带描述信息的-cell"
+        },
+        {
+          "level": 3,
+          "title": "属性/事件/参数",
+          "slug": "属性-事件-参数"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "Blog",
+      "frontmatter": {
+        "title": "Blog",
+        "categories": null
+      },
+      "regularPath": "/Blog/",
+      "relativePath": "Blog/README.md",
+      "key": "v-a9df62a4",
+      "path": "/Blog/",
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "Home",
+      "frontmatter": {
+        "home": true,
+        "autoIgnore": true,
+        "heroText": "BegdaUI",
+        "tagline": "比较适合切换的UI组件库",
+        "actionText": "快速上手 →",
+        "actionLink": "/BegdaUI/01.panel.md",
+        "features": [
+          {
+            "title": "啥都不是",
+            "details": "不一定能维护下去。"
+          },
+          {
+            "title": "代码挺乱",
+            "details": "就我自己用的,别太当真。"
+          },
+          {
+            "title": "依赖很多",
+            "details": "依赖element-ui datav。"
+          }
+        ]
+      },
+      "regularPath": "/BegdaUI/",
+      "relativePath": "BegdaUI/README.md",
+      "key": "v-38e7201c",
+      "path": "/BegdaUI/",
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "WebView 网页容器iframe",
+      "frontmatter": {
+        "title": "WebView 网页容器iframe",
+        "categories": [
+          "src",
+          "comps"
+        ],
+        "tags": [
+          null
+        ]
+      },
+      "regularPath": "/BegdaUI/05.webview.html",
+      "relativePath": "BegdaUI/05.webview.md",
+      "key": "v-f9dda216",
+      "path": "/BegdaUI/05.webview.html",
+      "headers": [
+        {
+          "level": 3,
+          "title": "属性/事件/参数",
+          "slug": "属性-事件-参数"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "问题处理",
+      "frontmatter": {
+        "title": "问题处理",
+        "categories": null
+      },
+      "regularPath": "/Blog/rollup/1.%E9%97%AE%E9%A2%98.html",
+      "relativePath": "Blog/rollup/1.问题.md",
+      "key": "v-0a099e09",
+      "path": "/Blog/rollup/1.%E9%97%AE%E9%A2%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. core-js 版本错误问题",
+          "slug": "_1-core-js-版本错误问题"
+        },
+        {
+          "level": 3,
+          "title": "错误原因",
+          "slug": "错误原因"
+        },
+        {
+          "level": 3,
+          "title": "错误代码",
+          "slug": "错误代码"
+        },
+        {
+          "level": 3,
+          "title": "解决方案",
+          "slug": "解决方案"
+        },
+        {
+          "level": 2,
+          "title": "2. 配置问题",
+          "slug": "_2-配置问题"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "插件详解",
+      "frontmatter": {},
+      "regularPath": "/Blog/rollup/2.%E6%8F%92%E4%BB%B6.html",
+      "relativePath": "Blog/rollup/2.插件.md",
+      "key": "v-f035c01c",
+      "path": "/Blog/rollup/2.%E6%8F%92%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "auto-sidebar 生成侧边栏",
+          "slug": "auto-sidebar-生成侧边栏"
+        },
+        {
+          "level": 2,
+          "title": "demo-container 组件示例",
+          "slug": "demo-container-组件示例"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "函数和指令",
+      "frontmatter": {
+        "title": "函数和指令",
+        "categories": null
+      },
+      "regularPath": "/Blog/tailwindcss/1.%E5%BF%83%E5%BE%97.html",
+      "relativePath": "Blog/tailwindcss/1.心得.md",
+      "key": "v-4634844d",
+      "path": "/Blog/tailwindcss/1.%E5%BF%83%E5%BE%97.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. @layer",
+          "slug": "_1-layer"
+        },
+        {
+          "level": 2,
+          "title": "2. @apply",
+          "slug": "_2-apply"
+        },
+        {
+          "level": 3,
+          "title": "!important",
+          "slug": "important"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "问题处理",
+      "frontmatter": {
+        "title": "问题处理",
+        "categories": null
+      },
+      "regularPath": "/Blog/vuepress/1.%E9%97%AE%E9%A2%98.html",
+      "relativePath": "Blog/vuepress/1.问题.md",
+      "key": "v-cdf52f5a",
+      "path": "/Blog/vuepress/1.%E9%97%AE%E9%A2%98.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "1. core-js 版本错误问题",
+          "slug": "_1-core-js-版本错误问题"
+        },
+        {
+          "level": 3,
+          "title": "错误原因",
+          "slug": "错误原因"
+        },
+        {
+          "level": 3,
+          "title": "错误代码",
+          "slug": "错误代码"
+        },
+        {
+          "level": 3,
+          "title": "解决方案",
+          "slug": "解决方案"
+        },
+        {
+          "level": 2,
+          "title": "2. 配置问题",
+          "slug": "_2-配置问题"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "title": "插件详解",
+      "frontmatter": {},
+      "regularPath": "/Blog/vuepress/2.%E6%8F%92%E4%BB%B6.html",
+      "relativePath": "Blog/vuepress/2.插件.md",
+      "key": "v-437c547c",
+      "path": "/Blog/vuepress/2.%E6%8F%92%E4%BB%B6.html",
+      "headers": [
+        {
+          "level": 2,
+          "title": "auto-sidebar 生成侧边栏",
+          "slug": "auto-sidebar-生成侧边栏"
+        },
+        {
+          "level": 2,
+          "title": "demo-container 组件示例",
+          "slug": "demo-container-组件示例"
+        }
+      ],
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    },
+    {
+      "frontmatter": {
+        "home": false,
+        "layout": "home"
+      },
+      "regularPath": "/",
+      "relativePath": "README.md",
+      "key": "v-7e6fd53e",
+      "path": "/",
+      "lastUpdated": "2022/11/28 18:43:05",
+      "lastUpdatedTimestamp": 1669632185000,
+      "createdTime": 1669632185000
+    }
+  ],
+  "themeConfig": {
+    "logo": "/assets/img/logo.png",
+    "smoothScroll": true,
+    "noFoundPageByTencent": false,
+    "sidebarDepth": 1,
+    "lastUpdated": "更新时间",
+    "activeHeaderLinks": true,
+    "search": true,
+    "searchMaxSuggestions": 10,
+    "nav": [
+      {
+        "text": "首页",
+        "link": "/"
+      },
+      {
+        "text": "BegdaUI",
+        "link": "/BegdaUI/"
+      },
+      {
+        "text": "Blog",
+        "link": "/Blog/"
+      }
+    ],
+    "author": {
+      "name": "begda",
+      "link": "https://github.com/xugaoyi"
+    },
+    "sidebar": {
+      "/Blog/tailwindcss/": [
+        {
+          "title": "Tailwindcss",
+          "collapsable": false,
+          "sidebarDepth": 1,
+          "children": [
+            "1.心得"
+          ]
+        }
+      ],
+      "/Blog/vuepress/": [
+        {
+          "title": "Vuepress",
+          "collapsable": false,
+          "sidebarDepth": 1,
+          "children": [
+            "1.问题",
+            "2.插件"
+          ]
+        }
+      ],
+      "/Blog/rollup/": [
+        {
+          "title": "Rollup",
+          "collapsable": false,
+          "sidebarDepth": 1,
+          "children": [
+            "1.问题",
+            "2.插件"
+          ]
+        }
+      ],
+      "/BegdaUI/": [
+        {
+          "title": "Begda UI",
+          "collapsable": false,
+          "sidebarDepth": 1,
+          "children": [
+            "01.panel",
+            "02.panel-data",
+            "03.select",
+            "04.cell",
+            "05.webview"
+          ]
+        }
+      ],
+      "/Blog/": [
+        {
+          "title": "Blog",
+          "collapsable": false,
+          "sidebarDepth": 1,
+          "children": [
+            ""
+          ]
+        }
+      ]
+    }
+  },
+  "locales": {
+    "/": {
+      "lang": "zh-CN",
+      "title": "Begda",
+      "description": "学习系统文章的记录",
+      "path": "/"
+    }
+  }
+}
