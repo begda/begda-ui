@@ -1,5 +1,5 @@
 // import dataV from '@jiaminghi/data-view/dist/datav.map.vue';
-import Element from 'element-ui';
+// import Element from 'element-ui';
 // import 'element-ui/lib/theme-chalk/index.css';
 // import Vant from 'vant';
 // import 'vant/lib/index.css';

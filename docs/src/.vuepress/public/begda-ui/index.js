@@ -92,14 +92,14 @@
 
   var create = {};
 
-  var bem$5 = {};
+  var bem$3 = {};
 
   var hasRequiredBem;
   function requireBem() {
-    if (hasRequiredBem) return bem$5;
+    if (hasRequiredBem) return bem$3;
     hasRequiredBem = 1;
-    bem$5.__esModule = true;
-    bem$5.createBEM = createBEM;
+    bem$3.__esModule = true;
+    bem$3.createBEM = createBEM;
 
     /**
      * bem helper
@@ -135,7 +135,7 @@
         return "" + el + gen(el, mods);
       };
     }
-    return bem$5;
+    return bem$3;
   }
 
   var component = {};
@@ -779,76 +779,84 @@
     return info;
   }
 
-  var _interopRequireDefault$5 = interopRequireDefault.exports;
-  icon.__esModule = true;
-  var default_1$4 = icon.default = void 0;
-  var _babelHelperVueJsxMergeProps$4 = _interopRequireDefault$5(requireHelper());
-  var _utils$4 = requireUtils();
-  var _functional$3 = requireFunctional();
-  var _info = _interopRequireDefault$5(requireInfo());
+  var hasRequiredIcon;
+  function requireIcon() {
+    if (hasRequiredIcon) return icon;
+    hasRequiredIcon = 1;
+    var _interopRequireDefault = interopRequireDefault.exports;
+    icon.__esModule = true;
+    icon.default = void 0;
+    var _babelHelperVueJsxMergeProps = _interopRequireDefault(requireHelper());
+    var _utils = requireUtils();
+    var _functional = requireFunctional();
+    var _info = _interopRequireDefault(requireInfo());
 
-  // Utils
-  // Components
-  var _createNamespace$4 = (0, _utils$4.createNamespace)('icon'),
-    createComponent$4 = _createNamespace$4[0],
-    bem$4 = _createNamespace$4[1];
-  function isImage(name) {
-    return name ? name.indexOf('/') !== -1 : false;
-  } // compatible with legacy usage, should be removed in next major version
+    // Utils
+    // Components
+    var _createNamespace = (0, _utils.createNamespace)('icon'),
+      createComponent = _createNamespace[0],
+      bem = _createNamespace[1];
+    function isImage(name) {
+      return name ? name.indexOf('/') !== -1 : false;
+    } // compatible with legacy usage, should be removed in next major version
 
-  var LEGACY_MAP = {
-    medel: 'medal',
-    'medel-o': 'medal-o',
-    'calender-o': 'calendar-o'
-  };
-  function correctName(name) {
-    return name && LEGACY_MAP[name] || name;
-  }
-  function Icon(h, props, slots, ctx) {
-    var _props$badge;
-    var name = correctName(props.name);
-    var imageIcon = isImage(name);
-    if (process.env.NODE_ENV === 'development' && props.info) {
-      console.warn('[Vant] Icon: "info" prop is deprecated, use "badge" prop instead.');
+    var LEGACY_MAP = {
+      medel: 'medal',
+      'medel-o': 'medal-o',
+      'calender-o': 'calendar-o'
+    };
+    function correctName(name) {
+      return name && LEGACY_MAP[name] || name;
     }
-    return h(props.tag, (0, _babelHelperVueJsxMergeProps$4.default)([{
-      "class": [props.classPrefix, imageIcon ? '' : props.classPrefix + "-" + name],
-      "style": {
-        color: props.color,
-        fontSize: (0, _utils$4.addUnit)(props.size)
+    function Icon(h, props, slots, ctx) {
+      var _props$badge;
+      var name = correctName(props.name);
+      var imageIcon = isImage(name);
+      if (process.env.NODE_ENV === 'development' && props.info) {
+        console.warn('[Vant] Icon: "info" prop is deprecated, use "badge" prop instead.');
       }
-    }, (0, _functional$3.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
-      "class": bem$4('image'),
-      "attrs": {
-        "src": name
-      }
-    }), h(_info.default, {
-      "attrs": {
-        "dot": props.dot,
-        "info": (_props$badge = props.badge) != null ? _props$badge : props.info
-      }
-    })]);
-  }
-  Icon.props = {
-    dot: Boolean,
-    name: String,
-    size: [Number, String],
-    // @deprecated
-    // should be removed in next major version
-    info: [Number, String],
-    badge: [Number, String],
-    color: String,
-    tag: {
-      type: String,
-      default: 'i'
-    },
-    classPrefix: {
-      type: String,
-      default: bem$4()
+      return h(props.tag, (0, _babelHelperVueJsxMergeProps.default)([{
+        "class": [props.classPrefix, imageIcon ? '' : props.classPrefix + "-" + name],
+        "style": {
+          color: props.color,
+          fontSize: (0, _utils.addUnit)(props.size)
+        }
+      }, (0, _functional.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
+        "class": bem('image'),
+        "attrs": {
+          "src": name
+        }
+      }), h(_info.default, {
+        "attrs": {
+          "dot": props.dot,
+          "info": (_props$badge = props.badge) != null ? _props$badge : props.info
+        }
+      })]);
     }
-  };
-  var _default$4 = createComponent$4(Icon);
-  default_1$4 = icon.default = _default$4;
+    Icon.props = {
+      dot: Boolean,
+      name: String,
+      size: [Number, String],
+      // @deprecated
+      // should be removed in next major version
+      info: [Number, String],
+      badge: [Number, String],
+      color: String,
+      tag: {
+        type: String,
+        default: 'i'
+      },
+      classPrefix: {
+        type: String,
+        default: bem()
+      }
+    };
+    var _default = createComponent(Icon);
+    icon.default = _default;
+    return icon;
+  }
+
+  var iconExports = requireIcon();
 
   var cell = {};
 
@@ -938,114 +946,122 @@
     return shared$1;
   }
 
-  var _interopRequireDefault$4 = interopRequireDefault.exports;
-  cell.__esModule = true;
-  var default_1$3 = cell.default = void 0;
-  var _extends2$2 = _interopRequireDefault$4(require_extends());
-  var _babelHelperVueJsxMergeProps$3 = _interopRequireDefault$4(requireHelper());
-  var _utils$3 = requireUtils();
-  var _functional$2 = requireFunctional();
-  var _router = requireRouter();
-  var _shared$1 = requireShared$1();
-  var _icon$2 = _interopRequireDefault$4(icon);
+  var hasRequiredCell;
+  function requireCell() {
+    if (hasRequiredCell) return cell;
+    hasRequiredCell = 1;
+    var _interopRequireDefault = interopRequireDefault.exports;
+    cell.__esModule = true;
+    cell.default = void 0;
+    var _extends2 = _interopRequireDefault(require_extends());
+    var _babelHelperVueJsxMergeProps = _interopRequireDefault(requireHelper());
+    var _utils = requireUtils();
+    var _functional = requireFunctional();
+    var _router = requireRouter();
+    var _shared = requireShared$1();
+    var _icon = _interopRequireDefault(requireIcon());
 
-  // Utils
-  // Components
-  var _createNamespace$3 = (0, _utils$3.createNamespace)('cell'),
-    createComponent$3 = _createNamespace$3[0],
-    bem$3 = _createNamespace$3[1];
-  function Cell(h, props, slots, ctx) {
-    var _props$clickable;
-    var icon = props.icon,
-      size = props.size,
-      title = props.title,
-      label = props.label,
-      value = props.value,
-      isLink = props.isLink;
-    var showTitle = slots.title || (0, _utils$3.isDef)(title);
-    function Label() {
-      var showLabel = slots.label || (0, _utils$3.isDef)(label);
-      if (showLabel) {
-        return h("div", {
-          "class": [bem$3('label'), props.labelClass]
-        }, [slots.label ? slots.label() : label]);
+    // Utils
+    // Components
+    var _createNamespace = (0, _utils.createNamespace)('cell'),
+      createComponent = _createNamespace[0],
+      bem = _createNamespace[1];
+    function Cell(h, props, slots, ctx) {
+      var _props$clickable;
+      var icon = props.icon,
+        size = props.size,
+        title = props.title,
+        label = props.label,
+        value = props.value,
+        isLink = props.isLink;
+      var showTitle = slots.title || (0, _utils.isDef)(title);
+      function Label() {
+        var showLabel = slots.label || (0, _utils.isDef)(label);
+        if (showLabel) {
+          return h("div", {
+            "class": [bem('label'), props.labelClass]
+          }, [slots.label ? slots.label() : label]);
+        }
       }
+      function Title() {
+        if (showTitle) {
+          return h("div", {
+            "class": [bem('title'), props.titleClass],
+            "style": props.titleStyle
+          }, [slots.title ? slots.title() : h("span", [title]), Label()]);
+        }
+      }
+      function Value() {
+        var showValue = slots.default || (0, _utils.isDef)(value);
+        if (showValue) {
+          return h("div", {
+            "class": [bem('value', {
+              alone: !showTitle
+            }), props.valueClass]
+          }, [slots.default ? slots.default() : h("span", [value])]);
+        }
+      }
+      function LeftIcon() {
+        if (slots.icon) {
+          return slots.icon();
+        }
+        if (icon) {
+          return h(_icon.default, {
+            "class": bem('left-icon'),
+            "attrs": {
+              "name": icon,
+              "classPrefix": props.iconPrefix
+            }
+          });
+        }
+      }
+      function RightIcon() {
+        var rightIconSlot = slots['right-icon'];
+        if (rightIconSlot) {
+          return rightIconSlot();
+        }
+        if (isLink) {
+          var arrowDirection = props.arrowDirection;
+          return h(_icon.default, {
+            "class": bem('right-icon'),
+            "attrs": {
+              "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
+            }
+          });
+        }
+      }
+      function onClick(event) {
+        (0, _functional.emit)(ctx, 'click', event);
+        (0, _router.functionalRoute)(ctx);
+      }
+      var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
+      var classes = {
+        clickable: clickable,
+        center: props.center,
+        required: props.required,
+        borderless: !props.border
+      };
+      if (size) {
+        classes[size] = size;
+      }
+      return h("div", (0, _babelHelperVueJsxMergeProps.default)([{
+        "class": bem(classes),
+        "attrs": {
+          "role": clickable ? 'button' : null,
+          "tabindex": clickable ? 0 : null
+        },
+        "on": {
+          "click": onClick
+        }
+      }, (0, _functional.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
     }
-    function Title() {
-      if (showTitle) {
-        return h("div", {
-          "class": [bem$3('title'), props.titleClass],
-          "style": props.titleStyle
-        }, [slots.title ? slots.title() : h("span", [title]), Label()]);
-      }
-    }
-    function Value() {
-      var showValue = slots.default || (0, _utils$3.isDef)(value);
-      if (showValue) {
-        return h("div", {
-          "class": [bem$3('value', {
-            alone: !showTitle
-          }), props.valueClass]
-        }, [slots.default ? slots.default() : h("span", [value])]);
-      }
-    }
-    function LeftIcon() {
-      if (slots.icon) {
-        return slots.icon();
-      }
-      if (icon) {
-        return h(_icon$2.default, {
-          "class": bem$3('left-icon'),
-          "attrs": {
-            "name": icon,
-            "classPrefix": props.iconPrefix
-          }
-        });
-      }
-    }
-    function RightIcon() {
-      var rightIconSlot = slots['right-icon'];
-      if (rightIconSlot) {
-        return rightIconSlot();
-      }
-      if (isLink) {
-        var arrowDirection = props.arrowDirection;
-        return h(_icon$2.default, {
-          "class": bem$3('right-icon'),
-          "attrs": {
-            "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
-          }
-        });
-      }
-    }
-    function onClick(event) {
-      (0, _functional$2.emit)(ctx, 'click', event);
-      (0, _router.functionalRoute)(ctx);
-    }
-    var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
-    var classes = {
-      clickable: clickable,
-      center: props.center,
-      required: props.required,
-      borderless: !props.border
-    };
-    if (size) {
-      classes[size] = size;
-    }
-    return h("div", (0, _babelHelperVueJsxMergeProps$3.default)([{
-      "class": bem$3(classes),
-      "attrs": {
-        "role": clickable ? 'button' : null,
-        "tabindex": clickable ? 0 : null
-      },
-      "on": {
-        "click": onClick
-      }
-    }, (0, _functional$2.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
+    Cell.props = (0, _extends2.default)({}, _shared.cellProps, _router.routeProps);
+    var _default = createComponent(Cell);
+    cell.default = _default;
+    return cell;
   }
-  Cell.props = (0, _extends2$2.default)({}, _shared$1.cellProps, _router.routeProps);
-  var _default$3 = createComponent$3(Cell);
-  default_1$3 = cell.default = _default$3;
+
+  var cellExports = requireCell();
 
   var constant = {};
 
@@ -1366,8 +1382,8 @@
   var _event = requireEvent();
   var _scroll = requireScroll();
   var _utils$1 = requireUtils();
-  var _icon$1 = _interopRequireDefault$2(icon);
-  var _cell = _interopRequireDefault$2(cell);
+  var _icon$1 = _interopRequireDefault$2(requireIcon());
+  var _cell = _interopRequireDefault$2(requireCell());
   var _shared = requireShared$1();
 
   // Utils
@@ -2558,7 +2574,7 @@
     popup$1.default = void 0;
     var _utils = requireUtils();
     var _popup = requirePopup$2();
-    var _icon = _interopRequireDefault(icon);
+    var _icon = _interopRequireDefault(requireIcon());
     var _createNamespace = (0, _utils.createNamespace)('popup'),
       createComponent = _createNamespace[0],
       bem = _createNamespace[1];
@@ -2759,7 +2775,7 @@
   var _utils = requireUtils();
   var _functional = requireFunctional();
   var _popup = requirePopup$2();
-  var _icon = _interopRequireDefault$1(icon);
+  var _icon = _interopRequireDefault$1(requireIcon());
   var _popup2 = _interopRequireDefault$1(requirePopup$1());
   var _loading = _interopRequireDefault$1(requireLoading());
 
@@ -3246,396 +3262,402 @@
     return slicedToArray.exports;
   }
 
-  (function (exports) {
+  var hasRequiredUtil$1;
+  function requireUtil$1() {
+    if (hasRequiredUtil$1) return util$1;
+    hasRequiredUtil$1 = 1;
+    (function (exports) {
 
-    var _interopRequireDefault = interopRequireDefault.exports;
-    Object.defineProperty(exports, "__esModule", {
-      value: true
-    });
-    exports.deepClone = deepClone;
-    exports.eliminateBlur = eliminateBlur;
-    exports.checkPointIsInCircle = checkPointIsInCircle;
-    exports.getTwoPointDistance = getTwoPointDistance;
-    exports.checkPointIsInPolygon = checkPointIsInPolygon;
-    exports.checkPointIsInSector = checkPointIsInSector;
-    exports.checkPointIsNearPolyline = checkPointIsNearPolyline;
-    exports.checkPointIsInRect = checkPointIsInRect;
-    exports.getRotatePointPos = getRotatePointPos;
-    exports.getScalePointPos = getScalePointPos;
-    exports.getTranslatePointPos = getTranslatePointPos;
-    exports.getDistanceBetweenPointAndLine = getDistanceBetweenPointAndLine;
-    exports.getCircleRadianPoint = getCircleRadianPoint;
-    exports.getRegularPolygonPoints = getRegularPolygonPoints;
-    exports["default"] = void 0;
-    var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
-    var _slicedToArray2 = _interopRequireDefault(requireSlicedToArray());
-    var _typeof2 = _interopRequireDefault(require_typeof());
-    var abs = Math.abs,
-      sqrt = Math.sqrt,
-      sin = Math.sin,
-      cos = Math.cos,
-      max = Math.max,
-      min = Math.min,
-      PI = Math.PI;
-    /**
-     * @description Clone an object or array
-     * @param {Object|Array} object Cloned object
-     * @param {Boolean} recursion   Whether to use recursive cloning
-     * @return {Object|Array} Clone object
-     */
-
-    function deepClone(object) {
-      var recursion = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-      if (!object) return object;
-      var parse = JSON.parse,
-        stringify = JSON.stringify;
-      if (!recursion) return parse(stringify(object));
-      var clonedObj = object instanceof Array ? [] : {};
-      if (object && (0, _typeof2["default"])(object) === 'object') {
-        for (var key in object) {
-          if (object.hasOwnProperty(key)) {
-            if (object[key] && (0, _typeof2["default"])(object[key]) === 'object') {
-              clonedObj[key] = deepClone(object[key], true);
-            } else {
-              clonedObj[key] = object[key];
-            }
-          }
-        }
-      }
-      return clonedObj;
-    }
-    /**
-     * @description Eliminate line blur due to 1px line width
-     * @param {Array} points Line points
-     * @return {Array} Line points after processed
-     */
-
-    function eliminateBlur(points) {
-      return points.map(function (_ref) {
-        var _ref2 = (0, _slicedToArray2["default"])(_ref, 2),
-          x = _ref2[0],
-          y = _ref2[1];
-        return [parseInt(x) + 0.5, parseInt(y) + 0.5];
+      var _interopRequireDefault = interopRequireDefault.exports;
+      Object.defineProperty(exports, "__esModule", {
+        value: true
       });
-    }
-    /**
-     * @description Check if the point is inside the circle
-     * @param {Array} point Postion of point
-     * @param {Number} rx   Circle x coordinate
-     * @param {Number} ry   Circle y coordinate
-     * @param {Number} r    Circle radius
-     * @return {Boolean} Result of check
-     */
+      exports.deepClone = deepClone;
+      exports.eliminateBlur = eliminateBlur;
+      exports.checkPointIsInCircle = checkPointIsInCircle;
+      exports.getTwoPointDistance = getTwoPointDistance;
+      exports.checkPointIsInPolygon = checkPointIsInPolygon;
+      exports.checkPointIsInSector = checkPointIsInSector;
+      exports.checkPointIsNearPolyline = checkPointIsNearPolyline;
+      exports.checkPointIsInRect = checkPointIsInRect;
+      exports.getRotatePointPos = getRotatePointPos;
+      exports.getScalePointPos = getScalePointPos;
+      exports.getTranslatePointPos = getTranslatePointPos;
+      exports.getDistanceBetweenPointAndLine = getDistanceBetweenPointAndLine;
+      exports.getCircleRadianPoint = getCircleRadianPoint;
+      exports.getRegularPolygonPoints = getRegularPolygonPoints;
+      exports["default"] = void 0;
+      var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
+      var _slicedToArray2 = _interopRequireDefault(requireSlicedToArray());
+      var _typeof2 = _interopRequireDefault(require_typeof());
+      var abs = Math.abs,
+        sqrt = Math.sqrt,
+        sin = Math.sin,
+        cos = Math.cos,
+        max = Math.max,
+        min = Math.min,
+        PI = Math.PI;
+      /**
+       * @description Clone an object or array
+       * @param {Object|Array} object Cloned object
+       * @param {Boolean} recursion   Whether to use recursive cloning
+       * @return {Object|Array} Clone object
+       */
 
-    function checkPointIsInCircle(point, rx, ry, r) {
-      return getTwoPointDistance(point, [rx, ry]) <= r;
-    }
-    /**
-     * @description Get the distance between two points
-     * @param {Array} point1 point1
-     * @param {Array} point2 point2
-     * @return {Number} Distance between two points
-     */
-
-    function getTwoPointDistance(_ref3, _ref4) {
-      var _ref5 = (0, _slicedToArray2["default"])(_ref3, 2),
-        xa = _ref5[0],
-        ya = _ref5[1];
-      var _ref6 = (0, _slicedToArray2["default"])(_ref4, 2),
-        xb = _ref6[0],
-        yb = _ref6[1];
-      var minusX = abs(xa - xb);
-      var minusY = abs(ya - yb);
-      return sqrt(minusX * minusX + minusY * minusY);
-    }
-    /**
-     * @description Check if the point is inside the polygon
-     * @param {Array} point  Postion of point
-     * @param {Array} points The points that makes up a polyline
-     * @return {Boolean} Result of check
-     */
-
-    function checkPointIsInPolygon(point, polygon) {
-      var counter = 0;
-      var _point = (0, _slicedToArray2["default"])(point, 2),
-        x = _point[0],
-        y = _point[1];
-      var pointNum = polygon.length;
-      for (var i = 1, p1 = polygon[0]; i <= pointNum; i++) {
-        var p2 = polygon[i % pointNum];
-        if (x > min(p1[0], p2[0]) && x <= max(p1[0], p2[0])) {
-          if (y <= max(p1[1], p2[1])) {
-            if (p1[0] !== p2[0]) {
-              var xinters = (x - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
-              if (p1[1] === p2[1] || y <= xinters) {
-                counter++;
+      function deepClone(object) {
+        var recursion = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+        if (!object) return object;
+        var parse = JSON.parse,
+          stringify = JSON.stringify;
+        if (!recursion) return parse(stringify(object));
+        var clonedObj = object instanceof Array ? [] : {};
+        if (object && (0, _typeof2["default"])(object) === 'object') {
+          for (var key in object) {
+            if (object.hasOwnProperty(key)) {
+              if (object[key] && (0, _typeof2["default"])(object[key]) === 'object') {
+                clonedObj[key] = deepClone(object[key], true);
+              } else {
+                clonedObj[key] = object[key];
               }
             }
           }
         }
-        p1 = p2;
+        return clonedObj;
       }
-      return counter % 2 === 1;
-    }
-    /**
-     * @description Check if the point is inside the sector
-     * @param {Array} point       Postion of point
-     * @param {Number} rx         Sector x coordinate
-     * @param {Number} ry         Sector y coordinate
-     * @param {Number} r          Sector radius
-     * @param {Number} startAngle Sector start angle
-     * @param {Number} endAngle   Sector end angle
-     * @param {Boolean} clockWise Whether the sector angle is clockwise
-     * @return {Boolean} Result of check
-     */
+      /**
+       * @description Eliminate line blur due to 1px line width
+       * @param {Array} points Line points
+       * @return {Array} Line points after processed
+       */
 
-    function checkPointIsInSector(point, rx, ry, r, startAngle, endAngle, clockWise) {
-      if (!point) return false;
-      if (getTwoPointDistance(point, [rx, ry]) > r) return false;
-      if (!clockWise) {
-        var _deepClone = deepClone([endAngle, startAngle]);
-        var _deepClone2 = (0, _slicedToArray2["default"])(_deepClone, 2);
-        startAngle = _deepClone2[0];
-        endAngle = _deepClone2[1];
+      function eliminateBlur(points) {
+        return points.map(function (_ref) {
+          var _ref2 = (0, _slicedToArray2["default"])(_ref, 2),
+            x = _ref2[0],
+            y = _ref2[1];
+          return [parseInt(x) + 0.5, parseInt(y) + 0.5];
+        });
       }
-      var reverseBE = startAngle > endAngle;
-      if (reverseBE) {
-        var _ref7 = [endAngle, startAngle];
-        startAngle = _ref7[0];
-        endAngle = _ref7[1];
+      /**
+       * @description Check if the point is inside the circle
+       * @param {Array} point Postion of point
+       * @param {Number} rx   Circle x coordinate
+       * @param {Number} ry   Circle y coordinate
+       * @param {Number} r    Circle radius
+       * @return {Boolean} Result of check
+       */
+
+      function checkPointIsInCircle(point, rx, ry, r) {
+        return getTwoPointDistance(point, [rx, ry]) <= r;
       }
-      var minus = endAngle - startAngle;
-      if (minus >= PI * 2) return true;
-      var _point2 = (0, _slicedToArray2["default"])(point, 2),
-        x = _point2[0],
-        y = _point2[1];
-      var _getCircleRadianPoint = getCircleRadianPoint(rx, ry, r, startAngle),
-        _getCircleRadianPoint2 = (0, _slicedToArray2["default"])(_getCircleRadianPoint, 2),
-        bx = _getCircleRadianPoint2[0],
-        by = _getCircleRadianPoint2[1];
-      var _getCircleRadianPoint3 = getCircleRadianPoint(rx, ry, r, endAngle),
-        _getCircleRadianPoint4 = (0, _slicedToArray2["default"])(_getCircleRadianPoint3, 2),
-        ex = _getCircleRadianPoint4[0],
-        ey = _getCircleRadianPoint4[1];
-      var vPoint = [x - rx, y - ry];
-      var vBArm = [bx - rx, by - ry];
-      var vEArm = [ex - rx, ey - ry];
-      var reverse = minus > PI;
-      if (reverse) {
-        var _deepClone3 = deepClone([vEArm, vBArm]);
-        var _deepClone4 = (0, _slicedToArray2["default"])(_deepClone3, 2);
-        vBArm = _deepClone4[0];
-        vEArm = _deepClone4[1];
+      /**
+       * @description Get the distance between two points
+       * @param {Array} point1 point1
+       * @param {Array} point2 point2
+       * @return {Number} Distance between two points
+       */
+
+      function getTwoPointDistance(_ref3, _ref4) {
+        var _ref5 = (0, _slicedToArray2["default"])(_ref3, 2),
+          xa = _ref5[0],
+          ya = _ref5[1];
+        var _ref6 = (0, _slicedToArray2["default"])(_ref4, 2),
+          xb = _ref6[0],
+          yb = _ref6[1];
+        var minusX = abs(xa - xb);
+        var minusY = abs(ya - yb);
+        return sqrt(minusX * minusX + minusY * minusY);
       }
-      var inSector = isClockWise(vBArm, vPoint) && !isClockWise(vEArm, vPoint);
-      if (reverse) inSector = !inSector;
-      if (reverseBE) inSector = !inSector;
-      return inSector;
-    }
-    /**
-     * @description Determine if the point is in the clockwise direction of the vector
-     * @param {Array} vArm   Vector
-     * @param {Array} vPoint Point
-     * @return {Boolean} Result of check
-     */
+      /**
+       * @description Check if the point is inside the polygon
+       * @param {Array} point  Postion of point
+       * @param {Array} points The points that makes up a polyline
+       * @return {Boolean} Result of check
+       */
 
-    function isClockWise(vArm, vPoint) {
-      var _vArm = (0, _slicedToArray2["default"])(vArm, 2),
-        ax = _vArm[0],
-        ay = _vArm[1];
-      var _vPoint = (0, _slicedToArray2["default"])(vPoint, 2),
-        px = _vPoint[0],
-        py = _vPoint[1];
-      return -ay * px + ax * py > 0;
-    }
-    /**
-     * @description Check if the point is inside the polyline
-     * @param {Array} point      Postion of point
-     * @param {Array} polyline   The points that makes up a polyline
-     * @param {Number} lineWidth Polyline linewidth
-     * @return {Boolean} Result of check
-     */
+      function checkPointIsInPolygon(point, polygon) {
+        var counter = 0;
+        var _point = (0, _slicedToArray2["default"])(point, 2),
+          x = _point[0],
+          y = _point[1];
+        var pointNum = polygon.length;
+        for (var i = 1, p1 = polygon[0]; i <= pointNum; i++) {
+          var p2 = polygon[i % pointNum];
+          if (x > min(p1[0], p2[0]) && x <= max(p1[0], p2[0])) {
+            if (y <= max(p1[1], p2[1])) {
+              if (p1[0] !== p2[0]) {
+                var xinters = (x - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
+                if (p1[1] === p2[1] || y <= xinters) {
+                  counter++;
+                }
+              }
+            }
+          }
+          p1 = p2;
+        }
+        return counter % 2 === 1;
+      }
+      /**
+       * @description Check if the point is inside the sector
+       * @param {Array} point       Postion of point
+       * @param {Number} rx         Sector x coordinate
+       * @param {Number} ry         Sector y coordinate
+       * @param {Number} r          Sector radius
+       * @param {Number} startAngle Sector start angle
+       * @param {Number} endAngle   Sector end angle
+       * @param {Boolean} clockWise Whether the sector angle is clockwise
+       * @return {Boolean} Result of check
+       */
 
-    function checkPointIsNearPolyline(point, polyline, lineWidth) {
-      var halfLineWidth = lineWidth / 2;
-      var moveUpPolyline = polyline.map(function (_ref8) {
-        var _ref9 = (0, _slicedToArray2["default"])(_ref8, 2),
-          x = _ref9[0],
-          y = _ref9[1];
-        return [x, y - halfLineWidth];
-      });
-      var moveDownPolyline = polyline.map(function (_ref10) {
-        var _ref11 = (0, _slicedToArray2["default"])(_ref10, 2),
-          x = _ref11[0],
-          y = _ref11[1];
-        return [x, y + halfLineWidth];
-      });
-      var polygon = [].concat((0, _toConsumableArray2["default"])(moveUpPolyline), (0, _toConsumableArray2["default"])(moveDownPolyline.reverse()));
-      return checkPointIsInPolygon(point, polygon);
-    }
-    /**
-     * @description Check if the point is inside the rect
-     * @param {Array} point   Postion of point
-     * @param {Number} x      Rect start x coordinate
-     * @param {Number} y      Rect start y coordinate
-     * @param {Number} width  Rect width
-     * @param {Number} height Rect height
-     * @return {Boolean} Result of check
-     */
+      function checkPointIsInSector(point, rx, ry, r, startAngle, endAngle, clockWise) {
+        if (!point) return false;
+        if (getTwoPointDistance(point, [rx, ry]) > r) return false;
+        if (!clockWise) {
+          var _deepClone = deepClone([endAngle, startAngle]);
+          var _deepClone2 = (0, _slicedToArray2["default"])(_deepClone, 2);
+          startAngle = _deepClone2[0];
+          endAngle = _deepClone2[1];
+        }
+        var reverseBE = startAngle > endAngle;
+        if (reverseBE) {
+          var _ref7 = [endAngle, startAngle];
+          startAngle = _ref7[0];
+          endAngle = _ref7[1];
+        }
+        var minus = endAngle - startAngle;
+        if (minus >= PI * 2) return true;
+        var _point2 = (0, _slicedToArray2["default"])(point, 2),
+          x = _point2[0],
+          y = _point2[1];
+        var _getCircleRadianPoint = getCircleRadianPoint(rx, ry, r, startAngle),
+          _getCircleRadianPoint2 = (0, _slicedToArray2["default"])(_getCircleRadianPoint, 2),
+          bx = _getCircleRadianPoint2[0],
+          by = _getCircleRadianPoint2[1];
+        var _getCircleRadianPoint3 = getCircleRadianPoint(rx, ry, r, endAngle),
+          _getCircleRadianPoint4 = (0, _slicedToArray2["default"])(_getCircleRadianPoint3, 2),
+          ex = _getCircleRadianPoint4[0],
+          ey = _getCircleRadianPoint4[1];
+        var vPoint = [x - rx, y - ry];
+        var vBArm = [bx - rx, by - ry];
+        var vEArm = [ex - rx, ey - ry];
+        var reverse = minus > PI;
+        if (reverse) {
+          var _deepClone3 = deepClone([vEArm, vBArm]);
+          var _deepClone4 = (0, _slicedToArray2["default"])(_deepClone3, 2);
+          vBArm = _deepClone4[0];
+          vEArm = _deepClone4[1];
+        }
+        var inSector = isClockWise(vBArm, vPoint) && !isClockWise(vEArm, vPoint);
+        if (reverse) inSector = !inSector;
+        if (reverseBE) inSector = !inSector;
+        return inSector;
+      }
+      /**
+       * @description Determine if the point is in the clockwise direction of the vector
+       * @param {Array} vArm   Vector
+       * @param {Array} vPoint Point
+       * @return {Boolean} Result of check
+       */
 
-    function checkPointIsInRect(_ref12, x, y, width, height) {
-      var _ref13 = (0, _slicedToArray2["default"])(_ref12, 2),
-        px = _ref13[0],
-        py = _ref13[1];
-      if (px < x) return false;
-      if (py < y) return false;
-      if (px > x + width) return false;
-      if (py > y + height) return false;
-      return true;
-    }
-    /**
-     * @description Get the coordinates of the rotated point
-     * @param {Number} rotate Degree of rotation
-     * @param {Array} point   Postion of point
-     * @param {Array} origin  Rotation center
-     * @param {Array} origin  Rotation center
-     * @return {Number} Coordinates after rotation
-     */
+      function isClockWise(vArm, vPoint) {
+        var _vArm = (0, _slicedToArray2["default"])(vArm, 2),
+          ax = _vArm[0],
+          ay = _vArm[1];
+        var _vPoint = (0, _slicedToArray2["default"])(vPoint, 2),
+          px = _vPoint[0],
+          py = _vPoint[1];
+        return -ay * px + ax * py > 0;
+      }
+      /**
+       * @description Check if the point is inside the polyline
+       * @param {Array} point      Postion of point
+       * @param {Array} polyline   The points that makes up a polyline
+       * @param {Number} lineWidth Polyline linewidth
+       * @return {Boolean} Result of check
+       */
 
-    function getRotatePointPos() {
-      var rotate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-      var point = arguments.length > 1 ? arguments[1] : undefined;
-      var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
-      if (!point) return false;
-      if (rotate % 360 === 0) return point;
-      var _point3 = (0, _slicedToArray2["default"])(point, 2),
-        x = _point3[0],
-        y = _point3[1];
-      var _origin = (0, _slicedToArray2["default"])(origin, 2),
-        ox = _origin[0],
-        oy = _origin[1];
-      rotate *= PI / 180;
-      return [(x - ox) * cos(rotate) - (y - oy) * sin(rotate) + ox, (x - ox) * sin(rotate) + (y - oy) * cos(rotate) + oy];
-    }
-    /**
-     * @description Get the coordinates of the scaled point
-     * @param {Array} scale  Scale factor
-     * @param {Array} point  Postion of point
-     * @param {Array} origin Scale center
-     * @return {Number} Coordinates after scale
-     */
+      function checkPointIsNearPolyline(point, polyline, lineWidth) {
+        var halfLineWidth = lineWidth / 2;
+        var moveUpPolyline = polyline.map(function (_ref8) {
+          var _ref9 = (0, _slicedToArray2["default"])(_ref8, 2),
+            x = _ref9[0],
+            y = _ref9[1];
+          return [x, y - halfLineWidth];
+        });
+        var moveDownPolyline = polyline.map(function (_ref10) {
+          var _ref11 = (0, _slicedToArray2["default"])(_ref10, 2),
+            x = _ref11[0],
+            y = _ref11[1];
+          return [x, y + halfLineWidth];
+        });
+        var polygon = [].concat((0, _toConsumableArray2["default"])(moveUpPolyline), (0, _toConsumableArray2["default"])(moveDownPolyline.reverse()));
+        return checkPointIsInPolygon(point, polygon);
+      }
+      /**
+       * @description Check if the point is inside the rect
+       * @param {Array} point   Postion of point
+       * @param {Number} x      Rect start x coordinate
+       * @param {Number} y      Rect start y coordinate
+       * @param {Number} width  Rect width
+       * @param {Number} height Rect height
+       * @return {Boolean} Result of check
+       */
 
-    function getScalePointPos() {
-      var scale = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [1, 1];
-      var point = arguments.length > 1 ? arguments[1] : undefined;
-      var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
-      if (!point) return false;
-      if (scale === 1) return point;
-      var _point4 = (0, _slicedToArray2["default"])(point, 2),
-        x = _point4[0],
-        y = _point4[1];
-      var _origin2 = (0, _slicedToArray2["default"])(origin, 2),
-        ox = _origin2[0],
-        oy = _origin2[1];
-      var _scale = (0, _slicedToArray2["default"])(scale, 2),
-        xs = _scale[0],
-        ys = _scale[1];
-      var relativePosX = x - ox;
-      var relativePosY = y - oy;
-      return [relativePosX * xs + ox, relativePosY * ys + oy];
-    }
-    /**
-     * @description Get the coordinates of the scaled point
-     * @param {Array} translate Translation distance
-     * @param {Array} point     Postion of point
-     * @return {Number} Coordinates after translation
-     */
+      function checkPointIsInRect(_ref12, x, y, width, height) {
+        var _ref13 = (0, _slicedToArray2["default"])(_ref12, 2),
+          px = _ref13[0],
+          py = _ref13[1];
+        if (px < x) return false;
+        if (py < y) return false;
+        if (px > x + width) return false;
+        if (py > y + height) return false;
+        return true;
+      }
+      /**
+       * @description Get the coordinates of the rotated point
+       * @param {Number} rotate Degree of rotation
+       * @param {Array} point   Postion of point
+       * @param {Array} origin  Rotation center
+       * @param {Array} origin  Rotation center
+       * @return {Number} Coordinates after rotation
+       */
 
-    function getTranslatePointPos(translate, point) {
-      if (!translate || !point) return false;
-      var _point5 = (0, _slicedToArray2["default"])(point, 2),
-        x = _point5[0],
-        y = _point5[1];
-      var _translate = (0, _slicedToArray2["default"])(translate, 2),
-        tx = _translate[0],
-        ty = _translate[1];
-      return [x + tx, y + ty];
-    }
-    /**
-     * @description Get the distance from the point to the line
-     * @param {Array} point     Postion of point
-     * @param {Array} lineBegin Line start position
-     * @param {Array} lineEnd   Line end position
-     * @return {Number} Distance between point and line
-     */
+      function getRotatePointPos() {
+        var rotate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+        var point = arguments.length > 1 ? arguments[1] : undefined;
+        var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
+        if (!point) return false;
+        if (rotate % 360 === 0) return point;
+        var _point3 = (0, _slicedToArray2["default"])(point, 2),
+          x = _point3[0],
+          y = _point3[1];
+        var _origin = (0, _slicedToArray2["default"])(origin, 2),
+          ox = _origin[0],
+          oy = _origin[1];
+        rotate *= PI / 180;
+        return [(x - ox) * cos(rotate) - (y - oy) * sin(rotate) + ox, (x - ox) * sin(rotate) + (y - oy) * cos(rotate) + oy];
+      }
+      /**
+       * @description Get the coordinates of the scaled point
+       * @param {Array} scale  Scale factor
+       * @param {Array} point  Postion of point
+       * @param {Array} origin Scale center
+       * @return {Number} Coordinates after scale
+       */
 
-    function getDistanceBetweenPointAndLine(point, lineBegin, lineEnd) {
-      if (!point || !lineBegin || !lineEnd) return false;
-      var _point6 = (0, _slicedToArray2["default"])(point, 2),
-        x = _point6[0],
-        y = _point6[1];
-      var _lineBegin = (0, _slicedToArray2["default"])(lineBegin, 2),
-        x1 = _lineBegin[0],
-        y1 = _lineBegin[1];
-      var _lineEnd = (0, _slicedToArray2["default"])(lineEnd, 2),
-        x2 = _lineEnd[0],
-        y2 = _lineEnd[1];
-      var a = y2 - y1;
-      var b = x1 - x2;
-      var c = y1 * (x2 - x1) - x1 * (y2 - y1);
-      var molecule = abs(a * x + b * y + c);
-      var denominator = sqrt(a * a + b * b);
-      return molecule / denominator;
-    }
-    /**
-     * @description Get the coordinates of the specified radian on the circle
-     * @param {Number} x      Circle x coordinate
-     * @param {Number} y      Circle y coordinate
-     * @param {Number} radius Circle radius
-     * @param {Number} radian Specfied radian
-     * @return {Array} Postion of point
-     */
+      function getScalePointPos() {
+        var scale = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [1, 1];
+        var point = arguments.length > 1 ? arguments[1] : undefined;
+        var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
+        if (!point) return false;
+        if (scale === 1) return point;
+        var _point4 = (0, _slicedToArray2["default"])(point, 2),
+          x = _point4[0],
+          y = _point4[1];
+        var _origin2 = (0, _slicedToArray2["default"])(origin, 2),
+          ox = _origin2[0],
+          oy = _origin2[1];
+        var _scale = (0, _slicedToArray2["default"])(scale, 2),
+          xs = _scale[0],
+          ys = _scale[1];
+        var relativePosX = x - ox;
+        var relativePosY = y - oy;
+        return [relativePosX * xs + ox, relativePosY * ys + oy];
+      }
+      /**
+       * @description Get the coordinates of the scaled point
+       * @param {Array} translate Translation distance
+       * @param {Array} point     Postion of point
+       * @return {Number} Coordinates after translation
+       */
 
-    function getCircleRadianPoint(x, y, radius, radian) {
-      return [x + cos(radian) * radius, y + sin(radian) * radius];
-    }
-    /**
-     * @description Get the points that make up a regular polygon
-     * @param {Number} x     X coordinate of the polygon inscribed circle
-     * @param {Number} y     Y coordinate of the polygon inscribed circle
-     * @param {Number} r     Radius of the polygon inscribed circle
-     * @param {Number} side  Side number
-     * @param {Number} minus Radian offset
-     * @return {Array} Points that make up a regular polygon
-     */
+      function getTranslatePointPos(translate, point) {
+        if (!translate || !point) return false;
+        var _point5 = (0, _slicedToArray2["default"])(point, 2),
+          x = _point5[0],
+          y = _point5[1];
+        var _translate = (0, _slicedToArray2["default"])(translate, 2),
+          tx = _translate[0],
+          ty = _translate[1];
+        return [x + tx, y + ty];
+      }
+      /**
+       * @description Get the distance from the point to the line
+       * @param {Array} point     Postion of point
+       * @param {Array} lineBegin Line start position
+       * @param {Array} lineEnd   Line end position
+       * @return {Number} Distance between point and line
+       */
 
-    function getRegularPolygonPoints(rx, ry, r, side) {
-      var minus = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : PI * -0.5;
-      var radianGap = PI * 2 / side;
-      var radians = new Array(side).fill('').map(function (t, i) {
-        return i * radianGap + minus;
-      });
-      return radians.map(function (radian) {
-        return getCircleRadianPoint(rx, ry, r, radian);
-      });
-    }
-    var _default = {
-      deepClone: deepClone,
-      eliminateBlur: eliminateBlur,
-      checkPointIsInCircle: checkPointIsInCircle,
-      checkPointIsInPolygon: checkPointIsInPolygon,
-      checkPointIsInSector: checkPointIsInSector,
-      checkPointIsNearPolyline: checkPointIsNearPolyline,
-      getTwoPointDistance: getTwoPointDistance,
-      getRotatePointPos: getRotatePointPos,
-      getScalePointPos: getScalePointPos,
-      getTranslatePointPos: getTranslatePointPos,
-      getCircleRadianPoint: getCircleRadianPoint,
-      getRegularPolygonPoints: getRegularPolygonPoints,
-      getDistanceBetweenPointAndLine: getDistanceBetweenPointAndLine
-    };
-    exports["default"] = _default;
-  })(util$1);
+      function getDistanceBetweenPointAndLine(point, lineBegin, lineEnd) {
+        if (!point || !lineBegin || !lineEnd) return false;
+        var _point6 = (0, _slicedToArray2["default"])(point, 2),
+          x = _point6[0],
+          y = _point6[1];
+        var _lineBegin = (0, _slicedToArray2["default"])(lineBegin, 2),
+          x1 = _lineBegin[0],
+          y1 = _lineBegin[1];
+        var _lineEnd = (0, _slicedToArray2["default"])(lineEnd, 2),
+          x2 = _lineEnd[0],
+          y2 = _lineEnd[1];
+        var a = y2 - y1;
+        var b = x1 - x2;
+        var c = y1 * (x2 - x1) - x1 * (y2 - y1);
+        var molecule = abs(a * x + b * y + c);
+        var denominator = sqrt(a * a + b * b);
+        return molecule / denominator;
+      }
+      /**
+       * @description Get the coordinates of the specified radian on the circle
+       * @param {Number} x      Circle x coordinate
+       * @param {Number} y      Circle y coordinate
+       * @param {Number} radius Circle radius
+       * @param {Number} radian Specfied radian
+       * @return {Array} Postion of point
+       */
+
+      function getCircleRadianPoint(x, y, radius, radian) {
+        return [x + cos(radian) * radius, y + sin(radian) * radius];
+      }
+      /**
+       * @description Get the points that make up a regular polygon
+       * @param {Number} x     X coordinate of the polygon inscribed circle
+       * @param {Number} y     Y coordinate of the polygon inscribed circle
+       * @param {Number} r     Radius of the polygon inscribed circle
+       * @param {Number} side  Side number
+       * @param {Number} minus Radian offset
+       * @return {Array} Points that make up a regular polygon
+       */
+
+      function getRegularPolygonPoints(rx, ry, r, side) {
+        var minus = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : PI * -0.5;
+        var radianGap = PI * 2 / side;
+        var radians = new Array(side).fill('').map(function (t, i) {
+          return i * radianGap + minus;
+        });
+        return radians.map(function (radian) {
+          return getCircleRadianPoint(rx, ry, r, radian);
+        });
+      }
+      var _default = {
+        deepClone: deepClone,
+        eliminateBlur: eliminateBlur,
+        checkPointIsInCircle: checkPointIsInCircle,
+        checkPointIsInPolygon: checkPointIsInPolygon,
+        checkPointIsInSector: checkPointIsInSector,
+        checkPointIsNearPolyline: checkPointIsNearPolyline,
+        getTwoPointDistance: getTwoPointDistance,
+        getRotatePointPos: getRotatePointPos,
+        getScalePointPos: getScalePointPos,
+        getTranslatePointPos: getTranslatePointPos,
+        getCircleRadianPoint: getCircleRadianPoint,
+        getRegularPolygonPoints: getRegularPolygonPoints,
+        getDistanceBetweenPointAndLine: getDistanceBetweenPointAndLine
+      };
+      exports["default"] = _default;
+    })(util$1);
+    return util$1;
+  }
 
   var _interopRequireDefault = interopRequireDefault.exports;
   Object.defineProperty(util$2, "__esModule", {
@@ -3653,7 +3675,7 @@
   util$2.radianToAngle = radianToAngle;
   var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
   var _typeof2 = _interopRequireDefault(require_typeof());
-  var _util = util$1;
+  var _util = requireUtil$1();
   function filterNonNumber(array) {
     return array.filter(function (n) {
       return typeof n === 'number';
@@ -3748,6 +3770,8 @@
   function radianToAngle(radian) {
     return radian / Math.PI * 180;
   }
+
+  var utilExports = requireUtil$1();
 
   var lib = {};
 
@@ -4080,7 +4104,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
       },
       fade: lib.fade
     },
@@ -4715,7 +4739,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
       },
       fade: lib.fade
     },
@@ -5029,7 +5053,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
       }
     },
     mounted () {
@@ -5194,7 +5218,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
       }
     },
     mounted () {
@@ -7305,440 +7329,447 @@
     return scrollbarWidth;
   }
 
-  (function (module) {
-    module.exports = /******/function (modules) {
-      // webpackBootstrap
-      /******/ // The module cache
-      /******/
-      var installedModules = {};
-      /******/
-      /******/ // The require function
-      /******/
-      function __webpack_require__(moduleId) {
+  var hasRequiredScrollbar;
+  function requireScrollbar() {
+    if (hasRequiredScrollbar) return scrollbar.exports;
+    hasRequiredScrollbar = 1;
+    (function (module) {
+      module.exports = /******/function (modules) {
+        // webpackBootstrap
+        /******/ // The module cache
         /******/
-        /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId]) {
-          /******/return installedModules[moduleId].exports;
+        var installedModules = {};
+        /******/
+        /******/ // The require function
+        /******/
+        function __webpack_require__(moduleId) {
+          /******/
+          /******/ // Check if module is in cache
+          /******/if (installedModules[moduleId]) {
+            /******/return installedModules[moduleId].exports;
+            /******/
+          }
+          /******/ // Create a new module (and put it into the cache)
+          /******/
+          var module = installedModules[moduleId] = {
+            /******/i: moduleId,
+            /******/l: false,
+            /******/exports: {}
+            /******/
+          };
+          /******/
+          /******/ // Execute the module function
+          /******/
+          modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+          /******/
+          /******/ // Flag the module as loaded
+          /******/
+          module.l = true;
+          /******/
+          /******/ // Return the exports of the module
+          /******/
+          return module.exports;
           /******/
         }
-        /******/ // Create a new module (and put it into the cache)
         /******/
-        var module = installedModules[moduleId] = {
-          /******/i: moduleId,
-          /******/l: false,
-          /******/exports: {}
+        /******/
+        /******/ // expose the modules object (__webpack_modules__)
+        /******/
+        __webpack_require__.m = modules;
+        /******/
+        /******/ // expose the module cache
+        /******/
+        __webpack_require__.c = installedModules;
+        /******/
+        /******/ // define getter function for harmony exports
+        /******/
+        __webpack_require__.d = function (exports, name, getter) {
+          /******/if (!__webpack_require__.o(exports, name)) {
+            /******/Object.defineProperty(exports, name, {
+              enumerable: true,
+              get: getter
+            });
+            /******/
+          }
           /******/
         };
         /******/
-        /******/ // Execute the module function
+        /******/ // define __esModule on exports
         /******/
-        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+        __webpack_require__.r = function (exports) {
+          /******/if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+            /******/Object.defineProperty(exports, Symbol.toStringTag, {
+              value: 'Module'
+            });
+            /******/
+          }
+          /******/
+          Object.defineProperty(exports, '__esModule', {
+            value: true
+          });
+          /******/
+        };
         /******/
-        /******/ // Flag the module as loaded
+        /******/ // create a fake namespace object
+        /******/ // mode & 1: value is a module id, require it
+        /******/ // mode & 2: merge all properties of value into the ns
+        /******/ // mode & 4: return value when already ns object
+        /******/ // mode & 8|1: behave like require
         /******/
-        module.l = true;
+        __webpack_require__.t = function (value, mode) {
+          /******/if (mode & 1) value = __webpack_require__(value);
+          /******/
+          if (mode & 8) return value;
+          /******/
+          if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
+          /******/
+          var ns = Object.create(null);
+          /******/
+          __webpack_require__.r(ns);
+          /******/
+          Object.defineProperty(ns, 'default', {
+            enumerable: true,
+            value: value
+          });
+          /******/
+          if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) {
+            return value[key];
+          }.bind(null, key));
+          /******/
+          return ns;
+          /******/
+        };
         /******/
-        /******/ // Return the exports of the module
+        /******/ // getDefaultExport function for compatibility with non-harmony modules
         /******/
-        return module.exports;
+        __webpack_require__.n = function (module) {
+          /******/var getter = module && module.__esModule ? /******/function getDefault() {
+            return module['default'];
+          } : /******/function getModuleExports() {
+            return module;
+          };
+          /******/
+          __webpack_require__.d(getter, 'a', getter);
+          /******/
+          return getter;
+          /******/
+        };
+        /******/
+        /******/ // Object.prototype.hasOwnProperty.call
+        /******/
+        __webpack_require__.o = function (object, property) {
+          return Object.prototype.hasOwnProperty.call(object, property);
+        };
+        /******/
+        /******/ // __webpack_public_path__
+        /******/
+        __webpack_require__.p = "/dist/";
+        /******/
+        /******/
+        /******/ // Load entry module and return exports
+        /******/
+        return __webpack_require__(__webpack_require__.s = 131);
         /******/
       }
-      /******/
-      /******/
-      /******/ // expose the modules object (__webpack_modules__)
-      /******/
-      __webpack_require__.m = modules;
-      /******/
-      /******/ // expose the module cache
-      /******/
-      __webpack_require__.c = installedModules;
-      /******/
-      /******/ // define getter function for harmony exports
-      /******/
-      __webpack_require__.d = function (exports, name, getter) {
-        /******/if (!__webpack_require__.o(exports, name)) {
-          /******/Object.defineProperty(exports, name, {
-            enumerable: true,
-            get: getter
-          });
-          /******/
-        }
-        /******/
-      };
-      /******/
-      /******/ // define __esModule on exports
-      /******/
-      __webpack_require__.r = function (exports) {
-        /******/if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-          /******/Object.defineProperty(exports, Symbol.toStringTag, {
-            value: 'Module'
-          });
-          /******/
-        }
-        /******/
-        Object.defineProperty(exports, '__esModule', {
-          value: true
-        });
-        /******/
-      };
-      /******/
-      /******/ // create a fake namespace object
-      /******/ // mode & 1: value is a module id, require it
-      /******/ // mode & 2: merge all properties of value into the ns
-      /******/ // mode & 4: return value when already ns object
-      /******/ // mode & 8|1: behave like require
-      /******/
-      __webpack_require__.t = function (value, mode) {
-        /******/if (mode & 1) value = __webpack_require__(value);
-        /******/
-        if (mode & 8) return value;
-        /******/
-        if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
-        /******/
-        var ns = Object.create(null);
-        /******/
-        __webpack_require__.r(ns);
-        /******/
-        Object.defineProperty(ns, 'default', {
-          enumerable: true,
-          value: value
-        });
-        /******/
-        if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) {
-          return value[key];
-        }.bind(null, key));
-        /******/
-        return ns;
-        /******/
-      };
-      /******/
-      /******/ // getDefaultExport function for compatibility with non-harmony modules
-      /******/
-      __webpack_require__.n = function (module) {
-        /******/var getter = module && module.__esModule ? /******/function getDefault() {
-          return module['default'];
-        } : /******/function getModuleExports() {
-          return module;
-        };
-        /******/
-        __webpack_require__.d(getter, 'a', getter);
-        /******/
-        return getter;
-        /******/
-      };
-      /******/
-      /******/ // Object.prototype.hasOwnProperty.call
-      /******/
-      __webpack_require__.o = function (object, property) {
-        return Object.prototype.hasOwnProperty.call(object, property);
-      };
-      /******/
-      /******/ // __webpack_public_path__
-      /******/
-      __webpack_require__.p = "/dist/";
-      /******/
-      /******/
-      /******/ // Load entry module and return exports
-      /******/
-      return __webpack_require__(__webpack_require__.s = 131);
-      /******/
-    }
-    /************************************************************************/
-    /******/({
-      /***/131: /***/function (module, __webpack_exports__, __webpack_require__) {
+      /************************************************************************/
+      /******/({
+        /***/131: /***/function (module, __webpack_exports__, __webpack_require__) {
 
-        __webpack_require__.r(__webpack_exports__);
+          __webpack_require__.r(__webpack_exports__);
 
-        // EXTERNAL MODULE: external "element-ui/lib/utils/resize-event"
-        var resize_event_ = __webpack_require__(16);
+          // EXTERNAL MODULE: external "element-ui/lib/utils/resize-event"
+          var resize_event_ = __webpack_require__(16);
 
-        // EXTERNAL MODULE: external "element-ui/lib/utils/scrollbar-width"
-        var scrollbar_width_ = __webpack_require__(38);
-        var scrollbar_width_default = /*#__PURE__*/__webpack_require__.n(scrollbar_width_);
+          // EXTERNAL MODULE: external "element-ui/lib/utils/scrollbar-width"
+          var scrollbar_width_ = __webpack_require__(38);
+          var scrollbar_width_default = /*#__PURE__*/__webpack_require__.n(scrollbar_width_);
 
-        // EXTERNAL MODULE: external "element-ui/lib/utils/util"
-        var util_ = __webpack_require__(3);
+          // EXTERNAL MODULE: external "element-ui/lib/utils/util"
+          var util_ = __webpack_require__(3);
 
-        // EXTERNAL MODULE: external "element-ui/lib/utils/dom"
-        var dom_ = __webpack_require__(2);
+          // EXTERNAL MODULE: external "element-ui/lib/utils/dom"
+          var dom_ = __webpack_require__(2);
 
-        // CONCATENATED MODULE: ./packages/scrollbar/src/util.js
-        var BAR_MAP = {
-          vertical: {
-            offset: 'offsetHeight',
-            scroll: 'scrollTop',
-            scrollSize: 'scrollHeight',
-            size: 'height',
-            key: 'vertical',
-            axis: 'Y',
-            client: 'clientY',
-            direction: 'top'
-          },
-          horizontal: {
-            offset: 'offsetWidth',
-            scroll: 'scrollLeft',
-            scrollSize: 'scrollWidth',
-            size: 'width',
-            key: 'horizontal',
-            axis: 'X',
-            client: 'clientX',
-            direction: 'left'
-          }
-        };
-        function renderThumbStyle(_ref) {
-          var move = _ref.move,
-            size = _ref.size,
-            bar = _ref.bar;
-          var style = {};
-          var translate = 'translate' + bar.axis + '(' + move + '%)';
-          style[bar.size] = size;
-          style.transform = translate;
-          style.msTransform = translate;
-          style.webkitTransform = translate;
-          return style;
-        }
-        // CONCATENATED MODULE: ./packages/scrollbar/src/bar.js
-
-        /* istanbul ignore next */
-        /* harmony default export */
-        var src_bar = {
-          name: 'Bar',
-          props: {
-            vertical: Boolean,
-            size: String,
-            move: Number
-          },
-          computed: {
-            bar: function bar() {
-              return BAR_MAP[this.vertical ? 'vertical' : 'horizontal'];
+          // CONCATENATED MODULE: ./packages/scrollbar/src/util.js
+          var BAR_MAP = {
+            vertical: {
+              offset: 'offsetHeight',
+              scroll: 'scrollTop',
+              scrollSize: 'scrollHeight',
+              size: 'height',
+              key: 'vertical',
+              axis: 'Y',
+              client: 'clientY',
+              direction: 'top'
             },
-            wrap: function wrap() {
-              return this.$parent.wrap;
+            horizontal: {
+              offset: 'offsetWidth',
+              scroll: 'scrollLeft',
+              scrollSize: 'scrollWidth',
+              size: 'width',
+              key: 'horizontal',
+              axis: 'X',
+              client: 'clientX',
+              direction: 'left'
             }
-          },
-          render: function render(h) {
-            var size = this.size,
-              move = this.move,
-              bar = this.bar;
-            return h('div', {
-              'class': ['el-scrollbar__bar', 'is-' + bar.key],
-              on: {
-                'mousedown': this.clickTrackHandler
-              }
-            }, [h('div', {
-              ref: 'thumb',
-              'class': 'el-scrollbar__thumb',
-              on: {
-                'mousedown': this.clickThumbHandler
+          };
+          function renderThumbStyle(_ref) {
+            var move = _ref.move,
+              size = _ref.size,
+              bar = _ref.bar;
+            var style = {};
+            var translate = 'translate' + bar.axis + '(' + move + '%)';
+            style[bar.size] = size;
+            style.transform = translate;
+            style.msTransform = translate;
+            style.webkitTransform = translate;
+            return style;
+          }
+          // CONCATENATED MODULE: ./packages/scrollbar/src/bar.js
+
+          /* istanbul ignore next */
+          /* harmony default export */
+          var src_bar = {
+            name: 'Bar',
+            props: {
+              vertical: Boolean,
+              size: String,
+              move: Number
+            },
+            computed: {
+              bar: function bar() {
+                return BAR_MAP[this.vertical ? 'vertical' : 'horizontal'];
               },
-              style: renderThumbStyle({
-                size: size,
-                move: move,
-                bar: bar
-              })
-            })]);
-          },
-          methods: {
-            clickThumbHandler: function clickThumbHandler(e) {
-              // prevent click event of right button
-              if (e.ctrlKey || e.button === 2) {
-                return;
+              wrap: function wrap() {
+                return this.$parent.wrap;
               }
-              this.startDrag(e);
-              this[this.bar.axis] = e.currentTarget[this.bar.offset] - (e[this.bar.client] - e.currentTarget.getBoundingClientRect()[this.bar.direction]);
             },
-            clickTrackHandler: function clickTrackHandler(e) {
-              var offset = Math.abs(e.target.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]);
-              var thumbHalf = this.$refs.thumb[this.bar.offset] / 2;
-              var thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el[this.bar.offset];
-              this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
+            render: function render(h) {
+              var size = this.size,
+                move = this.move,
+                bar = this.bar;
+              return h('div', {
+                'class': ['el-scrollbar__bar', 'is-' + bar.key],
+                on: {
+                  'mousedown': this.clickTrackHandler
+                }
+              }, [h('div', {
+                ref: 'thumb',
+                'class': 'el-scrollbar__thumb',
+                on: {
+                  'mousedown': this.clickThumbHandler
+                },
+                style: renderThumbStyle({
+                  size: size,
+                  move: move,
+                  bar: bar
+                })
+              })]);
             },
-            startDrag: function startDrag(e) {
-              e.stopImmediatePropagation();
-              this.cursorDown = true;
-              Object(dom_["on"])(document, 'mousemove', this.mouseMoveDocumentHandler);
-              Object(dom_["on"])(document, 'mouseup', this.mouseUpDocumentHandler);
-              document.onselectstart = function () {
-                return false;
+            methods: {
+              clickThumbHandler: function clickThumbHandler(e) {
+                // prevent click event of right button
+                if (e.ctrlKey || e.button === 2) {
+                  return;
+                }
+                this.startDrag(e);
+                this[this.bar.axis] = e.currentTarget[this.bar.offset] - (e[this.bar.client] - e.currentTarget.getBoundingClientRect()[this.bar.direction]);
+              },
+              clickTrackHandler: function clickTrackHandler(e) {
+                var offset = Math.abs(e.target.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]);
+                var thumbHalf = this.$refs.thumb[this.bar.offset] / 2;
+                var thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el[this.bar.offset];
+                this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
+              },
+              startDrag: function startDrag(e) {
+                e.stopImmediatePropagation();
+                this.cursorDown = true;
+                Object(dom_["on"])(document, 'mousemove', this.mouseMoveDocumentHandler);
+                Object(dom_["on"])(document, 'mouseup', this.mouseUpDocumentHandler);
+                document.onselectstart = function () {
+                  return false;
+                };
+              },
+              mouseMoveDocumentHandler: function mouseMoveDocumentHandler(e) {
+                if (this.cursorDown === false) return;
+                var prevPage = this[this.bar.axis];
+                if (!prevPage) return;
+                var offset = (this.$el.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]) * -1;
+                var thumbClickPosition = this.$refs.thumb[this.bar.offset] - prevPage;
+                var thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el[this.bar.offset];
+                this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
+              },
+              mouseUpDocumentHandler: function mouseUpDocumentHandler(e) {
+                this.cursorDown = false;
+                this[this.bar.axis] = 0;
+                Object(dom_["off"])(document, 'mousemove', this.mouseMoveDocumentHandler);
+                document.onselectstart = null;
+              }
+            },
+            destroyed: function destroyed() {
+              Object(dom_["off"])(document, 'mouseup', this.mouseUpDocumentHandler);
+            }
+          };
+          // CONCATENATED MODULE: ./packages/scrollbar/src/main.js
+          // reference https://github.com/noeldelgado/gemini-scrollbar/blob/master/index.js
+
+          /* istanbul ignore next */
+          /* harmony default export */
+          var main = {
+            name: 'ElScrollbar',
+            components: {
+              Bar: src_bar
+            },
+            props: {
+              native: Boolean,
+              wrapStyle: {},
+              wrapClass: {},
+              viewClass: {},
+              viewStyle: {},
+              noresize: Boolean,
+              // 如果 container 尺寸不会发生变化，最好设置它可以优化性能
+              tag: {
+                type: String,
+                default: 'div'
+              }
+            },
+            data: function data() {
+              return {
+                sizeWidth: '0',
+                sizeHeight: '0',
+                moveX: 0,
+                moveY: 0
               };
             },
-            mouseMoveDocumentHandler: function mouseMoveDocumentHandler(e) {
-              if (this.cursorDown === false) return;
-              var prevPage = this[this.bar.axis];
-              if (!prevPage) return;
-              var offset = (this.$el.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]) * -1;
-              var thumbClickPosition = this.$refs.thumb[this.bar.offset] - prevPage;
-              var thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el[this.bar.offset];
-              this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
-            },
-            mouseUpDocumentHandler: function mouseUpDocumentHandler(e) {
-              this.cursorDown = false;
-              this[this.bar.axis] = 0;
-              Object(dom_["off"])(document, 'mousemove', this.mouseMoveDocumentHandler);
-              document.onselectstart = null;
-            }
-          },
-          destroyed: function destroyed() {
-            Object(dom_["off"])(document, 'mouseup', this.mouseUpDocumentHandler);
-          }
-        };
-        // CONCATENATED MODULE: ./packages/scrollbar/src/main.js
-        // reference https://github.com/noeldelgado/gemini-scrollbar/blob/master/index.js
-
-        /* istanbul ignore next */
-        /* harmony default export */
-        var main = {
-          name: 'ElScrollbar',
-          components: {
-            Bar: src_bar
-          },
-          props: {
-            native: Boolean,
-            wrapStyle: {},
-            wrapClass: {},
-            viewClass: {},
-            viewStyle: {},
-            noresize: Boolean,
-            // 如果 container 尺寸不会发生变化，最好设置它可以优化性能
-            tag: {
-              type: String,
-              default: 'div'
-            }
-          },
-          data: function data() {
-            return {
-              sizeWidth: '0',
-              sizeHeight: '0',
-              moveX: 0,
-              moveY: 0
-            };
-          },
-          computed: {
-            wrap: function wrap() {
-              return this.$refs.wrap;
-            }
-          },
-          render: function render(h) {
-            var gutter = scrollbar_width_default()();
-            var style = this.wrapStyle;
-            if (gutter) {
-              var gutterWith = '-' + gutter + 'px';
-              var gutterStyle = 'margin-bottom: ' + gutterWith + '; margin-right: ' + gutterWith + ';';
-              if (Array.isArray(this.wrapStyle)) {
-                style = Object(util_["toObject"])(this.wrapStyle);
-                style.marginRight = style.marginBottom = gutterWith;
-              } else if (typeof this.wrapStyle === 'string') {
-                style += gutterStyle;
-              } else {
-                style = gutterStyle;
+            computed: {
+              wrap: function wrap() {
+                return this.$refs.wrap;
               }
-            }
-            var view = h(this.tag, {
-              class: ['el-scrollbar__view', this.viewClass],
-              style: this.viewStyle,
-              ref: 'resize'
-            }, this.$slots.default);
-            var wrap = h('div', {
-              ref: 'wrap',
-              style: style,
-              on: {
-                'scroll': this.handleScroll
-              },
-              'class': [this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default']
-            }, [[view]]);
-            var nodes = void 0;
-            if (!this.native) {
-              nodes = [wrap, h(src_bar, {
-                attrs: {
-                  move: this.moveX,
-                  size: this.sizeWidth
-                }
-              }), h(src_bar, {
-                attrs: {
-                  vertical: true,
-                  move: this.moveY,
-                  size: this.sizeHeight
-                }
-              })];
-            } else {
-              nodes = [h('div', {
-                ref: 'wrap',
-                'class': [this.wrapClass, 'el-scrollbar__wrap'],
-                style: style
-              }, [[view]])];
-            }
-            return h('div', {
-              class: 'el-scrollbar'
-            }, nodes);
-          },
-          methods: {
-            handleScroll: function handleScroll() {
-              var wrap = this.wrap;
-              this.moveY = wrap.scrollTop * 100 / wrap.clientHeight;
-              this.moveX = wrap.scrollLeft * 100 / wrap.clientWidth;
             },
-            update: function update() {
-              var heightPercentage = void 0,
-                widthPercentage = void 0;
-              var wrap = this.wrap;
-              if (!wrap) return;
-              heightPercentage = wrap.clientHeight * 100 / wrap.scrollHeight;
-              widthPercentage = wrap.clientWidth * 100 / wrap.scrollWidth;
-              this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
-              this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
+            render: function render(h) {
+              var gutter = scrollbar_width_default()();
+              var style = this.wrapStyle;
+              if (gutter) {
+                var gutterWith = '-' + gutter + 'px';
+                var gutterStyle = 'margin-bottom: ' + gutterWith + '; margin-right: ' + gutterWith + ';';
+                if (Array.isArray(this.wrapStyle)) {
+                  style = Object(util_["toObject"])(this.wrapStyle);
+                  style.marginRight = style.marginBottom = gutterWith;
+                } else if (typeof this.wrapStyle === 'string') {
+                  style += gutterStyle;
+                } else {
+                  style = gutterStyle;
+                }
+              }
+              var view = h(this.tag, {
+                class: ['el-scrollbar__view', this.viewClass],
+                style: this.viewStyle,
+                ref: 'resize'
+              }, this.$slots.default);
+              var wrap = h('div', {
+                ref: 'wrap',
+                style: style,
+                on: {
+                  'scroll': this.handleScroll
+                },
+                'class': [this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default']
+              }, [[view]]);
+              var nodes = void 0;
+              if (!this.native) {
+                nodes = [wrap, h(src_bar, {
+                  attrs: {
+                    move: this.moveX,
+                    size: this.sizeWidth
+                  }
+                }), h(src_bar, {
+                  attrs: {
+                    vertical: true,
+                    move: this.moveY,
+                    size: this.sizeHeight
+                  }
+                })];
+              } else {
+                nodes = [h('div', {
+                  ref: 'wrap',
+                  'class': [this.wrapClass, 'el-scrollbar__wrap'],
+                  style: style
+                }, [[view]])];
+              }
+              return h('div', {
+                class: 'el-scrollbar'
+              }, nodes);
+            },
+            methods: {
+              handleScroll: function handleScroll() {
+                var wrap = this.wrap;
+                this.moveY = wrap.scrollTop * 100 / wrap.clientHeight;
+                this.moveX = wrap.scrollLeft * 100 / wrap.clientWidth;
+              },
+              update: function update() {
+                var heightPercentage = void 0,
+                  widthPercentage = void 0;
+                var wrap = this.wrap;
+                if (!wrap) return;
+                heightPercentage = wrap.clientHeight * 100 / wrap.scrollHeight;
+                widthPercentage = wrap.clientWidth * 100 / wrap.scrollWidth;
+                this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
+                this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
+              }
+            },
+            mounted: function mounted() {
+              if (this.native) return;
+              this.$nextTick(this.update);
+              !this.noresize && Object(resize_event_["addResizeListener"])(this.$refs.resize, this.update);
+            },
+            beforeDestroy: function beforeDestroy() {
+              if (this.native) return;
+              !this.noresize && Object(resize_event_["removeResizeListener"])(this.$refs.resize, this.update);
             }
-          },
-          mounted: function mounted() {
-            if (this.native) return;
-            this.$nextTick(this.update);
-            !this.noresize && Object(resize_event_["addResizeListener"])(this.$refs.resize, this.update);
-          },
-          beforeDestroy: function beforeDestroy() {
-            if (this.native) return;
-            !this.noresize && Object(resize_event_["removeResizeListener"])(this.$refs.resize, this.update);
-          }
-        };
-        // CONCATENATED MODULE: ./packages/scrollbar/index.js
+          };
+          // CONCATENATED MODULE: ./packages/scrollbar/index.js
 
-        /* istanbul ignore next */
-        main.install = function (Vue) {
-          Vue.component(main.name, main);
-        };
+          /* istanbul ignore next */
+          main.install = function (Vue) {
+            Vue.component(main.name, main);
+          };
 
-        /* harmony default export */
-        __webpack_exports__["default"] = main;
+          /* harmony default export */
+          __webpack_exports__["default"] = main;
 
-        /***/
-      },
+          /***/
+        },
 
-      /***/16: /***/function (module, exports) {
-        module.exports = requireResizeEvent();
+        /***/16: /***/function (module, exports) {
+          module.exports = requireResizeEvent();
 
-        /***/
-      },
+          /***/
+        },
 
-      /***/2: /***/function (module, exports) {
-        module.exports = requireDom();
+        /***/2: /***/function (module, exports) {
+          module.exports = requireDom();
 
-        /***/
-      },
+          /***/
+        },
 
-      /***/3: /***/function (module, exports) {
-        module.exports = requireUtil();
+        /***/3: /***/function (module, exports) {
+          module.exports = requireUtil();
 
-        /***/
-      },
+          /***/
+        },
 
-      /***/38: /***/function (module, exports) {
-        module.exports = requireScrollbarWidth();
+        /***/38: /***/function (module, exports) {
+          module.exports = requireScrollbarWidth();
 
-        /***/
-      }
+          /***/
+        }
 
-      /******/
-    });
-  })(scrollbar);
-  var Scrollbar = /*@__PURE__*/getDefaultExportFromCjs(scrollbar.exports);
+        /******/
+      });
+    })(scrollbar);
+    return scrollbar.exports;
+  }
+
+  var scrollbarExports = requireScrollbar();
 
   var loading = {exports: {}};
 
@@ -12299,7 +12330,7 @@
       },
 
       /***/15: /***/function (module, exports) {
-        module.exports = scrollbar.exports;
+        module.exports = requireScrollbar();
 
         /***/
       },
@@ -15747,14 +15778,14 @@
     Vue.use(borderBox13);
     Vue.use(borderBox9);
     //element-ui组件库
-    Vue.use(Scrollbar);
+    Vue.use(scrollbarExports);
     Vue.use(Loading);
     Vue.use(Select);
     Vue.use(Option);
     Vue.use(OptionGroup);
     //vant组件库
-    Vue.use(default_1$4);
-    Vue.use(default_1$3);
+    Vue.use(iconExports);
+    Vue.use(cellExports);
     Vue.use(default_1$2);
     Vue.use(default_1$1);
     // Vue.use(Popup);
