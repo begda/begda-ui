@@ -9,7 +9,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.begdaUI = factory(global.Vue));
 })(this, (function (require$$0$1) { 'use strict';
 
-  var version = "0.0.17";
+  var version = "0.0.18";
 
   function getDefaultExportFromCjs (x) {
   	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;

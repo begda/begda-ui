@@ -5,7 +5,7 @@
   */
 import require$$0$1 from 'vue';
 
-var version = "0.0.17";
+var version = "0.0.18";
 
 function getDefaultExportFromCjs (x) {
 	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;

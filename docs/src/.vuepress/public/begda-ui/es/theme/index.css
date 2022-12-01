@@ -658,6 +658,9 @@ video {
     max-width: 96rem;
   }
 }
+.visible {
+  visibility: visible;
+}
 .inline {
   display: inline;
 }
