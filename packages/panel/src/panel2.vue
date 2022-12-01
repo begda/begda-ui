@@ -67,9 +67,6 @@ export default {
   name: 'Panel',
   data() {
     return {
-      show: true,
-      actions: [{ name: '选项一' }, { name: '选项二' }, { name: '选项三' }],
-      value: 'ssss',
       scrollStyle: { height: '' },
       bodyStyle: { height: '' },
       panelStyle: { height: '' }
