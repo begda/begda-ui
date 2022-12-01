@@ -6,13 +6,8 @@
       </template>
     </div>
     <div
-      style="padding-bottom: 180px;
-        padding-top: 180px;
-        text-align: center;
-        background-color: #2d71b5;
-        background-image: url(./begda-ui/images/bg.jpg);
-        background-size: auto;
-        color: #ffffff;">
+        class="home-header"
+      style="">
       <img :src="logo" style="width: 120px; border-radius: 50%; padding: 5px; background: #ffffff; margin: auto" />
       <div style="font-size: 40px; margin-bottom: 20px; margin-top: 10px">{{ $site.locales['/'].title }}</div>
       <h3 style="font-size: 20px; color: #fbec56">{{ $site.locales['/'].description }}</h3>
@@ -110,7 +105,7 @@ export default {
   methods: {
     onClick(key, item) {
       if (item) {
-        window.open(`${key}${item}.html`);
+        window.open(`.${key}${item}.html`);
       } else {
         window.open(`${key}`);
       }
@@ -119,4 +114,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.home-header{
+  padding-bottom: 180px;
+  padding-top: 180px;
+  text-align: center;
+  background-color: #2d71b5;
+  background-image: url('../public/images/bg.jpg');
+  background-size: auto;
+  color: #ffffff;
+}
+</style>

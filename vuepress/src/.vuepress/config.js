@@ -10,9 +10,9 @@ module.exports = {
     //在https://github.com/vuejs/vuepress/issues/2275中发现，原来是element ui依赖core-js的2.x版本，而webpress项目依赖core-js的3.x版本导致的
     config.resolve.alias.set('core-js/library/fn', 'core-js/features');
   },
-  base: '/begda-ui', //连接的基础路径
+  base: '/begda-ui/', //连接的基础路径
   port: 4002,
-  dest: path.resolve('docs'), //编译输出目录
+  dest: path.resolve('docs','begda-ui'), //编译输出目录
   // 国际化相关
   locales: {
     // 键名是该语言所属的子路径
@@ -48,10 +48,9 @@ module.exports = {
     [
       'vuepress-plugin-auto-sidebar' //自动侧边栏菜单生成工具
     ],
-    require('tailwindcss')('./tailwind.config.js')
   ],
   themeConfig: {
-    logo: '/assets/img/logo.png',
+    logo: '/images/logo.jpg',
     smoothScroll: true, //启用页面滚动效果。
     // mode: 'dark', // 默认 auto，auto 跟随系统，dark 暗色模式，light 亮色模式
     // modePicker: false, // 默认 true，false 不显示模式调节按钮，true 则显示
