@@ -30,7 +30,7 @@ import './public/begda-ui/theme/index.css';
 Vue.use(begdaUI);
 
 ```
-<div style="height: 30px"></div>
+
 
 ## CDN 使用库
 
@@ -44,7 +44,7 @@ unpkg.com。
 <script src="https://unpkg.com/begda-ui@0.0.17/dist/begda-ui.umd.mini.js"></script>
 
 ```
-<div style="height: 30px"></div>
+
 
 ## Hello world
 通过 CDN 的方式我们可以很容易地使用 Element 写出一个 Hello world 页面。在线演示

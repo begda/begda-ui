@@ -20,7 +20,7 @@ module.exports = {
     '/': {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
       title: 'Begda',
-      description: '学习系统文章的记录'
+      description: '记录平时常用的一些东西'
     }
   },
   head: [
