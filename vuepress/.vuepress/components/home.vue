@@ -6,17 +6,7 @@
             </template>
         </div>
         <div class="home-header" style="">
-            <img
-                :src="logo"
-                style="
-                    width: 120px;
-                    border-radius: 50%;
-                    padding: 5px;
-                    background: #ffffff;
-                    margin: auto;
-                    box-shadow: rgba(0, 0, 0, 0.4) 0 0 20px;
-                "
-            />
+            <img :src="logo" class="logo" />
             <div style="font-size: 40px; margin-bottom: 20px; margin-top: 10px; text-shadow: black 0.1em 0.1em 0.1em">
                 {{ $site.locales['/'].title }}
             </div>
@@ -143,5 +133,13 @@ export default {
     background-image: url('../public/images/bg9.jpg');
     background-size: 100% 100%;
     color: #ffffff;
+}
+.home-heade .logo {
+    width: 120px;
+    border-radius: 50%;
+    padding: 5px;
+    background: #ffffff;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 0 20px;
 }
 </style>
