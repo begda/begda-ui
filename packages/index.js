@@ -39,77 +39,77 @@ import { BaScrollbar } from './scrollbar/index';
 import { BaSelect } from './select/index';
 import { BaCell } from './cell/index';
 import { BaWebView } from './webview/index';
+import { BaChart } from './chart/index';
 
 import './theme/src/tailwind-main.css'; //tailwind配置导入
 import './theme/src/index.less';
 
-const components = [Panel, BaPanel, BaPanelData, BaScrollbar, BaSelect, BaCell, BaWebView];
-
+const components = [Panel, BaPanel, BaPanelData, BaScrollbar, BaSelect, BaCell, BaWebView, BaChart];
 const install = function (Vue, opts = {}) {
-  //datav组件库
-  Vue.use(borderBox11);
-  Vue.use(borderBox12);
-  Vue.use(borderBox13);
-  Vue.use(borderBox9);
-  //element-ui组件库
-  Vue.use(Scrollbar);
-  Vue.use(Loading);
-  Vue.use(Select);
-  Vue.use(Option);
-  Vue.use(OptionGroup);
-  //vant组件库
-  Vue.use(Icon);
-  Vue.use(Cell);
-  Vue.use(CellGroup);
-  Vue.use(Field);
-  // Vue.use(Popup);
-  Vue.use(ActionSheet);
-  // Vue.use(DatetimePicker);
+    //datav组件库
+    Vue.use(borderBox11);
+    Vue.use(borderBox12);
+    Vue.use(borderBox13);
+    Vue.use(borderBox9);
+    //element-ui组件库
+    Vue.use(Scrollbar);
+    Vue.use(Loading);
+    Vue.use(Select);
+    Vue.use(Option);
+    Vue.use(OptionGroup);
+    //vant组件库
+    Vue.use(Icon);
+    Vue.use(Cell);
+    Vue.use(CellGroup);
+    Vue.use(Field);
+    // Vue.use(Popup);
+    Vue.use(ActionSheet);
+    // Vue.use(DatetimePicker);
 
-  //加载自己的组件
-  components.forEach(component => {
-    Vue.component(component.name, component);
-  });
+    //加载自己的组件
+    components.forEach(component => {
+        Vue.component(component.name, component);
+    });
 
-  // Vue.use(borderBox1);
+    // Vue.use(borderBox1);
 
-  // Vue.prototype.$ELEMENT = {
-  //     size: opts.size || '',
-  //     zIndex: opts.zIndex || 2000
-  // };
+    // Vue.prototype.$ELEMENT = {
+    //     size: opts.size || '',
+    //     zIndex: opts.zIndex || 2000
+    // };
 
-  // Vue.prototype.$loading = Loading.service;
-  // Vue.prototype.$msgbox = MessageBox;
-  // Vue.prototype.$alert = MessageBox.alert;
-  // Vue.prototype.$confirm = MessageBox.confirm;
-  // Vue.prototype.$prompt = MessageBox.prompt;
-  // Vue.prototype.$notify = Notification;
-  // Vue.prototype.$message = Message;
+    // Vue.prototype.$loading = Loading.service;
+    // Vue.prototype.$msgbox = MessageBox;
+    // Vue.prototype.$alert = MessageBox.alert;
+    // Vue.prototype.$confirm = MessageBox.confirm;
+    // Vue.prototype.$prompt = MessageBox.prompt;
+    // Vue.prototype.$notify = Notification;
+    // Vue.prototype.$message = Message;
 };
 
 /* istanbul ignore if */
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue);
+    install(window.Vue);
 
-  //下面这个是,配合tailwindcss 做暗色模式的js
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  if (
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-  ) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
+    //下面这个是,配合tailwindcss 做暗色模式的js
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+    }
 
-  // Whenever the user explicitly chooses light mode
-  localStorage.theme = 'light';
+    // Whenever the user explicitly chooses light mode
+    localStorage.theme = 'light';
 
-  // Whenever the user explicitly chooses dark mode
-  localStorage.theme = 'dark';
+    // Whenever the user explicitly chooses dark mode
+    localStorage.theme = 'dark';
 
-  // Whenever the user explicitly chooses to respect the OS preference
-  localStorage.removeItem('theme');
+    // Whenever the user explicitly chooses to respect the OS preference
+    localStorage.removeItem('theme');
 }
 
 /***
@@ -120,10 +120,14 @@ if (typeof window !== 'undefined' && window.Vue) {
  而不能使用export default
  ***/
 export default {
-  install,
-  version: version,
-  BaScrollbar,
-  Panel,
-  BaPanel,
-  BaPanelData
+    install,
+    version: version,
+    BaScrollbar,
+    Panel,
+    BaPanel,
+    BaPanelData,
+    BaChart,
+    BaSelect,
+    BaCell,
+    BaWebView
 };

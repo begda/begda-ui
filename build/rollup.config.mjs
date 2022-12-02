@@ -10,7 +10,7 @@ import json from "@rollup/plugin-json";
 import tailwindcss from "tailwindcss";
 import tailwindConfig from "../tailwind.config.js";
 import terser from "@rollup/plugin-terser";
-
+import watch from "rollup-plugin-watch";
 // import livereload from "rollup-plugin-livereload";
 // import serve from "rollup-plugin-serve";
 
@@ -28,40 +28,19 @@ const isProductionEnv = process.env.NODE_ENV === "production";
 
 export default [
     {
-        external: ["lodash", "vue",'vant'], //外部库， 使用'umd'文件时需要先引入这个外部库
+        external: ["lodash", "vue",'vant',"echarts"], //外部库， 使用'umd'文件时需要先引入这个外部库
         input: "packages/index.js",
         output: [
             {
-                file: "dist/begda-ui.umd.js",
+                file: "dist/begda-ui/index.js",
                 format: "umd",
-                name: "begdaUI",
-                // sourcemap: true,
-                banner: createBanner(),
-                globals: {
-                    vue: "Vue",
-                    lodash: "_"
-                },
-            },
-            {
-                file: "docs/src/.vuepress/public/begda-ui/index.js",
-                format: "umd",
-                name: "begdaUI",
+                name: "BegdaUI",
                 sourcemap: true,
                 banner: createBanner(),
                 globals: {
                     vue: "Vue",
-                    lodash: "_"
-                },
-            },
-            {
-                file: "docs/src/.vuepress/public/begda-ui/es/index.js",
-                format: "es",
-                name: "begdaUI",
-                // sourcemap: true,
-                banner: createBanner(),
-                globals: {
-                    vue: "Vue",
-                    lodash: "_"
+                    lodash: "_",
+                    echarts: "echarts",
                 },
             }
         ],
@@ -108,7 +87,7 @@ export default [
                     },
                     {
                         src: "packages/theme/src/images",
-                        dest: "docs/src/.vuepress/public/begda-ui/theme",
+                        dest: "dist/begda-ui/theme",
                     },
                 ],
             }),

@@ -7,10 +7,10 @@
   "taobaonpm": "--registry=https://registry.npmmirror.com",
   "scripts": {
     "rollup:build": "rollup -c build/rollup.config.build.mjs",
-    "rollup:dev": "rollup -wc build/rollup.config.mjs",
+    "rollup:dev": "rollup --watch --watch.include='packages/**'   -c  build/rollup.config.mjs",
     "rollup2:dev": "rollup -c  build/rollup.config.mjs",
-    "docs:dev": "vuepress dev vuepress/src",
-    "docs:build": "vuepress build vuepress/src",
+    "docs:dev": "vuepress dev vuepress",
+    "docs:build": "vuepress build vuepress",
     "pnpm-install": "pnpm install --shamefully-hoist",
     "pnpm-install2": "pnpm install",
     "npm-撤回上次发布的包-仅限24小时内": "npm unpublish begda-ui --force",
@@ -64,6 +64,8 @@
   },
   "dependencies": {
     "@jiaminghi/data-view": "^2.10.0",
+    "axios": "^1.2.0",
+    "echarts": "^5.4.0",
     "element-ui": "^2.15.10",
     "lodash": "^4.17.21",
     "tailwindcss": "^3.1.8",

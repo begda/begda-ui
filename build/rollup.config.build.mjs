@@ -28,18 +28,43 @@ const isProductionEnv = process.env.NODE_ENV === "production";
 
 export default [
     {
-        external: ["lodash", "vue",'vant'], //外部库， 使用'umd'文件时需要先引入这个外部库
+        external: ["lodash", "vue",'vant','echarts'], //外部库， 使用'umd'文件时需要先引入这个外部库
         input: "packages/index.js",
         output: [
             {
                 file: "dist/begda-ui.umd.mini.js",
                 format: "umd",
-                name: "begdaUI",
+                name: "BegdaUI",
                 // sourcemap: true,
                 banner: createBanner(),
                 globals: {
                     vue: "Vue",
-                    lodash: "_"
+                    lodash: "_",
+                    echarts: "echarts",
+                },
+            },
+            {
+                file: "dist/begda-ui/index.js",
+                format: "umd",
+                name: "BegdaUI",
+                sourcemap: true,
+                banner: createBanner(),
+                globals: {
+                    vue: "Vue",
+                    lodash: "_",
+                    echarts: "echarts",
+                },
+            },
+            {
+                file: "dist/begda-ui/es/index.js",
+                format: "es",
+                name: "BegdaUI",
+                // sourcemap: true,
+                banner: createBanner(),
+                globals: {
+                    vue: "Vue",
+                    lodash: "_",
+                    echarts: "echarts",
                 },
             }
         ],
@@ -86,7 +111,7 @@ export default [
                     },
                     {
                         src: "packages/theme/src/images",
-                        dest: "docs/src/.vuepress/public/begda-ui/theme",
+                        dest: "dist/begda-ui/theme",
                     },
                 ],
             }),

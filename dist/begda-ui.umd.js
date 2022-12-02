@@ -6,7 +6,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue')) :
   typeof define === 'function' && define.amd ? define(['vue'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.begdaUI = factory(global.Vue));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.BegdaUI = factory(global.Vue));
 })(this, (function (require$$0$1) { 'use strict';
 
   var version = "0.0.18";
@@ -92,14 +92,14 @@
 
   var create = {};
 
-  var bem$3 = {};
+  var bem$5 = {};
 
   var hasRequiredBem;
   function requireBem() {
-    if (hasRequiredBem) return bem$3;
+    if (hasRequiredBem) return bem$5;
     hasRequiredBem = 1;
-    bem$3.__esModule = true;
-    bem$3.createBEM = createBEM;
+    bem$5.__esModule = true;
+    bem$5.createBEM = createBEM;
 
     /**
      * bem helper
@@ -135,7 +135,7 @@
         return "" + el + gen(el, mods);
       };
     }
-    return bem$3;
+    return bem$5;
   }
 
   var component = {};
@@ -779,84 +779,76 @@
     return info;
   }
 
-  var hasRequiredIcon;
-  function requireIcon() {
-    if (hasRequiredIcon) return icon;
-    hasRequiredIcon = 1;
-    var _interopRequireDefault = interopRequireDefault.exports;
-    icon.__esModule = true;
-    icon.default = void 0;
-    var _babelHelperVueJsxMergeProps = _interopRequireDefault(requireHelper());
-    var _utils = requireUtils();
-    var _functional = requireFunctional();
-    var _info = _interopRequireDefault(requireInfo());
+  var _interopRequireDefault$5 = interopRequireDefault.exports;
+  icon.__esModule = true;
+  var default_1$4 = icon.default = void 0;
+  var _babelHelperVueJsxMergeProps$4 = _interopRequireDefault$5(requireHelper());
+  var _utils$4 = requireUtils();
+  var _functional$3 = requireFunctional();
+  var _info = _interopRequireDefault$5(requireInfo());
 
-    // Utils
-    // Components
-    var _createNamespace = (0, _utils.createNamespace)('icon'),
-      createComponent = _createNamespace[0],
-      bem = _createNamespace[1];
-    function isImage(name) {
-      return name ? name.indexOf('/') !== -1 : false;
-    } // compatible with legacy usage, should be removed in next major version
+  // Utils
+  // Components
+  var _createNamespace$4 = (0, _utils$4.createNamespace)('icon'),
+    createComponent$4 = _createNamespace$4[0],
+    bem$4 = _createNamespace$4[1];
+  function isImage(name) {
+    return name ? name.indexOf('/') !== -1 : false;
+  } // compatible with legacy usage, should be removed in next major version
 
-    var LEGACY_MAP = {
-      medel: 'medal',
-      'medel-o': 'medal-o',
-      'calender-o': 'calendar-o'
-    };
-    function correctName(name) {
-      return name && LEGACY_MAP[name] || name;
-    }
-    function Icon(h, props, slots, ctx) {
-      var _props$badge;
-      var name = correctName(props.name);
-      var imageIcon = isImage(name);
-      if (process.env.NODE_ENV === 'development' && props.info) {
-        console.warn('[Vant] Icon: "info" prop is deprecated, use "badge" prop instead.');
-      }
-      return h(props.tag, (0, _babelHelperVueJsxMergeProps.default)([{
-        "class": [props.classPrefix, imageIcon ? '' : props.classPrefix + "-" + name],
-        "style": {
-          color: props.color,
-          fontSize: (0, _utils.addUnit)(props.size)
-        }
-      }, (0, _functional.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
-        "class": bem('image'),
-        "attrs": {
-          "src": name
-        }
-      }), h(_info.default, {
-        "attrs": {
-          "dot": props.dot,
-          "info": (_props$badge = props.badge) != null ? _props$badge : props.info
-        }
-      })]);
-    }
-    Icon.props = {
-      dot: Boolean,
-      name: String,
-      size: [Number, String],
-      // @deprecated
-      // should be removed in next major version
-      info: [Number, String],
-      badge: [Number, String],
-      color: String,
-      tag: {
-        type: String,
-        default: 'i'
-      },
-      classPrefix: {
-        type: String,
-        default: bem()
-      }
-    };
-    var _default = createComponent(Icon);
-    icon.default = _default;
-    return icon;
+  var LEGACY_MAP = {
+    medel: 'medal',
+    'medel-o': 'medal-o',
+    'calender-o': 'calendar-o'
+  };
+  function correctName(name) {
+    return name && LEGACY_MAP[name] || name;
   }
-
-  var iconExports = requireIcon();
+  function Icon(h, props, slots, ctx) {
+    var _props$badge;
+    var name = correctName(props.name);
+    var imageIcon = isImage(name);
+    if (process.env.NODE_ENV === 'development' && props.info) {
+      console.warn('[Vant] Icon: "info" prop is deprecated, use "badge" prop instead.');
+    }
+    return h(props.tag, (0, _babelHelperVueJsxMergeProps$4.default)([{
+      "class": [props.classPrefix, imageIcon ? '' : props.classPrefix + "-" + name],
+      "style": {
+        color: props.color,
+        fontSize: (0, _utils$4.addUnit)(props.size)
+      }
+    }, (0, _functional$3.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
+      "class": bem$4('image'),
+      "attrs": {
+        "src": name
+      }
+    }), h(_info.default, {
+      "attrs": {
+        "dot": props.dot,
+        "info": (_props$badge = props.badge) != null ? _props$badge : props.info
+      }
+    })]);
+  }
+  Icon.props = {
+    dot: Boolean,
+    name: String,
+    size: [Number, String],
+    // @deprecated
+    // should be removed in next major version
+    info: [Number, String],
+    badge: [Number, String],
+    color: String,
+    tag: {
+      type: String,
+      default: 'i'
+    },
+    classPrefix: {
+      type: String,
+      default: bem$4()
+    }
+  };
+  var _default$4 = createComponent$4(Icon);
+  default_1$4 = icon.default = _default$4;
 
   var cell = {};
 
@@ -946,122 +938,114 @@
     return shared$1;
   }
 
-  var hasRequiredCell;
-  function requireCell() {
-    if (hasRequiredCell) return cell;
-    hasRequiredCell = 1;
-    var _interopRequireDefault = interopRequireDefault.exports;
-    cell.__esModule = true;
-    cell.default = void 0;
-    var _extends2 = _interopRequireDefault(require_extends());
-    var _babelHelperVueJsxMergeProps = _interopRequireDefault(requireHelper());
-    var _utils = requireUtils();
-    var _functional = requireFunctional();
-    var _router = requireRouter();
-    var _shared = requireShared$1();
-    var _icon = _interopRequireDefault(requireIcon());
+  var _interopRequireDefault$4 = interopRequireDefault.exports;
+  cell.__esModule = true;
+  var default_1$3 = cell.default = void 0;
+  var _extends2$2 = _interopRequireDefault$4(require_extends());
+  var _babelHelperVueJsxMergeProps$3 = _interopRequireDefault$4(requireHelper());
+  var _utils$3 = requireUtils();
+  var _functional$2 = requireFunctional();
+  var _router = requireRouter();
+  var _shared$1 = requireShared$1();
+  var _icon$2 = _interopRequireDefault$4(icon);
 
-    // Utils
-    // Components
-    var _createNamespace = (0, _utils.createNamespace)('cell'),
-      createComponent = _createNamespace[0],
-      bem = _createNamespace[1];
-    function Cell(h, props, slots, ctx) {
-      var _props$clickable;
-      var icon = props.icon,
-        size = props.size,
-        title = props.title,
-        label = props.label,
-        value = props.value,
-        isLink = props.isLink;
-      var showTitle = slots.title || (0, _utils.isDef)(title);
-      function Label() {
-        var showLabel = slots.label || (0, _utils.isDef)(label);
-        if (showLabel) {
-          return h("div", {
-            "class": [bem('label'), props.labelClass]
-          }, [slots.label ? slots.label() : label]);
-        }
+  // Utils
+  // Components
+  var _createNamespace$3 = (0, _utils$3.createNamespace)('cell'),
+    createComponent$3 = _createNamespace$3[0],
+    bem$3 = _createNamespace$3[1];
+  function Cell(h, props, slots, ctx) {
+    var _props$clickable;
+    var icon = props.icon,
+      size = props.size,
+      title = props.title,
+      label = props.label,
+      value = props.value,
+      isLink = props.isLink;
+    var showTitle = slots.title || (0, _utils$3.isDef)(title);
+    function Label() {
+      var showLabel = slots.label || (0, _utils$3.isDef)(label);
+      if (showLabel) {
+        return h("div", {
+          "class": [bem$3('label'), props.labelClass]
+        }, [slots.label ? slots.label() : label]);
       }
-      function Title() {
-        if (showTitle) {
-          return h("div", {
-            "class": [bem('title'), props.titleClass],
-            "style": props.titleStyle
-          }, [slots.title ? slots.title() : h("span", [title]), Label()]);
-        }
-      }
-      function Value() {
-        var showValue = slots.default || (0, _utils.isDef)(value);
-        if (showValue) {
-          return h("div", {
-            "class": [bem('value', {
-              alone: !showTitle
-            }), props.valueClass]
-          }, [slots.default ? slots.default() : h("span", [value])]);
-        }
-      }
-      function LeftIcon() {
-        if (slots.icon) {
-          return slots.icon();
-        }
-        if (icon) {
-          return h(_icon.default, {
-            "class": bem('left-icon'),
-            "attrs": {
-              "name": icon,
-              "classPrefix": props.iconPrefix
-            }
-          });
-        }
-      }
-      function RightIcon() {
-        var rightIconSlot = slots['right-icon'];
-        if (rightIconSlot) {
-          return rightIconSlot();
-        }
-        if (isLink) {
-          var arrowDirection = props.arrowDirection;
-          return h(_icon.default, {
-            "class": bem('right-icon'),
-            "attrs": {
-              "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
-            }
-          });
-        }
-      }
-      function onClick(event) {
-        (0, _functional.emit)(ctx, 'click', event);
-        (0, _router.functionalRoute)(ctx);
-      }
-      var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
-      var classes = {
-        clickable: clickable,
-        center: props.center,
-        required: props.required,
-        borderless: !props.border
-      };
-      if (size) {
-        classes[size] = size;
-      }
-      return h("div", (0, _babelHelperVueJsxMergeProps.default)([{
-        "class": bem(classes),
-        "attrs": {
-          "role": clickable ? 'button' : null,
-          "tabindex": clickable ? 0 : null
-        },
-        "on": {
-          "click": onClick
-        }
-      }, (0, _functional.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
     }
-    Cell.props = (0, _extends2.default)({}, _shared.cellProps, _router.routeProps);
-    var _default = createComponent(Cell);
-    cell.default = _default;
-    return cell;
+    function Title() {
+      if (showTitle) {
+        return h("div", {
+          "class": [bem$3('title'), props.titleClass],
+          "style": props.titleStyle
+        }, [slots.title ? slots.title() : h("span", [title]), Label()]);
+      }
+    }
+    function Value() {
+      var showValue = slots.default || (0, _utils$3.isDef)(value);
+      if (showValue) {
+        return h("div", {
+          "class": [bem$3('value', {
+            alone: !showTitle
+          }), props.valueClass]
+        }, [slots.default ? slots.default() : h("span", [value])]);
+      }
+    }
+    function LeftIcon() {
+      if (slots.icon) {
+        return slots.icon();
+      }
+      if (icon) {
+        return h(_icon$2.default, {
+          "class": bem$3('left-icon'),
+          "attrs": {
+            "name": icon,
+            "classPrefix": props.iconPrefix
+          }
+        });
+      }
+    }
+    function RightIcon() {
+      var rightIconSlot = slots['right-icon'];
+      if (rightIconSlot) {
+        return rightIconSlot();
+      }
+      if (isLink) {
+        var arrowDirection = props.arrowDirection;
+        return h(_icon$2.default, {
+          "class": bem$3('right-icon'),
+          "attrs": {
+            "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
+          }
+        });
+      }
+    }
+    function onClick(event) {
+      (0, _functional$2.emit)(ctx, 'click', event);
+      (0, _router.functionalRoute)(ctx);
+    }
+    var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
+    var classes = {
+      clickable: clickable,
+      center: props.center,
+      required: props.required,
+      borderless: !props.border
+    };
+    if (size) {
+      classes[size] = size;
+    }
+    return h("div", (0, _babelHelperVueJsxMergeProps$3.default)([{
+      "class": bem$3(classes),
+      "attrs": {
+        "role": clickable ? 'button' : null,
+        "tabindex": clickable ? 0 : null
+      },
+      "on": {
+        "click": onClick
+      }
+    }, (0, _functional$2.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
   }
-
-  var cellExports = requireCell();
+  Cell.props = (0, _extends2$2.default)({}, _shared$1.cellProps, _router.routeProps);
+  var _default$3 = createComponent$3(Cell);
+  default_1$3 = cell.default = _default$3;
 
   var constant = {};
 
@@ -1382,8 +1366,8 @@
   var _event = requireEvent();
   var _scroll = requireScroll();
   var _utils$1 = requireUtils();
-  var _icon$1 = _interopRequireDefault$2(requireIcon());
-  var _cell = _interopRequireDefault$2(requireCell());
+  var _icon$1 = _interopRequireDefault$2(icon);
+  var _cell = _interopRequireDefault$2(cell);
   var _shared = requireShared$1();
 
   // Utils
@@ -2574,7 +2558,7 @@
     popup$1.default = void 0;
     var _utils = requireUtils();
     var _popup = requirePopup$2();
-    var _icon = _interopRequireDefault(requireIcon());
+    var _icon = _interopRequireDefault(icon);
     var _createNamespace = (0, _utils.createNamespace)('popup'),
       createComponent = _createNamespace[0],
       bem = _createNamespace[1];
@@ -2775,7 +2759,7 @@
   var _utils = requireUtils();
   var _functional = requireFunctional();
   var _popup = requirePopup$2();
-  var _icon = _interopRequireDefault$1(requireIcon());
+  var _icon = _interopRequireDefault$1(icon);
   var _popup2 = _interopRequireDefault$1(requirePopup$1());
   var _loading = _interopRequireDefault$1(requireLoading());
 
@@ -3262,402 +3246,396 @@
     return slicedToArray.exports;
   }
 
-  var hasRequiredUtil$1;
-  function requireUtil$1() {
-    if (hasRequiredUtil$1) return util$1;
-    hasRequiredUtil$1 = 1;
-    (function (exports) {
+  (function (exports) {
 
-      var _interopRequireDefault = interopRequireDefault.exports;
-      Object.defineProperty(exports, "__esModule", {
-        value: true
+    var _interopRequireDefault = interopRequireDefault.exports;
+    Object.defineProperty(exports, "__esModule", {
+      value: true
+    });
+    exports.deepClone = deepClone;
+    exports.eliminateBlur = eliminateBlur;
+    exports.checkPointIsInCircle = checkPointIsInCircle;
+    exports.getTwoPointDistance = getTwoPointDistance;
+    exports.checkPointIsInPolygon = checkPointIsInPolygon;
+    exports.checkPointIsInSector = checkPointIsInSector;
+    exports.checkPointIsNearPolyline = checkPointIsNearPolyline;
+    exports.checkPointIsInRect = checkPointIsInRect;
+    exports.getRotatePointPos = getRotatePointPos;
+    exports.getScalePointPos = getScalePointPos;
+    exports.getTranslatePointPos = getTranslatePointPos;
+    exports.getDistanceBetweenPointAndLine = getDistanceBetweenPointAndLine;
+    exports.getCircleRadianPoint = getCircleRadianPoint;
+    exports.getRegularPolygonPoints = getRegularPolygonPoints;
+    exports["default"] = void 0;
+    var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
+    var _slicedToArray2 = _interopRequireDefault(requireSlicedToArray());
+    var _typeof2 = _interopRequireDefault(require_typeof());
+    var abs = Math.abs,
+      sqrt = Math.sqrt,
+      sin = Math.sin,
+      cos = Math.cos,
+      max = Math.max,
+      min = Math.min,
+      PI = Math.PI;
+    /**
+     * @description Clone an object or array
+     * @param {Object|Array} object Cloned object
+     * @param {Boolean} recursion   Whether to use recursive cloning
+     * @return {Object|Array} Clone object
+     */
+
+    function deepClone(object) {
+      var recursion = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      if (!object) return object;
+      var parse = JSON.parse,
+        stringify = JSON.stringify;
+      if (!recursion) return parse(stringify(object));
+      var clonedObj = object instanceof Array ? [] : {};
+      if (object && (0, _typeof2["default"])(object) === 'object') {
+        for (var key in object) {
+          if (object.hasOwnProperty(key)) {
+            if (object[key] && (0, _typeof2["default"])(object[key]) === 'object') {
+              clonedObj[key] = deepClone(object[key], true);
+            } else {
+              clonedObj[key] = object[key];
+            }
+          }
+        }
+      }
+      return clonedObj;
+    }
+    /**
+     * @description Eliminate line blur due to 1px line width
+     * @param {Array} points Line points
+     * @return {Array} Line points after processed
+     */
+
+    function eliminateBlur(points) {
+      return points.map(function (_ref) {
+        var _ref2 = (0, _slicedToArray2["default"])(_ref, 2),
+          x = _ref2[0],
+          y = _ref2[1];
+        return [parseInt(x) + 0.5, parseInt(y) + 0.5];
       });
-      exports.deepClone = deepClone;
-      exports.eliminateBlur = eliminateBlur;
-      exports.checkPointIsInCircle = checkPointIsInCircle;
-      exports.getTwoPointDistance = getTwoPointDistance;
-      exports.checkPointIsInPolygon = checkPointIsInPolygon;
-      exports.checkPointIsInSector = checkPointIsInSector;
-      exports.checkPointIsNearPolyline = checkPointIsNearPolyline;
-      exports.checkPointIsInRect = checkPointIsInRect;
-      exports.getRotatePointPos = getRotatePointPos;
-      exports.getScalePointPos = getScalePointPos;
-      exports.getTranslatePointPos = getTranslatePointPos;
-      exports.getDistanceBetweenPointAndLine = getDistanceBetweenPointAndLine;
-      exports.getCircleRadianPoint = getCircleRadianPoint;
-      exports.getRegularPolygonPoints = getRegularPolygonPoints;
-      exports["default"] = void 0;
-      var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
-      var _slicedToArray2 = _interopRequireDefault(requireSlicedToArray());
-      var _typeof2 = _interopRequireDefault(require_typeof());
-      var abs = Math.abs,
-        sqrt = Math.sqrt,
-        sin = Math.sin,
-        cos = Math.cos,
-        max = Math.max,
-        min = Math.min,
-        PI = Math.PI;
-      /**
-       * @description Clone an object or array
-       * @param {Object|Array} object Cloned object
-       * @param {Boolean} recursion   Whether to use recursive cloning
-       * @return {Object|Array} Clone object
-       */
+    }
+    /**
+     * @description Check if the point is inside the circle
+     * @param {Array} point Postion of point
+     * @param {Number} rx   Circle x coordinate
+     * @param {Number} ry   Circle y coordinate
+     * @param {Number} r    Circle radius
+     * @return {Boolean} Result of check
+     */
 
-      function deepClone(object) {
-        var recursion = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-        if (!object) return object;
-        var parse = JSON.parse,
-          stringify = JSON.stringify;
-        if (!recursion) return parse(stringify(object));
-        var clonedObj = object instanceof Array ? [] : {};
-        if (object && (0, _typeof2["default"])(object) === 'object') {
-          for (var key in object) {
-            if (object.hasOwnProperty(key)) {
-              if (object[key] && (0, _typeof2["default"])(object[key]) === 'object') {
-                clonedObj[key] = deepClone(object[key], true);
-              } else {
-                clonedObj[key] = object[key];
+    function checkPointIsInCircle(point, rx, ry, r) {
+      return getTwoPointDistance(point, [rx, ry]) <= r;
+    }
+    /**
+     * @description Get the distance between two points
+     * @param {Array} point1 point1
+     * @param {Array} point2 point2
+     * @return {Number} Distance between two points
+     */
+
+    function getTwoPointDistance(_ref3, _ref4) {
+      var _ref5 = (0, _slicedToArray2["default"])(_ref3, 2),
+        xa = _ref5[0],
+        ya = _ref5[1];
+      var _ref6 = (0, _slicedToArray2["default"])(_ref4, 2),
+        xb = _ref6[0],
+        yb = _ref6[1];
+      var minusX = abs(xa - xb);
+      var minusY = abs(ya - yb);
+      return sqrt(minusX * minusX + minusY * minusY);
+    }
+    /**
+     * @description Check if the point is inside the polygon
+     * @param {Array} point  Postion of point
+     * @param {Array} points The points that makes up a polyline
+     * @return {Boolean} Result of check
+     */
+
+    function checkPointIsInPolygon(point, polygon) {
+      var counter = 0;
+      var _point = (0, _slicedToArray2["default"])(point, 2),
+        x = _point[0],
+        y = _point[1];
+      var pointNum = polygon.length;
+      for (var i = 1, p1 = polygon[0]; i <= pointNum; i++) {
+        var p2 = polygon[i % pointNum];
+        if (x > min(p1[0], p2[0]) && x <= max(p1[0], p2[0])) {
+          if (y <= max(p1[1], p2[1])) {
+            if (p1[0] !== p2[0]) {
+              var xinters = (x - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
+              if (p1[1] === p2[1] || y <= xinters) {
+                counter++;
               }
             }
           }
         }
-        return clonedObj;
+        p1 = p2;
       }
-      /**
-       * @description Eliminate line blur due to 1px line width
-       * @param {Array} points Line points
-       * @return {Array} Line points after processed
-       */
+      return counter % 2 === 1;
+    }
+    /**
+     * @description Check if the point is inside the sector
+     * @param {Array} point       Postion of point
+     * @param {Number} rx         Sector x coordinate
+     * @param {Number} ry         Sector y coordinate
+     * @param {Number} r          Sector radius
+     * @param {Number} startAngle Sector start angle
+     * @param {Number} endAngle   Sector end angle
+     * @param {Boolean} clockWise Whether the sector angle is clockwise
+     * @return {Boolean} Result of check
+     */
 
-      function eliminateBlur(points) {
-        return points.map(function (_ref) {
-          var _ref2 = (0, _slicedToArray2["default"])(_ref, 2),
-            x = _ref2[0],
-            y = _ref2[1];
-          return [parseInt(x) + 0.5, parseInt(y) + 0.5];
-        });
+    function checkPointIsInSector(point, rx, ry, r, startAngle, endAngle, clockWise) {
+      if (!point) return false;
+      if (getTwoPointDistance(point, [rx, ry]) > r) return false;
+      if (!clockWise) {
+        var _deepClone = deepClone([endAngle, startAngle]);
+        var _deepClone2 = (0, _slicedToArray2["default"])(_deepClone, 2);
+        startAngle = _deepClone2[0];
+        endAngle = _deepClone2[1];
       }
-      /**
-       * @description Check if the point is inside the circle
-       * @param {Array} point Postion of point
-       * @param {Number} rx   Circle x coordinate
-       * @param {Number} ry   Circle y coordinate
-       * @param {Number} r    Circle radius
-       * @return {Boolean} Result of check
-       */
+      var reverseBE = startAngle > endAngle;
+      if (reverseBE) {
+        var _ref7 = [endAngle, startAngle];
+        startAngle = _ref7[0];
+        endAngle = _ref7[1];
+      }
+      var minus = endAngle - startAngle;
+      if (minus >= PI * 2) return true;
+      var _point2 = (0, _slicedToArray2["default"])(point, 2),
+        x = _point2[0],
+        y = _point2[1];
+      var _getCircleRadianPoint = getCircleRadianPoint(rx, ry, r, startAngle),
+        _getCircleRadianPoint2 = (0, _slicedToArray2["default"])(_getCircleRadianPoint, 2),
+        bx = _getCircleRadianPoint2[0],
+        by = _getCircleRadianPoint2[1];
+      var _getCircleRadianPoint3 = getCircleRadianPoint(rx, ry, r, endAngle),
+        _getCircleRadianPoint4 = (0, _slicedToArray2["default"])(_getCircleRadianPoint3, 2),
+        ex = _getCircleRadianPoint4[0],
+        ey = _getCircleRadianPoint4[1];
+      var vPoint = [x - rx, y - ry];
+      var vBArm = [bx - rx, by - ry];
+      var vEArm = [ex - rx, ey - ry];
+      var reverse = minus > PI;
+      if (reverse) {
+        var _deepClone3 = deepClone([vEArm, vBArm]);
+        var _deepClone4 = (0, _slicedToArray2["default"])(_deepClone3, 2);
+        vBArm = _deepClone4[0];
+        vEArm = _deepClone4[1];
+      }
+      var inSector = isClockWise(vBArm, vPoint) && !isClockWise(vEArm, vPoint);
+      if (reverse) inSector = !inSector;
+      if (reverseBE) inSector = !inSector;
+      return inSector;
+    }
+    /**
+     * @description Determine if the point is in the clockwise direction of the vector
+     * @param {Array} vArm   Vector
+     * @param {Array} vPoint Point
+     * @return {Boolean} Result of check
+     */
 
-      function checkPointIsInCircle(point, rx, ry, r) {
-        return getTwoPointDistance(point, [rx, ry]) <= r;
-      }
-      /**
-       * @description Get the distance between two points
-       * @param {Array} point1 point1
-       * @param {Array} point2 point2
-       * @return {Number} Distance between two points
-       */
+    function isClockWise(vArm, vPoint) {
+      var _vArm = (0, _slicedToArray2["default"])(vArm, 2),
+        ax = _vArm[0],
+        ay = _vArm[1];
+      var _vPoint = (0, _slicedToArray2["default"])(vPoint, 2),
+        px = _vPoint[0],
+        py = _vPoint[1];
+      return -ay * px + ax * py > 0;
+    }
+    /**
+     * @description Check if the point is inside the polyline
+     * @param {Array} point      Postion of point
+     * @param {Array} polyline   The points that makes up a polyline
+     * @param {Number} lineWidth Polyline linewidth
+     * @return {Boolean} Result of check
+     */
 
-      function getTwoPointDistance(_ref3, _ref4) {
-        var _ref5 = (0, _slicedToArray2["default"])(_ref3, 2),
-          xa = _ref5[0],
-          ya = _ref5[1];
-        var _ref6 = (0, _slicedToArray2["default"])(_ref4, 2),
-          xb = _ref6[0],
-          yb = _ref6[1];
-        var minusX = abs(xa - xb);
-        var minusY = abs(ya - yb);
-        return sqrt(minusX * minusX + minusY * minusY);
-      }
-      /**
-       * @description Check if the point is inside the polygon
-       * @param {Array} point  Postion of point
-       * @param {Array} points The points that makes up a polyline
-       * @return {Boolean} Result of check
-       */
+    function checkPointIsNearPolyline(point, polyline, lineWidth) {
+      var halfLineWidth = lineWidth / 2;
+      var moveUpPolyline = polyline.map(function (_ref8) {
+        var _ref9 = (0, _slicedToArray2["default"])(_ref8, 2),
+          x = _ref9[0],
+          y = _ref9[1];
+        return [x, y - halfLineWidth];
+      });
+      var moveDownPolyline = polyline.map(function (_ref10) {
+        var _ref11 = (0, _slicedToArray2["default"])(_ref10, 2),
+          x = _ref11[0],
+          y = _ref11[1];
+        return [x, y + halfLineWidth];
+      });
+      var polygon = [].concat((0, _toConsumableArray2["default"])(moveUpPolyline), (0, _toConsumableArray2["default"])(moveDownPolyline.reverse()));
+      return checkPointIsInPolygon(point, polygon);
+    }
+    /**
+     * @description Check if the point is inside the rect
+     * @param {Array} point   Postion of point
+     * @param {Number} x      Rect start x coordinate
+     * @param {Number} y      Rect start y coordinate
+     * @param {Number} width  Rect width
+     * @param {Number} height Rect height
+     * @return {Boolean} Result of check
+     */
 
-      function checkPointIsInPolygon(point, polygon) {
-        var counter = 0;
-        var _point = (0, _slicedToArray2["default"])(point, 2),
-          x = _point[0],
-          y = _point[1];
-        var pointNum = polygon.length;
-        for (var i = 1, p1 = polygon[0]; i <= pointNum; i++) {
-          var p2 = polygon[i % pointNum];
-          if (x > min(p1[0], p2[0]) && x <= max(p1[0], p2[0])) {
-            if (y <= max(p1[1], p2[1])) {
-              if (p1[0] !== p2[0]) {
-                var xinters = (x - p1[0]) * (p2[1] - p1[1]) / (p2[0] - p1[0]) + p1[1];
-                if (p1[1] === p2[1] || y <= xinters) {
-                  counter++;
-                }
-              }
-            }
-          }
-          p1 = p2;
-        }
-        return counter % 2 === 1;
-      }
-      /**
-       * @description Check if the point is inside the sector
-       * @param {Array} point       Postion of point
-       * @param {Number} rx         Sector x coordinate
-       * @param {Number} ry         Sector y coordinate
-       * @param {Number} r          Sector radius
-       * @param {Number} startAngle Sector start angle
-       * @param {Number} endAngle   Sector end angle
-       * @param {Boolean} clockWise Whether the sector angle is clockwise
-       * @return {Boolean} Result of check
-       */
+    function checkPointIsInRect(_ref12, x, y, width, height) {
+      var _ref13 = (0, _slicedToArray2["default"])(_ref12, 2),
+        px = _ref13[0],
+        py = _ref13[1];
+      if (px < x) return false;
+      if (py < y) return false;
+      if (px > x + width) return false;
+      if (py > y + height) return false;
+      return true;
+    }
+    /**
+     * @description Get the coordinates of the rotated point
+     * @param {Number} rotate Degree of rotation
+     * @param {Array} point   Postion of point
+     * @param {Array} origin  Rotation center
+     * @param {Array} origin  Rotation center
+     * @return {Number} Coordinates after rotation
+     */
 
-      function checkPointIsInSector(point, rx, ry, r, startAngle, endAngle, clockWise) {
-        if (!point) return false;
-        if (getTwoPointDistance(point, [rx, ry]) > r) return false;
-        if (!clockWise) {
-          var _deepClone = deepClone([endAngle, startAngle]);
-          var _deepClone2 = (0, _slicedToArray2["default"])(_deepClone, 2);
-          startAngle = _deepClone2[0];
-          endAngle = _deepClone2[1];
-        }
-        var reverseBE = startAngle > endAngle;
-        if (reverseBE) {
-          var _ref7 = [endAngle, startAngle];
-          startAngle = _ref7[0];
-          endAngle = _ref7[1];
-        }
-        var minus = endAngle - startAngle;
-        if (minus >= PI * 2) return true;
-        var _point2 = (0, _slicedToArray2["default"])(point, 2),
-          x = _point2[0],
-          y = _point2[1];
-        var _getCircleRadianPoint = getCircleRadianPoint(rx, ry, r, startAngle),
-          _getCircleRadianPoint2 = (0, _slicedToArray2["default"])(_getCircleRadianPoint, 2),
-          bx = _getCircleRadianPoint2[0],
-          by = _getCircleRadianPoint2[1];
-        var _getCircleRadianPoint3 = getCircleRadianPoint(rx, ry, r, endAngle),
-          _getCircleRadianPoint4 = (0, _slicedToArray2["default"])(_getCircleRadianPoint3, 2),
-          ex = _getCircleRadianPoint4[0],
-          ey = _getCircleRadianPoint4[1];
-        var vPoint = [x - rx, y - ry];
-        var vBArm = [bx - rx, by - ry];
-        var vEArm = [ex - rx, ey - ry];
-        var reverse = minus > PI;
-        if (reverse) {
-          var _deepClone3 = deepClone([vEArm, vBArm]);
-          var _deepClone4 = (0, _slicedToArray2["default"])(_deepClone3, 2);
-          vBArm = _deepClone4[0];
-          vEArm = _deepClone4[1];
-        }
-        var inSector = isClockWise(vBArm, vPoint) && !isClockWise(vEArm, vPoint);
-        if (reverse) inSector = !inSector;
-        if (reverseBE) inSector = !inSector;
-        return inSector;
-      }
-      /**
-       * @description Determine if the point is in the clockwise direction of the vector
-       * @param {Array} vArm   Vector
-       * @param {Array} vPoint Point
-       * @return {Boolean} Result of check
-       */
+    function getRotatePointPos() {
+      var rotate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var point = arguments.length > 1 ? arguments[1] : undefined;
+      var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
+      if (!point) return false;
+      if (rotate % 360 === 0) return point;
+      var _point3 = (0, _slicedToArray2["default"])(point, 2),
+        x = _point3[0],
+        y = _point3[1];
+      var _origin = (0, _slicedToArray2["default"])(origin, 2),
+        ox = _origin[0],
+        oy = _origin[1];
+      rotate *= PI / 180;
+      return [(x - ox) * cos(rotate) - (y - oy) * sin(rotate) + ox, (x - ox) * sin(rotate) + (y - oy) * cos(rotate) + oy];
+    }
+    /**
+     * @description Get the coordinates of the scaled point
+     * @param {Array} scale  Scale factor
+     * @param {Array} point  Postion of point
+     * @param {Array} origin Scale center
+     * @return {Number} Coordinates after scale
+     */
 
-      function isClockWise(vArm, vPoint) {
-        var _vArm = (0, _slicedToArray2["default"])(vArm, 2),
-          ax = _vArm[0],
-          ay = _vArm[1];
-        var _vPoint = (0, _slicedToArray2["default"])(vPoint, 2),
-          px = _vPoint[0],
-          py = _vPoint[1];
-        return -ay * px + ax * py > 0;
-      }
-      /**
-       * @description Check if the point is inside the polyline
-       * @param {Array} point      Postion of point
-       * @param {Array} polyline   The points that makes up a polyline
-       * @param {Number} lineWidth Polyline linewidth
-       * @return {Boolean} Result of check
-       */
+    function getScalePointPos() {
+      var scale = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [1, 1];
+      var point = arguments.length > 1 ? arguments[1] : undefined;
+      var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
+      if (!point) return false;
+      if (scale === 1) return point;
+      var _point4 = (0, _slicedToArray2["default"])(point, 2),
+        x = _point4[0],
+        y = _point4[1];
+      var _origin2 = (0, _slicedToArray2["default"])(origin, 2),
+        ox = _origin2[0],
+        oy = _origin2[1];
+      var _scale = (0, _slicedToArray2["default"])(scale, 2),
+        xs = _scale[0],
+        ys = _scale[1];
+      var relativePosX = x - ox;
+      var relativePosY = y - oy;
+      return [relativePosX * xs + ox, relativePosY * ys + oy];
+    }
+    /**
+     * @description Get the coordinates of the scaled point
+     * @param {Array} translate Translation distance
+     * @param {Array} point     Postion of point
+     * @return {Number} Coordinates after translation
+     */
 
-      function checkPointIsNearPolyline(point, polyline, lineWidth) {
-        var halfLineWidth = lineWidth / 2;
-        var moveUpPolyline = polyline.map(function (_ref8) {
-          var _ref9 = (0, _slicedToArray2["default"])(_ref8, 2),
-            x = _ref9[0],
-            y = _ref9[1];
-          return [x, y - halfLineWidth];
-        });
-        var moveDownPolyline = polyline.map(function (_ref10) {
-          var _ref11 = (0, _slicedToArray2["default"])(_ref10, 2),
-            x = _ref11[0],
-            y = _ref11[1];
-          return [x, y + halfLineWidth];
-        });
-        var polygon = [].concat((0, _toConsumableArray2["default"])(moveUpPolyline), (0, _toConsumableArray2["default"])(moveDownPolyline.reverse()));
-        return checkPointIsInPolygon(point, polygon);
-      }
-      /**
-       * @description Check if the point is inside the rect
-       * @param {Array} point   Postion of point
-       * @param {Number} x      Rect start x coordinate
-       * @param {Number} y      Rect start y coordinate
-       * @param {Number} width  Rect width
-       * @param {Number} height Rect height
-       * @return {Boolean} Result of check
-       */
+    function getTranslatePointPos(translate, point) {
+      if (!translate || !point) return false;
+      var _point5 = (0, _slicedToArray2["default"])(point, 2),
+        x = _point5[0],
+        y = _point5[1];
+      var _translate = (0, _slicedToArray2["default"])(translate, 2),
+        tx = _translate[0],
+        ty = _translate[1];
+      return [x + tx, y + ty];
+    }
+    /**
+     * @description Get the distance from the point to the line
+     * @param {Array} point     Postion of point
+     * @param {Array} lineBegin Line start position
+     * @param {Array} lineEnd   Line end position
+     * @return {Number} Distance between point and line
+     */
 
-      function checkPointIsInRect(_ref12, x, y, width, height) {
-        var _ref13 = (0, _slicedToArray2["default"])(_ref12, 2),
-          px = _ref13[0],
-          py = _ref13[1];
-        if (px < x) return false;
-        if (py < y) return false;
-        if (px > x + width) return false;
-        if (py > y + height) return false;
-        return true;
-      }
-      /**
-       * @description Get the coordinates of the rotated point
-       * @param {Number} rotate Degree of rotation
-       * @param {Array} point   Postion of point
-       * @param {Array} origin  Rotation center
-       * @param {Array} origin  Rotation center
-       * @return {Number} Coordinates after rotation
-       */
+    function getDistanceBetweenPointAndLine(point, lineBegin, lineEnd) {
+      if (!point || !lineBegin || !lineEnd) return false;
+      var _point6 = (0, _slicedToArray2["default"])(point, 2),
+        x = _point6[0],
+        y = _point6[1];
+      var _lineBegin = (0, _slicedToArray2["default"])(lineBegin, 2),
+        x1 = _lineBegin[0],
+        y1 = _lineBegin[1];
+      var _lineEnd = (0, _slicedToArray2["default"])(lineEnd, 2),
+        x2 = _lineEnd[0],
+        y2 = _lineEnd[1];
+      var a = y2 - y1;
+      var b = x1 - x2;
+      var c = y1 * (x2 - x1) - x1 * (y2 - y1);
+      var molecule = abs(a * x + b * y + c);
+      var denominator = sqrt(a * a + b * b);
+      return molecule / denominator;
+    }
+    /**
+     * @description Get the coordinates of the specified radian on the circle
+     * @param {Number} x      Circle x coordinate
+     * @param {Number} y      Circle y coordinate
+     * @param {Number} radius Circle radius
+     * @param {Number} radian Specfied radian
+     * @return {Array} Postion of point
+     */
 
-      function getRotatePointPos() {
-        var rotate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-        var point = arguments.length > 1 ? arguments[1] : undefined;
-        var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
-        if (!point) return false;
-        if (rotate % 360 === 0) return point;
-        var _point3 = (0, _slicedToArray2["default"])(point, 2),
-          x = _point3[0],
-          y = _point3[1];
-        var _origin = (0, _slicedToArray2["default"])(origin, 2),
-          ox = _origin[0],
-          oy = _origin[1];
-        rotate *= PI / 180;
-        return [(x - ox) * cos(rotate) - (y - oy) * sin(rotate) + ox, (x - ox) * sin(rotate) + (y - oy) * cos(rotate) + oy];
-      }
-      /**
-       * @description Get the coordinates of the scaled point
-       * @param {Array} scale  Scale factor
-       * @param {Array} point  Postion of point
-       * @param {Array} origin Scale center
-       * @return {Number} Coordinates after scale
-       */
+    function getCircleRadianPoint(x, y, radius, radian) {
+      return [x + cos(radian) * radius, y + sin(radian) * radius];
+    }
+    /**
+     * @description Get the points that make up a regular polygon
+     * @param {Number} x     X coordinate of the polygon inscribed circle
+     * @param {Number} y     Y coordinate of the polygon inscribed circle
+     * @param {Number} r     Radius of the polygon inscribed circle
+     * @param {Number} side  Side number
+     * @param {Number} minus Radian offset
+     * @return {Array} Points that make up a regular polygon
+     */
 
-      function getScalePointPos() {
-        var scale = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [1, 1];
-        var point = arguments.length > 1 ? arguments[1] : undefined;
-        var origin = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [0, 0];
-        if (!point) return false;
-        if (scale === 1) return point;
-        var _point4 = (0, _slicedToArray2["default"])(point, 2),
-          x = _point4[0],
-          y = _point4[1];
-        var _origin2 = (0, _slicedToArray2["default"])(origin, 2),
-          ox = _origin2[0],
-          oy = _origin2[1];
-        var _scale = (0, _slicedToArray2["default"])(scale, 2),
-          xs = _scale[0],
-          ys = _scale[1];
-        var relativePosX = x - ox;
-        var relativePosY = y - oy;
-        return [relativePosX * xs + ox, relativePosY * ys + oy];
-      }
-      /**
-       * @description Get the coordinates of the scaled point
-       * @param {Array} translate Translation distance
-       * @param {Array} point     Postion of point
-       * @return {Number} Coordinates after translation
-       */
-
-      function getTranslatePointPos(translate, point) {
-        if (!translate || !point) return false;
-        var _point5 = (0, _slicedToArray2["default"])(point, 2),
-          x = _point5[0],
-          y = _point5[1];
-        var _translate = (0, _slicedToArray2["default"])(translate, 2),
-          tx = _translate[0],
-          ty = _translate[1];
-        return [x + tx, y + ty];
-      }
-      /**
-       * @description Get the distance from the point to the line
-       * @param {Array} point     Postion of point
-       * @param {Array} lineBegin Line start position
-       * @param {Array} lineEnd   Line end position
-       * @return {Number} Distance between point and line
-       */
-
-      function getDistanceBetweenPointAndLine(point, lineBegin, lineEnd) {
-        if (!point || !lineBegin || !lineEnd) return false;
-        var _point6 = (0, _slicedToArray2["default"])(point, 2),
-          x = _point6[0],
-          y = _point6[1];
-        var _lineBegin = (0, _slicedToArray2["default"])(lineBegin, 2),
-          x1 = _lineBegin[0],
-          y1 = _lineBegin[1];
-        var _lineEnd = (0, _slicedToArray2["default"])(lineEnd, 2),
-          x2 = _lineEnd[0],
-          y2 = _lineEnd[1];
-        var a = y2 - y1;
-        var b = x1 - x2;
-        var c = y1 * (x2 - x1) - x1 * (y2 - y1);
-        var molecule = abs(a * x + b * y + c);
-        var denominator = sqrt(a * a + b * b);
-        return molecule / denominator;
-      }
-      /**
-       * @description Get the coordinates of the specified radian on the circle
-       * @param {Number} x      Circle x coordinate
-       * @param {Number} y      Circle y coordinate
-       * @param {Number} radius Circle radius
-       * @param {Number} radian Specfied radian
-       * @return {Array} Postion of point
-       */
-
-      function getCircleRadianPoint(x, y, radius, radian) {
-        return [x + cos(radian) * radius, y + sin(radian) * radius];
-      }
-      /**
-       * @description Get the points that make up a regular polygon
-       * @param {Number} x     X coordinate of the polygon inscribed circle
-       * @param {Number} y     Y coordinate of the polygon inscribed circle
-       * @param {Number} r     Radius of the polygon inscribed circle
-       * @param {Number} side  Side number
-       * @param {Number} minus Radian offset
-       * @return {Array} Points that make up a regular polygon
-       */
-
-      function getRegularPolygonPoints(rx, ry, r, side) {
-        var minus = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : PI * -0.5;
-        var radianGap = PI * 2 / side;
-        var radians = new Array(side).fill('').map(function (t, i) {
-          return i * radianGap + minus;
-        });
-        return radians.map(function (radian) {
-          return getCircleRadianPoint(rx, ry, r, radian);
-        });
-      }
-      var _default = {
-        deepClone: deepClone,
-        eliminateBlur: eliminateBlur,
-        checkPointIsInCircle: checkPointIsInCircle,
-        checkPointIsInPolygon: checkPointIsInPolygon,
-        checkPointIsInSector: checkPointIsInSector,
-        checkPointIsNearPolyline: checkPointIsNearPolyline,
-        getTwoPointDistance: getTwoPointDistance,
-        getRotatePointPos: getRotatePointPos,
-        getScalePointPos: getScalePointPos,
-        getTranslatePointPos: getTranslatePointPos,
-        getCircleRadianPoint: getCircleRadianPoint,
-        getRegularPolygonPoints: getRegularPolygonPoints,
-        getDistanceBetweenPointAndLine: getDistanceBetweenPointAndLine
-      };
-      exports["default"] = _default;
-    })(util$1);
-    return util$1;
-  }
+    function getRegularPolygonPoints(rx, ry, r, side) {
+      var minus = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : PI * -0.5;
+      var radianGap = PI * 2 / side;
+      var radians = new Array(side).fill('').map(function (t, i) {
+        return i * radianGap + minus;
+      });
+      return radians.map(function (radian) {
+        return getCircleRadianPoint(rx, ry, r, radian);
+      });
+    }
+    var _default = {
+      deepClone: deepClone,
+      eliminateBlur: eliminateBlur,
+      checkPointIsInCircle: checkPointIsInCircle,
+      checkPointIsInPolygon: checkPointIsInPolygon,
+      checkPointIsInSector: checkPointIsInSector,
+      checkPointIsNearPolyline: checkPointIsNearPolyline,
+      getTwoPointDistance: getTwoPointDistance,
+      getRotatePointPos: getRotatePointPos,
+      getScalePointPos: getScalePointPos,
+      getTranslatePointPos: getTranslatePointPos,
+      getCircleRadianPoint: getCircleRadianPoint,
+      getRegularPolygonPoints: getRegularPolygonPoints,
+      getDistanceBetweenPointAndLine: getDistanceBetweenPointAndLine
+    };
+    exports["default"] = _default;
+  })(util$1);
 
   var _interopRequireDefault = interopRequireDefault.exports;
   Object.defineProperty(util$2, "__esModule", {
@@ -3675,7 +3653,7 @@
   util$2.radianToAngle = radianToAngle;
   var _toConsumableArray2 = _interopRequireDefault(requireToConsumableArray());
   var _typeof2 = _interopRequireDefault(require_typeof());
-  var _util = requireUtil$1();
+  var _util = util$1;
   function filterNonNumber(array) {
     return array.filter(function (n) {
       return typeof n === 'number';
@@ -3770,8 +3748,6 @@
   function radianToAngle(radian) {
     return radian / Math.PI * 180;
   }
-
-  var utilExports = requireUtil$1();
 
   var lib = {};
 
@@ -4061,7 +4037,7 @@
 
   //
 
-  var script$9 = {
+  var script$a = {
     name: 'DvBorderBox11',
     mixins: [autoResize],
     props: {
@@ -4104,7 +4080,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
       },
       fade: lib.fade
     },
@@ -4188,9 +4164,9 @@
   }
 
   /* script */
-  const __vue_script__$9 = script$9;
+  const __vue_script__$a = script$a;
   /* template */
-  var __vue_render__$9 = function () {
+  var __vue_render__$a = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -4666,17 +4642,17 @@
       _c("div", { staticClass: "border-box-content" }, [_vm._t("default")], 2),
     ])
   };
-  var __vue_staticRenderFns__$9 = [];
-  __vue_render__$9._withStripped = true;
+  var __vue_staticRenderFns__$a = [];
+  __vue_render__$a._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$9 = undefined;
+    const __vue_inject_styles__$a = undefined;
     /* scoped */
-    const __vue_scope_id__$9 = undefined;
+    const __vue_scope_id__$a = undefined;
     /* module identifier */
-    const __vue_module_identifier__$9 = undefined;
+    const __vue_module_identifier__$a = undefined;
     /* functional template */
-    const __vue_is_functional_template__$9 = false;
+    const __vue_is_functional_template__$a = false;
     /* style inject */
     
     /* style inject SSR */
@@ -4685,13 +4661,13 @@
     
 
     
-    const __vue_component__$9 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
-      __vue_inject_styles__$9,
-      __vue_script__$9,
-      __vue_scope_id__$9,
-      __vue_is_functional_template__$9,
-      __vue_module_identifier__$9,
+    const __vue_component__$a = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$a, staticRenderFns: __vue_staticRenderFns__$a },
+      __vue_inject_styles__$a,
+      __vue_script__$a,
+      __vue_scope_id__$a,
+      __vue_is_functional_template__$a,
+      __vue_module_identifier__$a,
       false,
       undefined,
       undefined,
@@ -4699,12 +4675,12 @@
     );
 
   function borderBox11 (Vue) {
-    Vue.component(__vue_component__$9.name, __vue_component__$9);
+    Vue.component(__vue_component__$a.name, __vue_component__$a);
   }
 
   //
 
-  var script$8 = {
+  var script$9 = {
     name: 'DvBorderBox12',
     mixins: [autoResize],
     props: {
@@ -4739,7 +4715,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
       },
       fade: lib.fade
     },
@@ -4751,9 +4727,9 @@
   };
 
   /* script */
-  const __vue_script__$8 = script$8;
+  const __vue_script__$9 = script$9;
   /* template */
-  var __vue_render__$8 = function () {
+  var __vue_render__$9 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -4982,17 +4958,17 @@
       _c("div", { staticClass: "border-box-content" }, [_vm._t("default")], 2),
     ])
   };
-  var __vue_staticRenderFns__$8 = [];
-  __vue_render__$8._withStripped = true;
+  var __vue_staticRenderFns__$9 = [];
+  __vue_render__$9._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$8 = undefined;
+    const __vue_inject_styles__$9 = undefined;
     /* scoped */
-    const __vue_scope_id__$8 = undefined;
+    const __vue_scope_id__$9 = undefined;
     /* module identifier */
-    const __vue_module_identifier__$8 = undefined;
+    const __vue_module_identifier__$9 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$8 = false;
+    const __vue_is_functional_template__$9 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -5001,13 +4977,13 @@
     
 
     
-    const __vue_component__$8 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
-      __vue_inject_styles__$8,
-      __vue_script__$8,
-      __vue_scope_id__$8,
-      __vue_is_functional_template__$8,
-      __vue_module_identifier__$8,
+    const __vue_component__$9 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
+      __vue_inject_styles__$9,
+      __vue_script__$9,
+      __vue_scope_id__$9,
+      __vue_is_functional_template__$9,
+      __vue_module_identifier__$9,
       false,
       undefined,
       undefined,
@@ -5015,12 +4991,12 @@
     );
 
   function borderBox12 (Vue) {
-    Vue.component(__vue_component__$8.name, __vue_component__$8);
+    Vue.component(__vue_component__$9.name, __vue_component__$9);
   }
 
   //
 
-  var script$7 = {
+  var script$8 = {
     name: 'DvBorderBox13',
     mixins: [autoResize],
     props: {
@@ -5053,7 +5029,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
       }
     },
     mounted () {
@@ -5064,9 +5040,9 @@
   };
 
   /* script */
-  const __vue_script__$7 = script$7;
+  const __vue_script__$8 = script$8;
   /* template */
-  var __vue_render__$7 = function () {
+  var __vue_render__$8 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -5143,17 +5119,17 @@
       _c("div", { staticClass: "border-box-content" }, [_vm._t("default")], 2),
     ])
   };
-  var __vue_staticRenderFns__$7 = [];
-  __vue_render__$7._withStripped = true;
+  var __vue_staticRenderFns__$8 = [];
+  __vue_render__$8._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$7 = undefined;
+    const __vue_inject_styles__$8 = undefined;
     /* scoped */
-    const __vue_scope_id__$7 = undefined;
+    const __vue_scope_id__$8 = undefined;
     /* module identifier */
-    const __vue_module_identifier__$7 = undefined;
+    const __vue_module_identifier__$8 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$7 = false;
+    const __vue_is_functional_template__$8 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -5162,13 +5138,13 @@
     
 
     
-    const __vue_component__$7 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
-      __vue_inject_styles__$7,
-      __vue_script__$7,
-      __vue_scope_id__$7,
-      __vue_is_functional_template__$7,
-      __vue_module_identifier__$7,
+    const __vue_component__$8 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
+      __vue_inject_styles__$8,
+      __vue_script__$8,
+      __vue_scope_id__$8,
+      __vue_is_functional_template__$8,
+      __vue_module_identifier__$8,
       false,
       undefined,
       undefined,
@@ -5176,12 +5152,12 @@
     );
 
   function borderBox13 (Vue) {
-    Vue.component(__vue_component__$7.name, __vue_component__$7);
+    Vue.component(__vue_component__$8.name, __vue_component__$8);
   }
 
   //
 
-  var script$6 = {
+  var script$7 = {
     name: 'DvBorderBox9',
     mixins: [autoResize],
     props: {
@@ -5218,7 +5194,7 @@
       mergeColor () {
         const { color, defaultColor } = this;
 
-        this.mergedColor = deepMerge_1(utilExports.deepClone(defaultColor, true), color || []);
+        this.mergedColor = deepMerge_1(util$1.deepClone(defaultColor, true), color || []);
       }
     },
     mounted () {
@@ -5229,9 +5205,9 @@
   };
 
   /* script */
-  const __vue_script__$6 = script$6;
+  const __vue_script__$7 = script$7;
   /* template */
-  var __vue_render__$6 = function () {
+  var __vue_render__$7 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -5577,17 +5553,17 @@
       _c("div", { staticClass: "border-box-content" }, [_vm._t("default")], 2),
     ])
   };
-  var __vue_staticRenderFns__$6 = [];
-  __vue_render__$6._withStripped = true;
+  var __vue_staticRenderFns__$7 = [];
+  __vue_render__$7._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$6 = undefined;
+    const __vue_inject_styles__$7 = undefined;
     /* scoped */
-    const __vue_scope_id__$6 = undefined;
+    const __vue_scope_id__$7 = undefined;
     /* module identifier */
-    const __vue_module_identifier__$6 = undefined;
+    const __vue_module_identifier__$7 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$6 = false;
+    const __vue_is_functional_template__$7 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -5596,13 +5572,13 @@
     
 
     
-    const __vue_component__$6 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$6, staticRenderFns: __vue_staticRenderFns__$6 },
-      __vue_inject_styles__$6,
-      __vue_script__$6,
-      __vue_scope_id__$6,
-      __vue_is_functional_template__$6,
-      __vue_module_identifier__$6,
+    const __vue_component__$7 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
+      __vue_inject_styles__$7,
+      __vue_script__$7,
+      __vue_scope_id__$7,
+      __vue_is_functional_template__$7,
+      __vue_module_identifier__$7,
       false,
       undefined,
       undefined,
@@ -5610,7 +5586,7 @@
     );
 
   function borderBox9 (Vue) {
-    Vue.component(__vue_component__$6.name, __vue_component__$6);
+    Vue.component(__vue_component__$7.name, __vue_component__$7);
   }
 
   var scrollbar = {exports: {}};
@@ -7329,447 +7305,440 @@
     return scrollbarWidth;
   }
 
-  var hasRequiredScrollbar;
-  function requireScrollbar() {
-    if (hasRequiredScrollbar) return scrollbar.exports;
-    hasRequiredScrollbar = 1;
-    (function (module) {
-      module.exports = /******/function (modules) {
-        // webpackBootstrap
-        /******/ // The module cache
+  (function (module) {
+    module.exports = /******/function (modules) {
+      // webpackBootstrap
+      /******/ // The module cache
+      /******/
+      var installedModules = {};
+      /******/
+      /******/ // The require function
+      /******/
+      function __webpack_require__(moduleId) {
         /******/
-        var installedModules = {};
-        /******/
-        /******/ // The require function
-        /******/
-        function __webpack_require__(moduleId) {
-          /******/
-          /******/ // Check if module is in cache
-          /******/if (installedModules[moduleId]) {
-            /******/return installedModules[moduleId].exports;
-            /******/
-          }
-          /******/ // Create a new module (and put it into the cache)
-          /******/
-          var module = installedModules[moduleId] = {
-            /******/i: moduleId,
-            /******/l: false,
-            /******/exports: {}
-            /******/
-          };
-          /******/
-          /******/ // Execute the module function
-          /******/
-          modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-          /******/
-          /******/ // Flag the module as loaded
-          /******/
-          module.l = true;
-          /******/
-          /******/ // Return the exports of the module
-          /******/
-          return module.exports;
+        /******/ // Check if module is in cache
+        /******/if (installedModules[moduleId]) {
+          /******/return installedModules[moduleId].exports;
           /******/
         }
+        /******/ // Create a new module (and put it into the cache)
         /******/
-        /******/
-        /******/ // expose the modules object (__webpack_modules__)
-        /******/
-        __webpack_require__.m = modules;
-        /******/
-        /******/ // expose the module cache
-        /******/
-        __webpack_require__.c = installedModules;
-        /******/
-        /******/ // define getter function for harmony exports
-        /******/
-        __webpack_require__.d = function (exports, name, getter) {
-          /******/if (!__webpack_require__.o(exports, name)) {
-            /******/Object.defineProperty(exports, name, {
-              enumerable: true,
-              get: getter
-            });
-            /******/
-          }
+        var module = installedModules[moduleId] = {
+          /******/i: moduleId,
+          /******/l: false,
+          /******/exports: {}
           /******/
         };
         /******/
-        /******/ // define __esModule on exports
+        /******/ // Execute the module function
         /******/
-        __webpack_require__.r = function (exports) {
-          /******/if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-            /******/Object.defineProperty(exports, Symbol.toStringTag, {
-              value: 'Module'
-            });
-            /******/
-          }
-          /******/
-          Object.defineProperty(exports, '__esModule', {
-            value: true
-          });
-          /******/
-        };
+        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
         /******/
-        /******/ // create a fake namespace object
-        /******/ // mode & 1: value is a module id, require it
-        /******/ // mode & 2: merge all properties of value into the ns
-        /******/ // mode & 4: return value when already ns object
-        /******/ // mode & 8|1: behave like require
+        /******/ // Flag the module as loaded
         /******/
-        __webpack_require__.t = function (value, mode) {
-          /******/if (mode & 1) value = __webpack_require__(value);
-          /******/
-          if (mode & 8) return value;
-          /******/
-          if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
-          /******/
-          var ns = Object.create(null);
-          /******/
-          __webpack_require__.r(ns);
-          /******/
-          Object.defineProperty(ns, 'default', {
-            enumerable: true,
-            value: value
-          });
-          /******/
-          if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) {
-            return value[key];
-          }.bind(null, key));
-          /******/
-          return ns;
-          /******/
-        };
+        module.l = true;
         /******/
-        /******/ // getDefaultExport function for compatibility with non-harmony modules
+        /******/ // Return the exports of the module
         /******/
-        __webpack_require__.n = function (module) {
-          /******/var getter = module && module.__esModule ? /******/function getDefault() {
-            return module['default'];
-          } : /******/function getModuleExports() {
-            return module;
-          };
-          /******/
-          __webpack_require__.d(getter, 'a', getter);
-          /******/
-          return getter;
-          /******/
-        };
-        /******/
-        /******/ // Object.prototype.hasOwnProperty.call
-        /******/
-        __webpack_require__.o = function (object, property) {
-          return Object.prototype.hasOwnProperty.call(object, property);
-        };
-        /******/
-        /******/ // __webpack_public_path__
-        /******/
-        __webpack_require__.p = "/dist/";
-        /******/
-        /******/
-        /******/ // Load entry module and return exports
-        /******/
-        return __webpack_require__(__webpack_require__.s = 131);
+        return module.exports;
         /******/
       }
-      /************************************************************************/
-      /******/({
-        /***/131: /***/function (module, __webpack_exports__, __webpack_require__) {
+      /******/
+      /******/
+      /******/ // expose the modules object (__webpack_modules__)
+      /******/
+      __webpack_require__.m = modules;
+      /******/
+      /******/ // expose the module cache
+      /******/
+      __webpack_require__.c = installedModules;
+      /******/
+      /******/ // define getter function for harmony exports
+      /******/
+      __webpack_require__.d = function (exports, name, getter) {
+        /******/if (!__webpack_require__.o(exports, name)) {
+          /******/Object.defineProperty(exports, name, {
+            enumerable: true,
+            get: getter
+          });
+          /******/
+        }
+        /******/
+      };
+      /******/
+      /******/ // define __esModule on exports
+      /******/
+      __webpack_require__.r = function (exports) {
+        /******/if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+          /******/Object.defineProperty(exports, Symbol.toStringTag, {
+            value: 'Module'
+          });
+          /******/
+        }
+        /******/
+        Object.defineProperty(exports, '__esModule', {
+          value: true
+        });
+        /******/
+      };
+      /******/
+      /******/ // create a fake namespace object
+      /******/ // mode & 1: value is a module id, require it
+      /******/ // mode & 2: merge all properties of value into the ns
+      /******/ // mode & 4: return value when already ns object
+      /******/ // mode & 8|1: behave like require
+      /******/
+      __webpack_require__.t = function (value, mode) {
+        /******/if (mode & 1) value = __webpack_require__(value);
+        /******/
+        if (mode & 8) return value;
+        /******/
+        if (mode & 4 && typeof value === 'object' && value && value.__esModule) return value;
+        /******/
+        var ns = Object.create(null);
+        /******/
+        __webpack_require__.r(ns);
+        /******/
+        Object.defineProperty(ns, 'default', {
+          enumerable: true,
+          value: value
+        });
+        /******/
+        if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) {
+          return value[key];
+        }.bind(null, key));
+        /******/
+        return ns;
+        /******/
+      };
+      /******/
+      /******/ // getDefaultExport function for compatibility with non-harmony modules
+      /******/
+      __webpack_require__.n = function (module) {
+        /******/var getter = module && module.__esModule ? /******/function getDefault() {
+          return module['default'];
+        } : /******/function getModuleExports() {
+          return module;
+        };
+        /******/
+        __webpack_require__.d(getter, 'a', getter);
+        /******/
+        return getter;
+        /******/
+      };
+      /******/
+      /******/ // Object.prototype.hasOwnProperty.call
+      /******/
+      __webpack_require__.o = function (object, property) {
+        return Object.prototype.hasOwnProperty.call(object, property);
+      };
+      /******/
+      /******/ // __webpack_public_path__
+      /******/
+      __webpack_require__.p = "/dist/";
+      /******/
+      /******/
+      /******/ // Load entry module and return exports
+      /******/
+      return __webpack_require__(__webpack_require__.s = 131);
+      /******/
+    }
+    /************************************************************************/
+    /******/({
+      /***/131: /***/function (module, __webpack_exports__, __webpack_require__) {
 
-          __webpack_require__.r(__webpack_exports__);
+        __webpack_require__.r(__webpack_exports__);
 
-          // EXTERNAL MODULE: external "element-ui/lib/utils/resize-event"
-          var resize_event_ = __webpack_require__(16);
+        // EXTERNAL MODULE: external "element-ui/lib/utils/resize-event"
+        var resize_event_ = __webpack_require__(16);
 
-          // EXTERNAL MODULE: external "element-ui/lib/utils/scrollbar-width"
-          var scrollbar_width_ = __webpack_require__(38);
-          var scrollbar_width_default = /*#__PURE__*/__webpack_require__.n(scrollbar_width_);
+        // EXTERNAL MODULE: external "element-ui/lib/utils/scrollbar-width"
+        var scrollbar_width_ = __webpack_require__(38);
+        var scrollbar_width_default = /*#__PURE__*/__webpack_require__.n(scrollbar_width_);
 
-          // EXTERNAL MODULE: external "element-ui/lib/utils/util"
-          var util_ = __webpack_require__(3);
+        // EXTERNAL MODULE: external "element-ui/lib/utils/util"
+        var util_ = __webpack_require__(3);
 
-          // EXTERNAL MODULE: external "element-ui/lib/utils/dom"
-          var dom_ = __webpack_require__(2);
+        // EXTERNAL MODULE: external "element-ui/lib/utils/dom"
+        var dom_ = __webpack_require__(2);
 
-          // CONCATENATED MODULE: ./packages/scrollbar/src/util.js
-          var BAR_MAP = {
-            vertical: {
-              offset: 'offsetHeight',
-              scroll: 'scrollTop',
-              scrollSize: 'scrollHeight',
-              size: 'height',
-              key: 'vertical',
-              axis: 'Y',
-              client: 'clientY',
-              direction: 'top'
-            },
-            horizontal: {
-              offset: 'offsetWidth',
-              scroll: 'scrollLeft',
-              scrollSize: 'scrollWidth',
-              size: 'width',
-              key: 'horizontal',
-              axis: 'X',
-              client: 'clientX',
-              direction: 'left'
-            }
-          };
-          function renderThumbStyle(_ref) {
-            var move = _ref.move,
-              size = _ref.size,
-              bar = _ref.bar;
-            var style = {};
-            var translate = 'translate' + bar.axis + '(' + move + '%)';
-            style[bar.size] = size;
-            style.transform = translate;
-            style.msTransform = translate;
-            style.webkitTransform = translate;
-            return style;
+        // CONCATENATED MODULE: ./packages/scrollbar/src/util.js
+        var BAR_MAP = {
+          vertical: {
+            offset: 'offsetHeight',
+            scroll: 'scrollTop',
+            scrollSize: 'scrollHeight',
+            size: 'height',
+            key: 'vertical',
+            axis: 'Y',
+            client: 'clientY',
+            direction: 'top'
+          },
+          horizontal: {
+            offset: 'offsetWidth',
+            scroll: 'scrollLeft',
+            scrollSize: 'scrollWidth',
+            size: 'width',
+            key: 'horizontal',
+            axis: 'X',
+            client: 'clientX',
+            direction: 'left'
           }
-          // CONCATENATED MODULE: ./packages/scrollbar/src/bar.js
+        };
+        function renderThumbStyle(_ref) {
+          var move = _ref.move,
+            size = _ref.size,
+            bar = _ref.bar;
+          var style = {};
+          var translate = 'translate' + bar.axis + '(' + move + '%)';
+          style[bar.size] = size;
+          style.transform = translate;
+          style.msTransform = translate;
+          style.webkitTransform = translate;
+          return style;
+        }
+        // CONCATENATED MODULE: ./packages/scrollbar/src/bar.js
 
-          /* istanbul ignore next */
-          /* harmony default export */
-          var src_bar = {
-            name: 'Bar',
-            props: {
-              vertical: Boolean,
-              size: String,
-              move: Number
+        /* istanbul ignore next */
+        /* harmony default export */
+        var src_bar = {
+          name: 'Bar',
+          props: {
+            vertical: Boolean,
+            size: String,
+            move: Number
+          },
+          computed: {
+            bar: function bar() {
+              return BAR_MAP[this.vertical ? 'vertical' : 'horizontal'];
             },
-            computed: {
-              bar: function bar() {
-                return BAR_MAP[this.vertical ? 'vertical' : 'horizontal'];
-              },
-              wrap: function wrap() {
-                return this.$parent.wrap;
-              }
-            },
-            render: function render(h) {
-              var size = this.size,
-                move = this.move,
-                bar = this.bar;
-              return h('div', {
-                'class': ['el-scrollbar__bar', 'is-' + bar.key],
-                on: {
-                  'mousedown': this.clickTrackHandler
-                }
-              }, [h('div', {
-                ref: 'thumb',
-                'class': 'el-scrollbar__thumb',
-                on: {
-                  'mousedown': this.clickThumbHandler
-                },
-                style: renderThumbStyle({
-                  size: size,
-                  move: move,
-                  bar: bar
-                })
-              })]);
-            },
-            methods: {
-              clickThumbHandler: function clickThumbHandler(e) {
-                // prevent click event of right button
-                if (e.ctrlKey || e.button === 2) {
-                  return;
-                }
-                this.startDrag(e);
-                this[this.bar.axis] = e.currentTarget[this.bar.offset] - (e[this.bar.client] - e.currentTarget.getBoundingClientRect()[this.bar.direction]);
-              },
-              clickTrackHandler: function clickTrackHandler(e) {
-                var offset = Math.abs(e.target.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]);
-                var thumbHalf = this.$refs.thumb[this.bar.offset] / 2;
-                var thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el[this.bar.offset];
-                this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
-              },
-              startDrag: function startDrag(e) {
-                e.stopImmediatePropagation();
-                this.cursorDown = true;
-                Object(dom_["on"])(document, 'mousemove', this.mouseMoveDocumentHandler);
-                Object(dom_["on"])(document, 'mouseup', this.mouseUpDocumentHandler);
-                document.onselectstart = function () {
-                  return false;
-                };
-              },
-              mouseMoveDocumentHandler: function mouseMoveDocumentHandler(e) {
-                if (this.cursorDown === false) return;
-                var prevPage = this[this.bar.axis];
-                if (!prevPage) return;
-                var offset = (this.$el.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]) * -1;
-                var thumbClickPosition = this.$refs.thumb[this.bar.offset] - prevPage;
-                var thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el[this.bar.offset];
-                this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
-              },
-              mouseUpDocumentHandler: function mouseUpDocumentHandler(e) {
-                this.cursorDown = false;
-                this[this.bar.axis] = 0;
-                Object(dom_["off"])(document, 'mousemove', this.mouseMoveDocumentHandler);
-                document.onselectstart = null;
-              }
-            },
-            destroyed: function destroyed() {
-              Object(dom_["off"])(document, 'mouseup', this.mouseUpDocumentHandler);
+            wrap: function wrap() {
+              return this.$parent.wrap;
             }
-          };
-          // CONCATENATED MODULE: ./packages/scrollbar/src/main.js
-          // reference https://github.com/noeldelgado/gemini-scrollbar/blob/master/index.js
-
-          /* istanbul ignore next */
-          /* harmony default export */
-          var main = {
-            name: 'ElScrollbar',
-            components: {
-              Bar: src_bar
-            },
-            props: {
-              native: Boolean,
-              wrapStyle: {},
-              wrapClass: {},
-              viewClass: {},
-              viewStyle: {},
-              noresize: Boolean,
-              // 如果 container 尺寸不会发生变化，最好设置它可以优化性能
-              tag: {
-                type: String,
-                default: 'div'
+          },
+          render: function render(h) {
+            var size = this.size,
+              move = this.move,
+              bar = this.bar;
+            return h('div', {
+              'class': ['el-scrollbar__bar', 'is-' + bar.key],
+              on: {
+                'mousedown': this.clickTrackHandler
               }
+            }, [h('div', {
+              ref: 'thumb',
+              'class': 'el-scrollbar__thumb',
+              on: {
+                'mousedown': this.clickThumbHandler
+              },
+              style: renderThumbStyle({
+                size: size,
+                move: move,
+                bar: bar
+              })
+            })]);
+          },
+          methods: {
+            clickThumbHandler: function clickThumbHandler(e) {
+              // prevent click event of right button
+              if (e.ctrlKey || e.button === 2) {
+                return;
+              }
+              this.startDrag(e);
+              this[this.bar.axis] = e.currentTarget[this.bar.offset] - (e[this.bar.client] - e.currentTarget.getBoundingClientRect()[this.bar.direction]);
             },
-            data: function data() {
-              return {
-                sizeWidth: '0',
-                sizeHeight: '0',
-                moveX: 0,
-                moveY: 0
+            clickTrackHandler: function clickTrackHandler(e) {
+              var offset = Math.abs(e.target.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]);
+              var thumbHalf = this.$refs.thumb[this.bar.offset] / 2;
+              var thumbPositionPercentage = (offset - thumbHalf) * 100 / this.$el[this.bar.offset];
+              this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
+            },
+            startDrag: function startDrag(e) {
+              e.stopImmediatePropagation();
+              this.cursorDown = true;
+              Object(dom_["on"])(document, 'mousemove', this.mouseMoveDocumentHandler);
+              Object(dom_["on"])(document, 'mouseup', this.mouseUpDocumentHandler);
+              document.onselectstart = function () {
+                return false;
               };
             },
-            computed: {
-              wrap: function wrap() {
-                return this.$refs.wrap;
-              }
+            mouseMoveDocumentHandler: function mouseMoveDocumentHandler(e) {
+              if (this.cursorDown === false) return;
+              var prevPage = this[this.bar.axis];
+              if (!prevPage) return;
+              var offset = (this.$el.getBoundingClientRect()[this.bar.direction] - e[this.bar.client]) * -1;
+              var thumbClickPosition = this.$refs.thumb[this.bar.offset] - prevPage;
+              var thumbPositionPercentage = (offset - thumbClickPosition) * 100 / this.$el[this.bar.offset];
+              this.wrap[this.bar.scroll] = thumbPositionPercentage * this.wrap[this.bar.scrollSize] / 100;
             },
-            render: function render(h) {
-              var gutter = scrollbar_width_default()();
-              var style = this.wrapStyle;
-              if (gutter) {
-                var gutterWith = '-' + gutter + 'px';
-                var gutterStyle = 'margin-bottom: ' + gutterWith + '; margin-right: ' + gutterWith + ';';
-                if (Array.isArray(this.wrapStyle)) {
-                  style = Object(util_["toObject"])(this.wrapStyle);
-                  style.marginRight = style.marginBottom = gutterWith;
-                } else if (typeof this.wrapStyle === 'string') {
-                  style += gutterStyle;
-                } else {
-                  style = gutterStyle;
-                }
-              }
-              var view = h(this.tag, {
-                class: ['el-scrollbar__view', this.viewClass],
-                style: this.viewStyle,
-                ref: 'resize'
-              }, this.$slots.default);
-              var wrap = h('div', {
-                ref: 'wrap',
-                style: style,
-                on: {
-                  'scroll': this.handleScroll
-                },
-                'class': [this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default']
-              }, [[view]]);
-              var nodes = void 0;
-              if (!this.native) {
-                nodes = [wrap, h(src_bar, {
-                  attrs: {
-                    move: this.moveX,
-                    size: this.sizeWidth
-                  }
-                }), h(src_bar, {
-                  attrs: {
-                    vertical: true,
-                    move: this.moveY,
-                    size: this.sizeHeight
-                  }
-                })];
-              } else {
-                nodes = [h('div', {
-                  ref: 'wrap',
-                  'class': [this.wrapClass, 'el-scrollbar__wrap'],
-                  style: style
-                }, [[view]])];
-              }
-              return h('div', {
-                class: 'el-scrollbar'
-              }, nodes);
-            },
-            methods: {
-              handleScroll: function handleScroll() {
-                var wrap = this.wrap;
-                this.moveY = wrap.scrollTop * 100 / wrap.clientHeight;
-                this.moveX = wrap.scrollLeft * 100 / wrap.clientWidth;
-              },
-              update: function update() {
-                var heightPercentage = void 0,
-                  widthPercentage = void 0;
-                var wrap = this.wrap;
-                if (!wrap) return;
-                heightPercentage = wrap.clientHeight * 100 / wrap.scrollHeight;
-                widthPercentage = wrap.clientWidth * 100 / wrap.scrollWidth;
-                this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
-                this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
-              }
-            },
-            mounted: function mounted() {
-              if (this.native) return;
-              this.$nextTick(this.update);
-              !this.noresize && Object(resize_event_["addResizeListener"])(this.$refs.resize, this.update);
-            },
-            beforeDestroy: function beforeDestroy() {
-              if (this.native) return;
-              !this.noresize && Object(resize_event_["removeResizeListener"])(this.$refs.resize, this.update);
+            mouseUpDocumentHandler: function mouseUpDocumentHandler(e) {
+              this.cursorDown = false;
+              this[this.bar.axis] = 0;
+              Object(dom_["off"])(document, 'mousemove', this.mouseMoveDocumentHandler);
+              document.onselectstart = null;
             }
-          };
-          // CONCATENATED MODULE: ./packages/scrollbar/index.js
+          },
+          destroyed: function destroyed() {
+            Object(dom_["off"])(document, 'mouseup', this.mouseUpDocumentHandler);
+          }
+        };
+        // CONCATENATED MODULE: ./packages/scrollbar/src/main.js
+        // reference https://github.com/noeldelgado/gemini-scrollbar/blob/master/index.js
 
-          /* istanbul ignore next */
-          main.install = function (Vue) {
-            Vue.component(main.name, main);
-          };
+        /* istanbul ignore next */
+        /* harmony default export */
+        var main = {
+          name: 'ElScrollbar',
+          components: {
+            Bar: src_bar
+          },
+          props: {
+            native: Boolean,
+            wrapStyle: {},
+            wrapClass: {},
+            viewClass: {},
+            viewStyle: {},
+            noresize: Boolean,
+            // 如果 container 尺寸不会发生变化，最好设置它可以优化性能
+            tag: {
+              type: String,
+              default: 'div'
+            }
+          },
+          data: function data() {
+            return {
+              sizeWidth: '0',
+              sizeHeight: '0',
+              moveX: 0,
+              moveY: 0
+            };
+          },
+          computed: {
+            wrap: function wrap() {
+              return this.$refs.wrap;
+            }
+          },
+          render: function render(h) {
+            var gutter = scrollbar_width_default()();
+            var style = this.wrapStyle;
+            if (gutter) {
+              var gutterWith = '-' + gutter + 'px';
+              var gutterStyle = 'margin-bottom: ' + gutterWith + '; margin-right: ' + gutterWith + ';';
+              if (Array.isArray(this.wrapStyle)) {
+                style = Object(util_["toObject"])(this.wrapStyle);
+                style.marginRight = style.marginBottom = gutterWith;
+              } else if (typeof this.wrapStyle === 'string') {
+                style += gutterStyle;
+              } else {
+                style = gutterStyle;
+              }
+            }
+            var view = h(this.tag, {
+              class: ['el-scrollbar__view', this.viewClass],
+              style: this.viewStyle,
+              ref: 'resize'
+            }, this.$slots.default);
+            var wrap = h('div', {
+              ref: 'wrap',
+              style: style,
+              on: {
+                'scroll': this.handleScroll
+              },
+              'class': [this.wrapClass, 'el-scrollbar__wrap', gutter ? '' : 'el-scrollbar__wrap--hidden-default']
+            }, [[view]]);
+            var nodes = void 0;
+            if (!this.native) {
+              nodes = [wrap, h(src_bar, {
+                attrs: {
+                  move: this.moveX,
+                  size: this.sizeWidth
+                }
+              }), h(src_bar, {
+                attrs: {
+                  vertical: true,
+                  move: this.moveY,
+                  size: this.sizeHeight
+                }
+              })];
+            } else {
+              nodes = [h('div', {
+                ref: 'wrap',
+                'class': [this.wrapClass, 'el-scrollbar__wrap'],
+                style: style
+              }, [[view]])];
+            }
+            return h('div', {
+              class: 'el-scrollbar'
+            }, nodes);
+          },
+          methods: {
+            handleScroll: function handleScroll() {
+              var wrap = this.wrap;
+              this.moveY = wrap.scrollTop * 100 / wrap.clientHeight;
+              this.moveX = wrap.scrollLeft * 100 / wrap.clientWidth;
+            },
+            update: function update() {
+              var heightPercentage = void 0,
+                widthPercentage = void 0;
+              var wrap = this.wrap;
+              if (!wrap) return;
+              heightPercentage = wrap.clientHeight * 100 / wrap.scrollHeight;
+              widthPercentage = wrap.clientWidth * 100 / wrap.scrollWidth;
+              this.sizeHeight = heightPercentage < 100 ? heightPercentage + '%' : '';
+              this.sizeWidth = widthPercentage < 100 ? widthPercentage + '%' : '';
+            }
+          },
+          mounted: function mounted() {
+            if (this.native) return;
+            this.$nextTick(this.update);
+            !this.noresize && Object(resize_event_["addResizeListener"])(this.$refs.resize, this.update);
+          },
+          beforeDestroy: function beforeDestroy() {
+            if (this.native) return;
+            !this.noresize && Object(resize_event_["removeResizeListener"])(this.$refs.resize, this.update);
+          }
+        };
+        // CONCATENATED MODULE: ./packages/scrollbar/index.js
 
-          /* harmony default export */
-          __webpack_exports__["default"] = main;
+        /* istanbul ignore next */
+        main.install = function (Vue) {
+          Vue.component(main.name, main);
+        };
 
-          /***/
-        },
+        /* harmony default export */
+        __webpack_exports__["default"] = main;
 
-        /***/16: /***/function (module, exports) {
-          module.exports = requireResizeEvent();
+        /***/
+      },
 
-          /***/
-        },
+      /***/16: /***/function (module, exports) {
+        module.exports = requireResizeEvent();
 
-        /***/2: /***/function (module, exports) {
-          module.exports = requireDom();
+        /***/
+      },
 
-          /***/
-        },
+      /***/2: /***/function (module, exports) {
+        module.exports = requireDom();
 
-        /***/3: /***/function (module, exports) {
-          module.exports = requireUtil();
+        /***/
+      },
 
-          /***/
-        },
+      /***/3: /***/function (module, exports) {
+        module.exports = requireUtil();
 
-        /***/38: /***/function (module, exports) {
-          module.exports = requireScrollbarWidth();
+        /***/
+      },
 
-          /***/
-        }
+      /***/38: /***/function (module, exports) {
+        module.exports = requireScrollbarWidth();
 
-        /******/
-      });
-    })(scrollbar);
-    return scrollbar.exports;
-  }
+        /***/
+      }
 
-  var scrollbarExports = requireScrollbar();
+      /******/
+    });
+  })(scrollbar);
+  var Scrollbar = /*@__PURE__*/getDefaultExportFromCjs(scrollbar.exports);
 
   var loading = {exports: {}};
 
@@ -12330,7 +12299,7 @@
       },
 
       /***/15: /***/function (module, exports) {
-        module.exports = requireScrollbar();
+        module.exports = scrollbar.exports;
 
         /***/
       },
@@ -14820,102 +14789,102 @@
 
   //
 
-  var script$5 = {
-    name: 'Panel',
-    data() {
-      return {
-        scrollStyle: { height: '' },
-        bodyStyle: { height: '' },
-        panelStyle: { height: '' }
-      };
-    },
-    props: {
-      isNavbar: { type: Boolean, default: true },
-      title: { type: String, default: '' },
-      titlePosition: { type: String, default: 'center' }, //标题位置, left center right 三个方向
-      leftText: { type: String, default: '' }, //左侧文字
-      rightText: { type: String, default: '' }, //右侧文字
-      leftArrow: { type: Boolean, default: false }, //左侧箭头
-      rightArrow: { type: Boolean, default: false }, //右侧箭头
-      scroll: { type: Boolean, default: true }, //是否滚动,默认是滚动的
-      fullWindow: { type: Boolean, default: false }, //充满窗口,
-      height: { type: Number, default: null }, //设置高度
-      loading: { type: Boolean, default: false }, //设置高度
-      padding: { type: Boolean, default: true }, //中间区域默认填充
-      className: { type: String, default: 'begda-panel' }, //中间区域默认填充
-
-      shadow: { type: String, default: 'always' } //显示阴影
-    },
-    computed: {
-      isShadow() {
-        switch (this.shadow) {
-          case 'always':
-            return 'shadow-md';
-
-          case 'hover':
-            return ' hover:shadow-md';
-
-          case 'never':
-            return '';
-        }
+  var script$6 = {
+      name: 'Panel',
+      data() {
+          return {
+              scrollStyle: { height: '' },
+              bodyStyle: { height: '' },
+              panelStyle: { height: '' }
+          };
       },
-      titlePositionClass() {
-        switch (this.titlePosition) {
-          case 'left':
-            return 'text-left';
+      props: {
+          isNavbar: { type: Boolean, default: true },
+          title: { type: String, default: '' },
+          titlePosition: { type: String, default: 'center' }, //标题位置, left center right 三个方向
+          leftText: { type: String, default: '' }, //左侧文字
+          rightText: { type: String, default: '' }, //右侧文字
+          leftArrow: { type: Boolean, default: false }, //左侧箭头
+          rightArrow: { type: Boolean, default: false }, //右侧箭头
+          scroll: { type: Boolean, default: true }, //是否滚动,默认是滚动的
+          fullWindow: { type: Boolean, default: false }, //充满窗口,
+          height: { type: Number, default: null }, //设置高度
+          loading: { type: Boolean, default: false }, //设置高度
+          padding: { type: Boolean, default: true }, //中间区域默认填充
+          className: { type: String, default: 'begda-panel' }, //中间区域默认填充
 
-          case 'center':
-            return 'text-center';
-
-          case 'right':
-            return 'text-right';
-        }
-      }
-    },
-    created: function () {},
-    mounted: function () {
-      this.viewResize();
-    },
-    methods: {
-      view() {
-        let self = this;
-        const winHeight = window.innerHeight; // 窗口高度
-
-        const headerHeight = domRef(this.$refs.header).height(); // header高度
-        const topHeight = domRef(this.$refs.top).height();
-        const bottomHeight = domRef(this.$refs.bottom).height();
-        const bottombarHeight = domRef(this.$refs.bottombar).height();
-        const otherHeight = headerHeight + topHeight + bottomHeight + bottombarHeight; //上面所有高度的和
-        if (!self.padding) {
-          // 设置padding
-          self.bodyStyle.padding = 0;
-        }
-        //窗口全屏,才设置panel的高度为整个窗口的高度
-        if (self.fullWindow) {
-          self.panelStyle.height = `${winHeight}px`; //设置为当前窗口的高度
-        } else {
-          self.panelStyle.height = `${self.height}px`;
-        }
-
-        self.scrollStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
-        const bodyHeight = domRef(this.$refs.body).height(); //获取中间区域的高
-        const bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
-        self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
+          shadow: { type: String, default: 'always' } //显示阴影
       },
-      // 根据窗口大小实时改变
-      viewResize() {
-        this.view();
-        window.addEventListener('resize', () => {
-          this.view();
-        });
+      computed: {
+          isShadow() {
+              switch (this.shadow) {
+                  case 'always':
+                      return 'shadow-md';
+
+                  case 'hover':
+                      return ' hover:shadow-md';
+
+                  case 'never':
+                      return '';
+              }
+          },
+          titlePositionClass() {
+              switch (this.titlePosition) {
+                  case 'left':
+                      return 'text-left';
+
+                  case 'center':
+                      return 'text-center';
+
+                  case 'right':
+                      return 'text-right';
+              }
+          }
+      },
+      created: function () {},
+      mounted: function () {
+          this.viewResize();
+      },
+      methods: {
+          view() {
+              let self = this;
+              const winHeight = window.innerHeight; // 窗口高度
+
+              const headerHeight = domRef(this.$refs.header).height(); // header高度
+              const topHeight = domRef(this.$refs.top).height();
+              const bottomHeight = domRef(this.$refs.bottom).height();
+              const bottombarHeight = domRef(this.$refs.bottombar).height();
+              const otherHeight = headerHeight + topHeight + bottomHeight + bottombarHeight; //上面所有高度的和
+              if (!self.padding) {
+                  // 设置padding
+                  self.bodyStyle.padding = 0;
+              }
+              //窗口全屏,才设置panel的高度为整个窗口的高度
+              if (self.fullWindow) {
+                  self.panelStyle.height = `${winHeight}px`; //设置为当前窗口的高度
+              } else {
+                  self.panelStyle.height = `${self.height}px`;
+              }
+
+              self.scrollStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
+              const bodyHeight = domRef(this.$refs.body).height(); //获取中间区域的高
+              const bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
+              self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
+          },
+          // 根据窗口大小实时改变
+          viewResize() {
+              this.view();
+              window.addEventListener('resize', () => {
+                  this.view();
+              });
+          }
       }
-    }
   };
 
   /* script */
-  const __vue_script__$5 = script$5;
+  const __vue_script__$6 = script$6;
   /* template */
-  var __vue_render__$5 = function () {
+  var __vue_render__$6 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -14956,7 +14925,8 @@
                                         })
                                       : _vm._e(),
                                     _vm._v(
-                                      _vm._s(_vm.leftText) + "\n            "
+                                      _vm._s(_vm.leftText) +
+                                        "\n                        "
                                     ),
                                   ]
                                 ),
@@ -14988,7 +14958,8 @@
                                   },
                                   [
                                     _vm._v(
-                                      "\n              " + _vm._s(_vm.rightText)
+                                      "\n                            " +
+                                        _vm._s(_vm.rightText)
                                     ),
                                     _vm.rightArrow
                                       ? _c("i", {
@@ -15012,30 +14983,26 @@
           _vm._v(" "),
           _vm.scroll
             ? [
-                _c(
-                  "ba-scrollbar",
-                  { staticClass: "begda-scrollbar", style: _vm.scrollStyle },
-                  [
-                    _c(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "loading",
-                            rawName: "v-loading",
-                            value: _vm.loading,
-                            expression: "loading",
-                          },
-                        ],
-                        ref: "body",
-                        staticClass: "begda-panel__body",
-                        style: _vm.bodyStyle,
-                      },
-                      [_vm._t("default")],
-                      2
-                    ),
-                  ]
-                ),
+                _c("ba-scrollbar", { style: _vm.scrollStyle }, [
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "loading",
+                          rawName: "v-loading",
+                          value: _vm.loading,
+                          expression: "loading",
+                        },
+                      ],
+                      ref: "body",
+                      staticClass: "begda-panel__body",
+                      style: _vm.bodyStyle,
+                    },
+                    [_vm._t("default")],
+                    2
+                  ),
+                ]),
               ]
             : [
                 _c(
@@ -15070,17 +15037,17 @@
       ),
     ])
   };
-  var __vue_staticRenderFns__$5 = [];
-  __vue_render__$5._withStripped = true;
+  var __vue_staticRenderFns__$6 = [];
+  __vue_render__$6._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$5 = undefined;
+    const __vue_inject_styles__$6 = undefined;
     /* scoped */
-    const __vue_scope_id__$5 = "data-v-161a6d06";
+    const __vue_scope_id__$6 = "data-v-501e3921";
     /* module identifier */
-    const __vue_module_identifier__$5 = undefined;
+    const __vue_module_identifier__$6 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$5 = false;
+    const __vue_is_functional_template__$6 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -15089,13 +15056,13 @@
     
 
     
-    const __vue_component__$5 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$5, staticRenderFns: __vue_staticRenderFns__$5 },
-      __vue_inject_styles__$5,
-      __vue_script__$5,
-      __vue_scope_id__$5,
-      __vue_is_functional_template__$5,
-      __vue_module_identifier__$5,
+    const __vue_component__$6 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$6, staticRenderFns: __vue_staticRenderFns__$6 },
+      __vue_inject_styles__$6,
+      __vue_script__$6,
+      __vue_scope_id__$6,
+      __vue_is_functional_template__$6,
+      __vue_module_identifier__$6,
       false,
       undefined,
       undefined,
@@ -15116,7 +15083,7 @@
   //
   //
 
-  var script$4 = {
+  var script$5 = {
     name: 'BaPanelData',
     data() {
       return {
@@ -15161,9 +15128,9 @@
   };
 
   /* script */
-  const __vue_script__$4 = script$4;
+  const __vue_script__$5 = script$5;
   /* template */
-  var __vue_render__$4 = function () {
+  var __vue_render__$5 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -15199,17 +15166,17 @@
       1
     )
   };
-  var __vue_staticRenderFns__$4 = [];
-  __vue_render__$4._withStripped = true;
+  var __vue_staticRenderFns__$5 = [];
+  __vue_render__$5._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$4 = undefined;
+    const __vue_inject_styles__$5 = undefined;
     /* scoped */
-    const __vue_scope_id__$4 = undefined;
+    const __vue_scope_id__$5 = undefined;
     /* module identifier */
-    const __vue_module_identifier__$4 = undefined;
+    const __vue_module_identifier__$5 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$4 = false;
+    const __vue_is_functional_template__$5 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -15218,30 +15185,30 @@
     
 
     
-    const __vue_component__$4 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$4, staticRenderFns: __vue_staticRenderFns__$4 },
-      __vue_inject_styles__$4,
-      __vue_script__$4,
-      __vue_scope_id__$4,
-      __vue_is_functional_template__$4,
-      __vue_module_identifier__$4,
+    const __vue_component__$5 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$5, staticRenderFns: __vue_staticRenderFns__$5 },
+      __vue_inject_styles__$5,
+      __vue_script__$5,
+      __vue_scope_id__$5,
+      __vue_is_functional_template__$5,
+      __vue_module_identifier__$5,
       false,
       undefined,
       undefined,
       undefined
     );
 
-  let BaPanel = { ...__vue_component__$5, name: 'BaPanel' }; //重新设置组件名字
-  const components$5 = [__vue_component__$5, BaPanel, __vue_component__$4];
-  const install$5 = function (Vue, opts = {}) {
-    components$5.forEach(component => {
+  let BaPanel = { ...__vue_component__$6, name: 'BaPanel' }; //重新设置组件名字
+  const components$6 = [__vue_component__$6, BaPanel, __vue_component__$5];
+  const install$6 = function (Vue, opts = {}) {
+    components$6.forEach(component => {
       Vue.component(component.name, component);
     });
   };
 
   /* istanbul ignore if */
   if (typeof window !== 'undefined' && window.Vue) {
-    install$5(window.Vue);
+    install$6(window.Vue);
   }
 
   //
@@ -15251,7 +15218,7 @@
   //
   //
 
-  var script$3 = {
+  var script$4 = {
     name: 'BaScrollbar',
     data() {
       return {
@@ -15279,9 +15246,9 @@
   };
 
   /* script */
-  const __vue_script__$3 = script$3;
+  const __vue_script__$4 = script$4;
   /* template */
-  var __vue_render__$3 = function () {
+  var __vue_render__$4 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -15292,17 +15259,17 @@
       2
     )
   };
-  var __vue_staticRenderFns__$3 = [];
-  __vue_render__$3._withStripped = true;
+  var __vue_staticRenderFns__$4 = [];
+  __vue_render__$4._withStripped = true;
 
     /* style */
-    const __vue_inject_styles__$3 = undefined;
+    const __vue_inject_styles__$4 = undefined;
     /* scoped */
-    const __vue_scope_id__$3 = "data-v-e1e3804a";
+    const __vue_scope_id__$4 = "data-v-e1e3804a";
     /* module identifier */
-    const __vue_module_identifier__$3 = undefined;
+    const __vue_module_identifier__$4 = undefined;
     /* functional template */
-    const __vue_is_functional_template__$3 = false;
+    const __vue_is_functional_template__$4 = false;
     /* style inject */
     
     /* style inject SSR */
@@ -15311,29 +15278,29 @@
     
 
     
-    const __vue_component__$3 = /*#__PURE__*/normalizeComponent(
-      { render: __vue_render__$3, staticRenderFns: __vue_staticRenderFns__$3 },
-      __vue_inject_styles__$3,
-      __vue_script__$3,
-      __vue_scope_id__$3,
-      __vue_is_functional_template__$3,
-      __vue_module_identifier__$3,
+    const __vue_component__$4 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$4, staticRenderFns: __vue_staticRenderFns__$4 },
+      __vue_inject_styles__$4,
+      __vue_script__$4,
+      __vue_scope_id__$4,
+      __vue_is_functional_template__$4,
+      __vue_module_identifier__$4,
       false,
       undefined,
       undefined,
       undefined
     );
 
-  const components$4 = [__vue_component__$3];
-  const install$4 = function (Vue, opts = {}) {
-    components$4.forEach(component => {
+  const components$5 = [__vue_component__$4];
+  const install$5 = function (Vue, opts = {}) {
+    components$5.forEach(component => {
       Vue.component(component.name, component);
     });
   };
 
   /* istanbul ignore if */
   if (typeof window !== 'undefined' && window.Vue) {
-    install$4(window.Vue);
+    install$5(window.Vue);
   }
 
   //
@@ -15362,7 +15329,7 @@
   //
   //
 
-  var script$2 = {
+  var script$3 = {
     name: 'BaSelect',
     props: {
       // 输入框的 v-model绑定值
@@ -15433,9 +15400,9 @@
   };
 
   /* script */
-  const __vue_script__$2 = script$2;
+  const __vue_script__$3 = script$3;
   /* template */
-  var __vue_render__$2 = function () {
+  var __vue_render__$3 = function () {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -15522,13 +15489,114 @@
       2
     )
   };
+  var __vue_staticRenderFns__$3 = [];
+  __vue_render__$3._withStripped = true;
+
+    /* style */
+    const __vue_inject_styles__$3 = undefined;
+    /* scoped */
+    const __vue_scope_id__$3 = undefined;
+    /* module identifier */
+    const __vue_module_identifier__$3 = undefined;
+    /* functional template */
+    const __vue_is_functional_template__$3 = false;
+    /* style inject */
+    
+    /* style inject SSR */
+    
+    /* style inject shadow dom */
+    
+
+    
+    const __vue_component__$3 = /*#__PURE__*/normalizeComponent(
+      { render: __vue_render__$3, staticRenderFns: __vue_staticRenderFns__$3 },
+      __vue_inject_styles__$3,
+      __vue_script__$3,
+      __vue_scope_id__$3,
+      __vue_is_functional_template__$3,
+      __vue_module_identifier__$3,
+      false,
+      undefined,
+      undefined,
+      undefined
+    );
+
+  const components$4 = [__vue_component__$3];
+  const install$4 = function (Vue, opts = {}) {
+    components$4.forEach(component => {
+      Vue.component(component.name, component);
+    });
+  };
+
+  /* istanbul ignore if */
+  if (typeof window !== 'undefined' && window.Vue) {
+    install$4(window.Vue);
+  }
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script$2 = {
+    name: 'BaCell',
+    props: {
+      title: { type: String, default: '' },
+      value: { type: String, default: '' },
+      label: { type: String, default: '' },
+      isLink: { type: Boolean, default: false }
+    },
+    computed: {},
+    mounted() {}
+  };
+
+  /* script */
+  const __vue_script__$2 = script$2;
+  /* template */
+  var __vue_render__$2 = function () {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c(
+      "van-cell",
+      { staticClass: "cell-box", attrs: { "is-link": _vm.isLink } },
+      [
+        _c("div", { staticClass: "cell-box-header" }, [
+          _c("div", { staticClass: "cell-box-title" }, [
+            _vm._v(_vm._s(_vm.title)),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "cell-box-value" }, [
+            _vm._v(_vm._s(_vm.value)),
+          ]),
+        ]),
+        _vm._v(" "),
+        _vm.$slots.default
+          ? _c("div", { staticClass: "cell-box-label" }, [_vm._t("default")], 2)
+          : _c("div", { staticClass: "cell-box-label" }, [
+              _vm._v("\n    " + _vm._s(_vm.label) + "\n  "),
+            ]),
+      ]
+    )
+  };
   var __vue_staticRenderFns__$2 = [];
   __vue_render__$2._withStripped = true;
 
     /* style */
     const __vue_inject_styles__$2 = undefined;
     /* scoped */
-    const __vue_scope_id__$2 = undefined;
+    const __vue_scope_id__$2 = "data-v-b3aa811a";
     /* module identifier */
     const __vue_module_identifier__$2 = undefined;
     /* functional template */
@@ -15572,26 +15640,40 @@
   //
   //
   //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
 
   var script$1 = {
-    name: 'BaCell',
+    name: 'BaWebView',
+    data() {
+      return {
+        webviewStyle: {
+          width: '100%',
+          padding: 0,
+          margin: 0,
+          border: 'none',
+          height: '0'
+        }
+      };
+    },
     props: {
-      title: { type: String, default: '' },
-      value: { type: String, default: '' },
-      label: { type: String, default: '' },
-      isLink: { type: Boolean, default: false }
+      src: { type: String, default: null },
+      height: { type: Number, default: 0 }
     },
     computed: {},
-    mounted() {}
+    mounted() {
+      this.$nextTick(() => {
+        this.view();
+      });
+    },
+    methods: {
+      load() {
+        this.$emit('load', 'load');
+      },
+      view() {
+        let self = this;
+        let webview = this.$refs.webview;
+        webview.style.height = `${self.height}px`;
+      }
+    }
   };
 
   /* script */
@@ -15601,27 +15683,14 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c(
-      "van-cell",
-      { staticClass: "cell-box", attrs: { "is-link": _vm.isLink } },
-      [
-        _c("div", { staticClass: "cell-box-header" }, [
-          _c("div", { staticClass: "cell-box-title" }, [
-            _vm._v(_vm._s(_vm.title)),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "cell-box-value" }, [
-            _vm._v(_vm._s(_vm.value)),
-          ]),
-        ]),
-        _vm._v(" "),
-        _vm.$slots.default
-          ? _c("div", { staticClass: "cell-box-label" }, [_vm._t("default")], 2)
-          : _c("div", { staticClass: "cell-box-label" }, [
-              _vm._v("\n    " + _vm._s(_vm.label) + "\n  "),
-            ]),
-      ]
-    )
+    return _c("div", { staticClass: "ba-web-view" }, [
+      _c("iframe", {
+        ref: "webview",
+        style: _vm.webviewStyle,
+        attrs: { src: _vm.src },
+        on: { load: _vm.load },
+      }),
+    ])
   };
   var __vue_staticRenderFns__$1 = [];
   __vue_render__$1._withStripped = true;
@@ -15629,7 +15698,7 @@
     /* style */
     const __vue_inject_styles__$1 = undefined;
     /* scoped */
-    const __vue_scope_id__$1 = "data-v-b3aa811a";
+    const __vue_scope_id__$1 = "data-v-03b725d1";
     /* module identifier */
     const __vue_module_identifier__$1 = undefined;
     /* functional template */
@@ -15675,38 +15744,61 @@
   //
 
   var script = {
-    name: 'BaWebView',
-    data() {
-      return {
-        webviewStyle: {
-          width: '100%',
-          padding: 0,
-          margin: 0,
-          border: 'none',
-          height: '0'
-        }
-      };
-    },
-    props: {
-      src: { type: String, default: null },
-      height: { type: Number, default: 0 }
-    },
-    computed: {},
-    mounted() {
-      this.$nextTick(() => {
-        this.view();
-      });
-    },
-    methods: {
-      load() {
-        this.$emit('load', 'load');
+      name: 'BaChart',
+      props: {
+          options: { required: true, type: [Object, String] },
+          height: { type: Number, default: 300 }
       },
-      view() {
-        let self = this;
-        let webview = this.$refs.webview;
-        webview.style.height = `${self.height}px`;
+      data() {
+          return {
+              loading: true
+          };
+      },
+      watch: {
+          // options(newData, oldData) {
+          options() {
+              this.init();
+          }
+      },
+      mounted() {
+          this.init();
+      },
+      methods: {
+          init() {
+              this.setOptions(this.options);
+          },
+          onClick() {
+              this.$emit('onClick', callback => {
+                  callback();
+              });
+          },
+          create() {
+              // let chartId = uuid();
+              // this.$refs.chartID.innerHTML = `<div id="${chartId}"  style="height: 300px">正在加载...</div>`;
+              // 基于准备好的dom，初始化echarts实例
+              // return echarts.init(document.getElementById(chartId));
+              if (echarts) {
+                  return echarts.init(this.$refs.chartID);
+              } else {
+                  console.error('没有全局变量 echarts');
+                  throw Error;
+              }
+          },
+          setOptions(opt) {
+              if (Object.keys(opt).length > 0) {
+                  this.loading = false;
+              } else {
+                  this.loading = true;
+              }
+              let Chart = this.create();
+              Chart.resize();
+              Chart.setOption(opt);
+              this.$emit('load', Chart);
+              window.onresize = function () {
+                  Chart.resize(); //myEchart为echarts.init初始化得到的对象
+              };
+          }
       }
-    }
   };
 
   /* script */
@@ -15716,14 +15808,11 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("div", { staticClass: "ba-web-view" }, [
-      _c("iframe", {
-        ref: "webview",
-        style: _vm.webviewStyle,
-        attrs: { src: _vm.src },
-        on: { load: _vm.load },
-      }),
-    ])
+    return _c(
+      "div",
+      { staticStyle: { overflow: "hidden" }, on: { click: _vm.onClick } },
+      [_c("div", { ref: "chartID", style: { height: _vm.height + "px" } })]
+    )
   };
   var __vue_staticRenderFns__ = [];
   __vue_render__._withStripped = true;
@@ -15731,7 +15820,7 @@
     /* style */
     const __vue_inject_styles__ = undefined;
     /* scoped */
-    const __vue_scope_id__ = "data-v-03b725d1";
+    const __vue_scope_id__ = "data-v-7fe95f72";
     /* module identifier */
     const __vue_module_identifier__ = undefined;
     /* functional template */
@@ -15769,73 +15858,72 @@
     install$1(window.Vue);
   }
 
-  const components = [__vue_component__$5, BaPanel, __vue_component__$4, __vue_component__$3, __vue_component__$2, __vue_component__$1, __vue_component__];
-
+  const components = [__vue_component__$6, BaPanel, __vue_component__$5, __vue_component__$4, __vue_component__$3, __vue_component__$2, __vue_component__$1, __vue_component__];
   const install = function (Vue, opts = {}) {
-    //datav组件库
-    Vue.use(borderBox11);
-    Vue.use(borderBox12);
-    Vue.use(borderBox13);
-    Vue.use(borderBox9);
-    //element-ui组件库
-    Vue.use(scrollbarExports);
-    Vue.use(Loading);
-    Vue.use(Select);
-    Vue.use(Option);
-    Vue.use(OptionGroup);
-    //vant组件库
-    Vue.use(iconExports);
-    Vue.use(cellExports);
-    Vue.use(default_1$2);
-    Vue.use(default_1$1);
-    // Vue.use(Popup);
-    Vue.use(default_1);
-    // Vue.use(DatetimePicker);
+      //datav组件库
+      Vue.use(borderBox11);
+      Vue.use(borderBox12);
+      Vue.use(borderBox13);
+      Vue.use(borderBox9);
+      //element-ui组件库
+      Vue.use(Scrollbar);
+      Vue.use(Loading);
+      Vue.use(Select);
+      Vue.use(Option);
+      Vue.use(OptionGroup);
+      //vant组件库
+      Vue.use(default_1$4);
+      Vue.use(default_1$3);
+      Vue.use(default_1$2);
+      Vue.use(default_1$1);
+      // Vue.use(Popup);
+      Vue.use(default_1);
+      // Vue.use(DatetimePicker);
 
-    //加载自己的组件
-    components.forEach(component => {
-      Vue.component(component.name, component);
-    });
+      //加载自己的组件
+      components.forEach(component => {
+          Vue.component(component.name, component);
+      });
 
-    // Vue.use(borderBox1);
+      // Vue.use(borderBox1);
 
-    // Vue.prototype.$ELEMENT = {
-    //     size: opts.size || '',
-    //     zIndex: opts.zIndex || 2000
-    // };
+      // Vue.prototype.$ELEMENT = {
+      //     size: opts.size || '',
+      //     zIndex: opts.zIndex || 2000
+      // };
 
-    // Vue.prototype.$loading = Loading.service;
-    // Vue.prototype.$msgbox = MessageBox;
-    // Vue.prototype.$alert = MessageBox.alert;
-    // Vue.prototype.$confirm = MessageBox.confirm;
-    // Vue.prototype.$prompt = MessageBox.prompt;
-    // Vue.prototype.$notify = Notification;
-    // Vue.prototype.$message = Message;
+      // Vue.prototype.$loading = Loading.service;
+      // Vue.prototype.$msgbox = MessageBox;
+      // Vue.prototype.$alert = MessageBox.alert;
+      // Vue.prototype.$confirm = MessageBox.confirm;
+      // Vue.prototype.$prompt = MessageBox.prompt;
+      // Vue.prototype.$notify = Notification;
+      // Vue.prototype.$message = Message;
   };
 
   /* istanbul ignore if */
   if (typeof window !== 'undefined' && window.Vue) {
-    install(window.Vue);
+      install(window.Vue);
 
-    //下面这个是,配合tailwindcss 做暗色模式的js
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+      //下面这个是,配合tailwindcss 做暗色模式的js
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+          localStorage.theme === 'dark' ||
+          (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+          document.documentElement.classList.add('dark');
+      } else {
+          document.documentElement.classList.remove('dark');
+      }
 
-    // Whenever the user explicitly chooses light mode
-    localStorage.theme = 'light';
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = 'light';
 
-    // Whenever the user explicitly chooses dark mode
-    localStorage.theme = 'dark';
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = 'dark';
 
-    // Whenever the user explicitly chooses to respect the OS preference
-    localStorage.removeItem('theme');
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem('theme');
   }
 
   /***
@@ -15846,12 +15934,16 @@
    而不能使用export default
    ***/
   var index = {
-    install,
-    version: version,
-    BaScrollbar: __vue_component__$3,
-    Panel: __vue_component__$5,
-    BaPanel,
-    BaPanelData: __vue_component__$4
+      install,
+      version: version,
+      BaScrollbar: __vue_component__$4,
+      Panel: __vue_component__$6,
+      BaPanel,
+      BaPanelData: __vue_component__$5,
+      BaChart: __vue_component__,
+      BaSelect: __vue_component__$3,
+      BaCell: __vue_component__$2,
+      BaWebView: __vue_component__$1
   };
 
   return index;
