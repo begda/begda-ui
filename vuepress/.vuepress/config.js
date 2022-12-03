@@ -10,7 +10,8 @@ module.exports = {
         //在https://github.com/vuejs/vuepress/issues/2275中发现，原来是element ui依赖core-js的2.x版本，而webpress项目依赖core-js的3.x版本导致的
         config.resolve.alias.set('core-js/library/fn', 'core-js/features');
     },
-    base: '/begda-ui/', //连接的基础路径
+    // base: '/begda-ui/', //连接的基础路径
+    base: '/', //连接的基础路径
     port: 4002,
     dest: path.resolve('docs'), //编译输出目录
     // 国际化相关
@@ -64,13 +65,18 @@ module.exports = {
         searchMaxSuggestions: 10,
         nav: [
             { text: '首页', link: '/' },
-            { text: 'BegdaUI', link: 'BegdaUI/' },
-            { text: 'Blog', link: 'Blog/' },
-            { text: 'Github', link: '//github.com/liaohui1080/begda-ui.git', target: '_blank', rel: true }
+            { text: 'BegdaUI', link: '/BegdaUI/' },
+            { text: 'Blog', link: '/Blog/' },
+            {
+                text: 'Github',
+                link: '//github.com/liaohui1080/begda-ui.git/',
+                target: '_blank',
+                rel: 'noopener noreferrer'
+            }
         ],
         // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
         author: {
-            name: 'begda', // 必需
+            name: 'Begda', // 必需
             link: 'https://github.com/liaohui1080/begda-ui.git' // 可选的
         }
     }

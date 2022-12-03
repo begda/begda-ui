@@ -24,12 +24,20 @@
     "packages",
     "dist"
   ],
+  "keywords": [
+    "begda-ui",
+    "begda"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/begda/begda-ui.git"
+  },
+  "homepage": "https://begda.tianliaohui.com",
   "exports": {
     ".": {
       "import": "./packages/index.js"
     }
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -67,7 +75,6 @@
     "axios": "^1.2.0",
     "echarts": "^5.4.0",
     "element-ui": "^2.15.10",
-    "lodash": "^4.17.21",
     "tailwindcss": "^3.1.8",
     "vant": "^2.12.53",
     "vue": "2.7",

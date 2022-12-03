@@ -26,34 +26,36 @@
         <div style="width: 1200px; margin: auto">
             <div style="display: flex; flex-wrap: wrap">
                 <div v-for="(item, key) in sidebar" style="width: 25%">
-                    <panel :is-navbar="false" :height="400" style="margin: 15px">
-                        <template #top>
-                            <div
-                                style="
-                                    border-radius: 5px 5px 0 0;
-                                    color: #ffffff;
-                                    width: 100%;
-                                    height: 130px;
-                                    background: #02407a;
-                                    font-size: 30px;
-                                    font-weight: 300;
-                                    text-align: center;
-                                    line-height: 130px;
-                                    border-bottom: 4px #ffcc00 solid;
-                                "
-                            >
-                                {{ item[0].title }}
-                            </div>
-                        </template>
-                        <template v-for="item2 in item[0].children">
-                            <template v-if="!item2">
-                                <van-cell :title="`${item[0].title}首页`" is-link @click="onClick(key)"></van-cell>
+                    <template v-if="item[0].title != 'Blog'">
+                        <panel :is-navbar="false" :height="400" style="margin: 15px">
+                            <template #top>
+                                <div
+                                    style="
+                                        border-radius: 5px 5px 0 0;
+                                        color: #ffffff;
+                                        width: 100%;
+                                        height: 130px;
+                                        background: #02407a;
+                                        font-size: 30px;
+                                        font-weight: 300;
+                                        text-align: center;
+                                        line-height: 130px;
+                                        border-bottom: 4px #ffcc00 solid;
+                                    "
+                                >
+                                    {{ item[0].title }}
+                                </div>
                             </template>
-                            <template v-else>
-                                <van-cell :title="item2" is-link @click="onClick(key, item2)"></van-cell>
+                            <template v-for="item2 in item[0].children">
+                                <template v-if="!item2">
+                                    <van-cell :title="`${item[0].title}首页`" is-link @click="onClick(key)"></van-cell>
+                                </template>
+                                <template v-else>
+                                    <van-cell :title="item2" is-link @click="onClick(key, item2)"></van-cell>
+                                </template>
                             </template>
-                        </template>
-                    </panel>
+                        </panel>
+                    </template>
                 </div>
             </div>
 

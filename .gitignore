@@ -16,3 +16,4 @@ node_modules
 /example/src/ba-modules/
 /src/ba-modules/bower_components/
 bower_components
+/docs/
