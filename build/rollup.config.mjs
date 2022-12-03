@@ -10,7 +10,7 @@ import json from "@rollup/plugin-json";
 import tailwindcss from "tailwindcss";
 import tailwindConfig from "../tailwind.config.js";
 import terser from "@rollup/plugin-terser";
-import watch from "rollup-plugin-watch";
+
 // import livereload from "rollup-plugin-livereload";
 // import serve from "rollup-plugin-serve";
 

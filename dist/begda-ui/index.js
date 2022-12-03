@@ -1,6 +1,6 @@
 /*!
   * begda-ui v0.0.18
-  * (c) 2022-11-5
+  * (c) 2022-11-6
   * @license ISC
   */
 (function (global, factory) {
@@ -92,14 +92,14 @@
 
   var create = {};
 
-  var bem$5 = {};
+  var bem$4 = {};
 
   var hasRequiredBem;
   function requireBem() {
-    if (hasRequiredBem) return bem$5;
+    if (hasRequiredBem) return bem$4;
     hasRequiredBem = 1;
-    bem$5.__esModule = true;
-    bem$5.createBEM = createBEM;
+    bem$4.__esModule = true;
+    bem$4.createBEM = createBEM;
 
     /**
      * bem helper
@@ -135,7 +135,7 @@
         return "" + el + gen(el, mods);
       };
     }
-    return bem$5;
+    return bem$4;
   }
 
   var component = {};
@@ -779,19 +779,19 @@
     return info;
   }
 
-  var _interopRequireDefault$5 = interopRequireDefault.exports;
+  var _interopRequireDefault$4 = interopRequireDefault.exports;
   icon.__esModule = true;
-  var default_1$4 = icon.default = void 0;
-  var _babelHelperVueJsxMergeProps$4 = _interopRequireDefault$5(requireHelper());
-  var _utils$4 = requireUtils();
-  var _functional$3 = requireFunctional();
-  var _info = _interopRequireDefault$5(requireInfo());
+  var default_1$3 = icon.default = void 0;
+  var _babelHelperVueJsxMergeProps$3 = _interopRequireDefault$4(requireHelper());
+  var _utils$3 = requireUtils();
+  var _functional$2 = requireFunctional();
+  var _info = _interopRequireDefault$4(requireInfo());
 
   // Utils
   // Components
-  var _createNamespace$4 = (0, _utils$4.createNamespace)('icon'),
-    createComponent$4 = _createNamespace$4[0],
-    bem$4 = _createNamespace$4[1];
+  var _createNamespace$3 = (0, _utils$3.createNamespace)('icon'),
+    createComponent$3 = _createNamespace$3[0],
+    bem$3 = _createNamespace$3[1];
   function isImage(name) {
     return name ? name.indexOf('/') !== -1 : false;
   } // compatible with legacy usage, should be removed in next major version
@@ -811,14 +811,14 @@
     if (process.env.NODE_ENV === 'development' && props.info) {
       console.warn('[Vant] Icon: "info" prop is deprecated, use "badge" prop instead.');
     }
-    return h(props.tag, (0, _babelHelperVueJsxMergeProps$4.default)([{
+    return h(props.tag, (0, _babelHelperVueJsxMergeProps$3.default)([{
       "class": [props.classPrefix, imageIcon ? '' : props.classPrefix + "-" + name],
       "style": {
         color: props.color,
-        fontSize: (0, _utils$4.addUnit)(props.size)
+        fontSize: (0, _utils$3.addUnit)(props.size)
       }
-    }, (0, _functional$3.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
-      "class": bem$4('image'),
+    }, (0, _functional$2.inherit)(ctx, true)]), [slots.default && slots.default(), imageIcon && h("img", {
+      "class": bem$3('image'),
       "attrs": {
         "src": name
       }
@@ -844,11 +844,11 @@
     },
     classPrefix: {
       type: String,
-      default: bem$4()
+      default: bem$3()
     }
   };
-  var _default$4 = createComponent$4(Icon);
-  default_1$4 = icon.default = _default$4;
+  var _default$3 = createComponent$3(Icon);
+  default_1$3 = icon.default = _default$3;
 
   var cell = {};
 
@@ -938,114 +938,122 @@
     return shared$1;
   }
 
-  var _interopRequireDefault$4 = interopRequireDefault.exports;
-  cell.__esModule = true;
-  var default_1$3 = cell.default = void 0;
-  var _extends2$2 = _interopRequireDefault$4(require_extends());
-  var _babelHelperVueJsxMergeProps$3 = _interopRequireDefault$4(requireHelper());
-  var _utils$3 = requireUtils();
-  var _functional$2 = requireFunctional();
-  var _router = requireRouter();
-  var _shared$1 = requireShared$1();
-  var _icon$2 = _interopRequireDefault$4(icon);
+  var hasRequiredCell;
+  function requireCell() {
+    if (hasRequiredCell) return cell;
+    hasRequiredCell = 1;
+    var _interopRequireDefault = interopRequireDefault.exports;
+    cell.__esModule = true;
+    cell.default = void 0;
+    var _extends2 = _interopRequireDefault(require_extends());
+    var _babelHelperVueJsxMergeProps = _interopRequireDefault(requireHelper());
+    var _utils = requireUtils();
+    var _functional = requireFunctional();
+    var _router = requireRouter();
+    var _shared = requireShared$1();
+    var _icon = _interopRequireDefault(icon);
 
-  // Utils
-  // Components
-  var _createNamespace$3 = (0, _utils$3.createNamespace)('cell'),
-    createComponent$3 = _createNamespace$3[0],
-    bem$3 = _createNamespace$3[1];
-  function Cell(h, props, slots, ctx) {
-    var _props$clickable;
-    var icon = props.icon,
-      size = props.size,
-      title = props.title,
-      label = props.label,
-      value = props.value,
-      isLink = props.isLink;
-    var showTitle = slots.title || (0, _utils$3.isDef)(title);
-    function Label() {
-      var showLabel = slots.label || (0, _utils$3.isDef)(label);
-      if (showLabel) {
-        return h("div", {
-          "class": [bem$3('label'), props.labelClass]
-        }, [slots.label ? slots.label() : label]);
+    // Utils
+    // Components
+    var _createNamespace = (0, _utils.createNamespace)('cell'),
+      createComponent = _createNamespace[0],
+      bem = _createNamespace[1];
+    function Cell(h, props, slots, ctx) {
+      var _props$clickable;
+      var icon = props.icon,
+        size = props.size,
+        title = props.title,
+        label = props.label,
+        value = props.value,
+        isLink = props.isLink;
+      var showTitle = slots.title || (0, _utils.isDef)(title);
+      function Label() {
+        var showLabel = slots.label || (0, _utils.isDef)(label);
+        if (showLabel) {
+          return h("div", {
+            "class": [bem('label'), props.labelClass]
+          }, [slots.label ? slots.label() : label]);
+        }
       }
+      function Title() {
+        if (showTitle) {
+          return h("div", {
+            "class": [bem('title'), props.titleClass],
+            "style": props.titleStyle
+          }, [slots.title ? slots.title() : h("span", [title]), Label()]);
+        }
+      }
+      function Value() {
+        var showValue = slots.default || (0, _utils.isDef)(value);
+        if (showValue) {
+          return h("div", {
+            "class": [bem('value', {
+              alone: !showTitle
+            }), props.valueClass]
+          }, [slots.default ? slots.default() : h("span", [value])]);
+        }
+      }
+      function LeftIcon() {
+        if (slots.icon) {
+          return slots.icon();
+        }
+        if (icon) {
+          return h(_icon.default, {
+            "class": bem('left-icon'),
+            "attrs": {
+              "name": icon,
+              "classPrefix": props.iconPrefix
+            }
+          });
+        }
+      }
+      function RightIcon() {
+        var rightIconSlot = slots['right-icon'];
+        if (rightIconSlot) {
+          return rightIconSlot();
+        }
+        if (isLink) {
+          var arrowDirection = props.arrowDirection;
+          return h(_icon.default, {
+            "class": bem('right-icon'),
+            "attrs": {
+              "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
+            }
+          });
+        }
+      }
+      function onClick(event) {
+        (0, _functional.emit)(ctx, 'click', event);
+        (0, _router.functionalRoute)(ctx);
+      }
+      var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
+      var classes = {
+        clickable: clickable,
+        center: props.center,
+        required: props.required,
+        borderless: !props.border
+      };
+      if (size) {
+        classes[size] = size;
+      }
+      return h("div", (0, _babelHelperVueJsxMergeProps.default)([{
+        "class": bem(classes),
+        "attrs": {
+          "role": clickable ? 'button' : null,
+          "tabindex": clickable ? 0 : null
+        },
+        "on": {
+          "click": onClick
+        }
+      }, (0, _functional.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
     }
-    function Title() {
-      if (showTitle) {
-        return h("div", {
-          "class": [bem$3('title'), props.titleClass],
-          "style": props.titleStyle
-        }, [slots.title ? slots.title() : h("span", [title]), Label()]);
-      }
-    }
-    function Value() {
-      var showValue = slots.default || (0, _utils$3.isDef)(value);
-      if (showValue) {
-        return h("div", {
-          "class": [bem$3('value', {
-            alone: !showTitle
-          }), props.valueClass]
-        }, [slots.default ? slots.default() : h("span", [value])]);
-      }
-    }
-    function LeftIcon() {
-      if (slots.icon) {
-        return slots.icon();
-      }
-      if (icon) {
-        return h(_icon$2.default, {
-          "class": bem$3('left-icon'),
-          "attrs": {
-            "name": icon,
-            "classPrefix": props.iconPrefix
-          }
-        });
-      }
-    }
-    function RightIcon() {
-      var rightIconSlot = slots['right-icon'];
-      if (rightIconSlot) {
-        return rightIconSlot();
-      }
-      if (isLink) {
-        var arrowDirection = props.arrowDirection;
-        return h(_icon$2.default, {
-          "class": bem$3('right-icon'),
-          "attrs": {
-            "name": arrowDirection ? "arrow-" + arrowDirection : 'arrow'
-          }
-        });
-      }
-    }
-    function onClick(event) {
-      (0, _functional$2.emit)(ctx, 'click', event);
-      (0, _router.functionalRoute)(ctx);
-    }
-    var clickable = (_props$clickable = props.clickable) != null ? _props$clickable : isLink;
-    var classes = {
-      clickable: clickable,
-      center: props.center,
-      required: props.required,
-      borderless: !props.border
-    };
-    if (size) {
-      classes[size] = size;
-    }
-    return h("div", (0, _babelHelperVueJsxMergeProps$3.default)([{
-      "class": bem$3(classes),
-      "attrs": {
-        "role": clickable ? 'button' : null,
-        "tabindex": clickable ? 0 : null
-      },
-      "on": {
-        "click": onClick
-      }
-    }, (0, _functional$2.inherit)(ctx)]), [LeftIcon(), Title(), Value(), RightIcon(), slots.extra == null ? void 0 : slots.extra()]);
+    Cell.props = (0, _extends2.default)({}, _shared.cellProps, _router.routeProps);
+    var _default = createComponent(Cell);
+    cell.default = _default;
+    return cell;
   }
-  Cell.props = (0, _extends2$2.default)({}, _shared$1.cellProps, _router.routeProps);
-  var _default$3 = createComponent$3(Cell);
-  default_1$3 = cell.default = _default$3;
+
+  var cellExports = requireCell();
 
   var constant = {};
 
@@ -1367,7 +1375,7 @@
   var _scroll = requireScroll();
   var _utils$1 = requireUtils();
   var _icon$1 = _interopRequireDefault$2(icon);
-  var _cell = _interopRequireDefault$2(cell);
+  var _cell = _interopRequireDefault$2(requireCell());
   var _shared = requireShared$1();
 
   // Utils
@@ -15872,8 +15880,8 @@
       Vue.use(Option);
       Vue.use(OptionGroup);
       //vant组件库
-      Vue.use(default_1$4);
       Vue.use(default_1$3);
+      Vue.use(cellExports);
       Vue.use(default_1$2);
       Vue.use(default_1$1);
       // Vue.use(Popup);
