@@ -1,6 +1,6 @@
 {
   "name": "begda-ui",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "@begda/begda-ui库",
   "title": "@begda/begda-ui库",
   "main": "index.js",
