@@ -107,9 +107,9 @@ export default {
     },
     mounted() {
         //获取每日一言
-        // axios.get('https://v1.hitokoto.cn').then(res => {
-        //     this.headerInfo = res.data;
-        // });
+        axios.get('https://v1.hitokoto.cn').then(res => {
+            this.headerInfo = res.data;
+        });
     },
     methods: {
         onClick(key, item) {
