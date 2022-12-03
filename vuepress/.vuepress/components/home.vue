@@ -6,7 +6,7 @@
             </template>
         </div>
         <div class="home-header" style="">
-            <img :src="logo" class="logo" />
+            <img :src="logo" class="home-header-logo" />
             <div style="font-size: 40px; margin-bottom: 20px; margin-top: 10px; text-shadow: black 0.1em 0.1em 0.1em">
                 {{ $site.locales['/'].title }}
             </div>
@@ -134,7 +134,7 @@ export default {
     background-size: 100% 100%;
     color: #ffffff;
 }
-.home-heade .logo {
+.home-header-logo {
     width: 120px;
     border-radius: 50%;
     padding: 5px;

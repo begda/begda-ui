@@ -66,7 +66,7 @@ module.exports = {
             { text: '首页', link: '/' },
             { text: 'BegdaUI', link: '/BegdaUI/' },
             { text: 'Blog', link: '/Blog/' },
-            { text: 'Github', link: 'https://github.com/liaohui1080/begda-ui.git', target: '_blank', rel: '' }
+            { text: 'Github', link: '//github.com/liaohui1080/begda-ui.git', target: '_blank', rel: '' }
         ],
         // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
         author: {
