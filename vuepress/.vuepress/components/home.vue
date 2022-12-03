@@ -2,7 +2,7 @@
     <div>
         <div style="position: absolute; top: 10px; right: 10px; color: #5ba17c">
             <template v-for="item in nav">
-                <a :href="`.${item.link}`" style="color: #dbedff">{{ item.text }}</a> &nbsp;&nbsp;
+                <a :href="`${item.link}`" :target="item.target" style="color: #dbedff">{{ item.text }}</a> &nbsp;&nbsp;
             </template>
         </div>
         <div class="home-header" style="">
@@ -76,7 +76,7 @@
         <div style="margin-top: 100px; text-align: center; padding: 20px; border-top: 1px #ececec solid">
             Copyright © {{ Copyright }} | <a :href="author.link">{{ author.name }}</a> |
             <template v-for="item in nav">
-                <a :href="`.${item.link}`">{{ item.text }}</a> |
+                <a :href="`${item.link}`" :target="item.target">{{ item.text }}</a> |
             </template>
             {{ $site.locales['/'].description }}
         </div>
@@ -106,11 +106,10 @@ export default {
         this.nav = this.$site.themeConfig.nav;
     },
     mounted() {
-        console.log(this.$site);
-        axios.get('https://v1.hitokoto.cn').then(res => {
-            console.log(res.data);
-            this.headerInfo = res.data;
-        });
+        //获取每日一言
+        // axios.get('https://v1.hitokoto.cn').then(res => {
+        //     this.headerInfo = res.data;
+        // });
     },
     methods: {
         onClick(key, item) {

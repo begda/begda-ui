@@ -26,7 +26,7 @@ module.exports = {
     head: [
         // ['link', { rel: 'stylesheet', href: './css/css.css' }],
         //高德地图key
-        ['script', { src: `https://unpkg.com/echarts@5.4.0/dist/echarts.js` }]
+        // ['script', { src: `https://cdn.bootcdn.net/ajax/libs/echarts/5.4.0/echarts.min.js` }]
         // ['script', { src: `https://webapi.amap.com/maps?v=1.4.15&key=abb89bfe34e5be2fe527764105154410` }]
         // ['script', { src: 'https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/locale/af.js' }]
         // ['script', { src: 'https://unpkg.com/element-ui/lib/index.js' }]
@@ -64,13 +64,13 @@ module.exports = {
         searchMaxSuggestions: 10,
         nav: [
             { text: '首页', link: '/' },
-            { text: 'BegdaUI', link: '/BegdaUI/' },
-            { text: 'Blog', link: '/Blog/' },
-            { text: 'Github', link: '//github.com/liaohui1080/begda-ui.git', target: '_blank', rel: '' }
+            { text: 'BegdaUI', link: 'BegdaUI/' },
+            { text: 'Blog', link: 'Blog/' },
+            { text: 'Github', link: '//github.com/liaohui1080/begda-ui.git', target: '_blank', rel: true }
         ],
         // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
         author: {
-            name: 'github', // 必需
+            name: 'begda', // 必需
             link: 'https://github.com/liaohui1080/begda-ui.git' // 可选的
         }
     }

@@ -64,7 +64,7 @@ unpkg.com。
             <ba-panel>面板</ba-panel>
         </div>
     </body>
-    <!-- import Vue before Element -->
+    <!-- import Vue before BeggedUI-->
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <!-- import JavaScript -->
     <script src="https://unpkg.com/begda-ui@0.0.17/dist/begda-ui.umd.mini.js"></script>
