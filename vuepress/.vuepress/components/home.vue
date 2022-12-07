@@ -24,6 +24,7 @@
 
         <div style="width: 1200px; margin: auto">
             <div style="display: flex; flex-wrap: wrap">
+                <!--             显示所有的 lib库-->
                 <div v-for="(item, key) in libs" style="width: 25%">
                     <panel :is-navbar="false" :height="400" :padding="false" style="margin: 15px">
                         <template #top>
@@ -41,14 +42,16 @@
                         </template>
                         <!--                      循环显示文件列表-->
                         <template v-for="(item2, key) in item.children">
+                            <!--                          如果有文件列表的话就显示-->
                             <template v-if="item2">
                                 <van-cell is-link @click="onClick(item.path, item2)">
                                     <template #title> {{ key + 1 }}.{{ item2 | paiban }} </template>
                                 </van-cell>
                             </template>
+                            <!--                          没有文件列表的时候显示 md文档的内部标题-->
                             <template v-else>
-                                <van-cell is-link @click="onClick(item.path)">
-                                    <template #title> {{ key + 1 }}.开始使用 </template>
+                                <van-cell is-link @click="onClick(item.path)" v-for="(item3, key3) in item.headers">
+                                    <template #title> {{ key3 + 1 }} {{ item3.title }} </template>
                                 </van-cell>
                             </template>
                         </template>
@@ -128,25 +131,27 @@ export default {
         //组合lib库数据,给lib添加 frontmatter 的所有数据,用于显示 每个库的简介
         lib() {
             let pages = this.$site.pages;
+
             let arr = Object.keys(this.sidebar); //获取对象的名字
             let 置顶 = [];
             let 后面的 = [];
             let libArr = []; //存储组合好的 数据
             arr.map(item => {
                 if (item != '/Lib/') {
-                    let frontmatterArr = []; //存储pages循环的数据
+                    let pageArr = []; //存储pages循环的数据
                     pages.map(item2 => {
                         if (item === item2.path) {
                             //如果两个路径一样,就取出frontmatter 数据,里面有当前库的简介
-                            frontmatterArr.push(item2.frontmatter);
+                            pageArr.push(item2);
                         }
                     });
                     libArr.push({
                         ...this.sidebar[item][0],
                         path: item,
-                        frontmatter: frontmatterArr[0],
-                        order: frontmatterArr[0].order, //获取排序数值
-                        background: frontmatterArr[0].background //获取背景图,或者背景颜色
+                        frontmatter: pageArr[0].frontmatter,
+                        order: pageArr[0].frontmatter.order, //获取排序数值
+                        background: pageArr[0].frontmatter.background, //获取背景图,或者背景颜色
+                        headers: pageArr[0].headers //获取背景图,或者背景颜色
                     });
                 }
             });
