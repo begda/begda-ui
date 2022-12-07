@@ -18,54 +18,52 @@
             <h3 style="font-size: 14px; color: #eaecef; text-shadow: black 0.1em 0.1em 0.1em">{{ headerInfo.from }}</h3>
         </div>
         <div style="padding: 20px; text-align: center; margin-top: 30px">
-            <h1>我自己常用的项目</h1>
-            <div style="height: 20px"></div>
-            <h4>这些项目都是频繁使用或者需要查看手册的项目</h4>
+            <h1>我自己常用的库</h1>
+            <h4>这些库都是频繁使用或者需要查看手册的</h4>
         </div>
 
         <div style="width: 1200px; margin: auto">
             <div style="display: flex; flex-wrap: wrap">
-                <div v-for="(item, key) in sidebar" style="width: 25%">
-                    <template v-if="item[0].title != 'Blog'">
-                        <panel :is-navbar="false" :height="400" style="margin: 15px">
-                            <template #top>
-                                <div
-                                    style="
-                                        border-radius: 5px 5px 0 0;
-                                        color: #ffffff;
-                                        width: 100%;
-                                        height: 130px;
-                                        background: #02407a;
-                                        font-size: 30px;
-                                        font-weight: 300;
-                                        text-align: center;
-                                        line-height: 130px;
-                                        border-bottom: 4px #ffcc00 solid;
-                                    "
-                                >
-                                    {{ item[0].title }}
+                <div v-for="(item, key) in libs" style="width: 25%">
+                    <panel :is-navbar="false" :height="400" :padding="false" style="margin: 15px">
+                        <template #top>
+                            <div class="panel-header" :style="{ background: item.background }">
+                                <div class="language">
+                                    <template v-for="item in item.frontmatter.language">
+                                        <i style="font-size: 10px"> {{ item }}</i>
+                                    </template>
                                 </div>
+                                <div class="panel-header-title">{{ item.title }}</div>
+                                <div class="panel-header-info">
+                                    {{ item.frontmatter ? item.frontmatter.description : '' }}
+                                </div>
+                            </div>
+                        </template>
+                        <!--                      循环显示文件列表-->
+                        <template v-for="(item2, key) in item.children">
+                            <template v-if="item2">
+                                <van-cell is-link @click="onClick(item.path, item2)">
+                                    <template #title> {{ key + 1 }}.{{ item2 | paiban }} </template>
+                                </van-cell>
                             </template>
-                            <template v-for="item2 in item[0].children">
-                                <template v-if="!item2">
-                                    <van-cell :title="`${item[0].title}首页`" is-link @click="onClick(key)"></van-cell>
-                                </template>
-                                <template v-else>
-                                    <van-cell :title="item2" is-link @click="onClick(key, item2)"></van-cell>
-                                </template>
+                            <template v-else>
+                                <van-cell is-link @click="onClick(item.path)">
+                                    <template #title> {{ key + 1 }}.开始使用 </template>
+                                </van-cell>
                             </template>
-                        </panel>
-                    </template>
+                        </template>
+                    </panel>
                 </div>
             </div>
 
             <div style="padding: 20px; text-align: center; margin-top: 30px">
                 <h1>所有文章</h1>
-                <div style="height: 20px"></div>
+
                 <h4>这是给搜索引擎用的</h4>
+                <div style="height: 20px"></div>
             </div>
-            <div style="display: flex; flex-wrap: wrap">
-                <div v-for="item in $site.pages">
+            <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); text-align: center; gap: 1rem">
+                <div v-for="item in $site.pages" style="order: 9999">
                     <template v-if="item.title">
                         <panel :is-navbar="false" style="margin: 5px" shadow="hover">
                             <a :href="`.${item.path}`">{{ item.title }}</a>
@@ -86,34 +84,78 @@
 </template>
 
 <script>
-import axios from 'axios';
-
+import _ from 'lodash';
 export default {
     name: 'home',
     data() {
         return {
             logo: '',
             nav: [],
+            libs: [],
             sidebar: [],
             Copyright: '0000',
             author: {},
             headerInfo: {}
         };
     },
+    filters: {
+        //去掉前面的数字
+        paiban(val) {
+            let newVal = val.split('.');
+            return newVal[1];
+        }
+    },
     created() {
         this.logo = '.' + this.$site.themeConfig.logo;
         this.sidebar = this.$site.themeConfig.sidebar;
+        this.libs = this.lib();
         this.Copyright = new Date().getFullYear();
         this.author = this.$site.themeConfig.author;
         this.nav = this.$site.themeConfig.nav;
+        // console.log(this.$site);
+        // console.log(this.$page);
+        // console.log(this.$frontmatter);
     },
     mounted() {
         //获取每日一言
-        axios.get('https://v1.hitokoto.cn').then(res => {
-            this.headerInfo = res.data;
-        });
+        fetch('https://v1.hitokoto.cn')
+            .then(response => response.json())
+            .then(data => {
+                this.headerInfo = data;
+            });
     },
     methods: {
+        //组合lib库数据,给lib添加 frontmatter 的所有数据,用于显示 每个库的简介
+        lib() {
+            let pages = this.$site.pages;
+            let arr = Object.keys(this.sidebar); //获取对象的名字
+            let 置顶 = [];
+            let 后面的 = [];
+            let libArr = []; //存储组合好的 数据
+            arr.map(item => {
+                if (item != '/Lib/') {
+                    let frontmatterArr = []; //存储pages循环的数据
+                    pages.map(item2 => {
+                        if (item === item2.path) {
+                            //如果两个路径一样,就取出frontmatter 数据,里面有当前库的简介
+                            frontmatterArr.push(item2.frontmatter);
+                        }
+                    });
+                    libArr.push({
+                        ...this.sidebar[item][0],
+                        path: item,
+                        frontmatter: frontmatterArr[0],
+                        order: frontmatterArr[0].order, //获取排序数值
+                        background: frontmatterArr[0].background //获取背景图,或者背景颜色
+                    });
+                }
+            });
+
+            console.log(_.orderBy(libArr, ['order'], ['asc']));
+
+            // `asc` 升序排序 ,  `desc` 以降序排序。
+            return _.orderBy(libArr, ['order'], ['asc']);
+        },
         onClick(key, item) {
             if (item) {
                 window.open(`.${key}${item}.html`);
@@ -126,6 +168,10 @@ export default {
 </script>
 
 <style scoped>
+h4 {
+    margin: 0;
+    padding: 0 !important;
+}
 .home-header {
     padding-bottom: 180px;
     padding-top: 180px;
@@ -135,6 +181,7 @@ export default {
     background-size: 100% 100%;
     color: #ffffff;
 }
+
 .home-header-logo {
     width: 120px;
     border-radius: 50%;
@@ -142,5 +189,46 @@ export default {
     background: #ffffff;
     margin: auto;
     box-shadow: rgba(0, 0, 0, 0.4) 0 0 20px;
+}
+
+.panel-header {
+    border-radius: 5px 5px 0 0;
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+    background: #02407a;
+    //font-size: 30px;
+    //font-weight: 300;
+    text-align: center;
+    //line-height: 130px;
+    border-bottom: 4px #ffcc00 solid;
+    padding-bottom: 20px;
+}
+.panel-header-title {
+    display: inline-block;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 100px;
+    height: 80px;
+    vertical-align: bottom;
+}
+.panel-header-info {
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 1.5;
+    height: 35px;
+    padding: 0 15px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.language {
+    color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    height: 10px;
+    line-height: 10px;
 }
 </style>
