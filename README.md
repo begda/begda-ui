@@ -24,9 +24,9 @@ details: 依赖element-ui datav。
 npm i begda-ui
 
 #使用库
-import begdaUI from 'begda-ui';
-import 'begda-ui/theme/index.css';
-Vue.use(begdaUI);
+import BegdaUI from 'begda-ui';
+import 'begda-ui/lib/theme/index.css';
+Vue.use(BegdaUI);
 
 ```
 
@@ -39,9 +39,9 @@ unpkg.com。
 
 ```shell
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.17/dist/theme/index.mini.css">
+<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.17/lib/theme/index.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/begda-ui@0.0.17/dist/begda-ui.umd.mini.js"></script>
+<script src="https://unpkg.com/begda-ui@0.0.17/lib/index.js"></script>
 
 ```
 
@@ -57,7 +57,7 @@ unpkg.com。
     <head>
         <meta charset="UTF-8" />
         <!-- import CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.18/dist/theme/index.mini.css" />
+        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.17/lib/theme/index.css" />
     </head>
     <body>
         <div id="app">
@@ -67,7 +67,7 @@ unpkg.com。
     <!-- import Vue before Element -->
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <!-- import JavaScript -->
-    <script src="https://unpkg.com/begda-ui@0.0.18/dist/begda-ui.umd.mini.js"></script>
+    <script src="https://unpkg.com/begda-ui@0.0.17/lib/index.js"></script>
 
     <script>
         new Vue({

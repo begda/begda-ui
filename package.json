@@ -3,13 +3,15 @@
   "version": "0.0.19",
   "description": "@begda/begda-ui库",
   "title": "@begda/begda-ui库",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "style": "lib/theme/index.css",
   "taobaonpm": "--registry=https://registry.npmmirror.com",
   "scripts": {
     "rollup:build": "rollup -c build/rollup.config.build.mjs",
     "rollup:dev": "rollup --watch --watch.include='packages/**'   -c  build/rollup.config.mjs",
     "rollup2:dev": "rollup -c  build/rollup.config.mjs",
     "docs:dev": "vuepress dev vuepress",
+    "docsdev": "vuepress dev vuepress",
     "docs:build": "vuepress build vuepress",
     "pnpm-install": "pnpm install --shamefully-hoist",
     "pnpm-install2": "pnpm install",
@@ -21,8 +23,8 @@
     "npm-发布:重大更新": "npm version major && npm publish"
   },
   "files": [
-    "packages",
-    "dist"
+    "lib",
+    "packages"
   ],
   "keywords": [
     "begda-ui",
@@ -35,7 +37,8 @@
   "homepage": "https://begda.tianliaohui.com",
   "exports": {
     ".": {
-      "import": "./packages/index.js"
+      "require": "./lib/index.js",
+      "import": "./lib/index.js"
     }
   },
   "author": "",

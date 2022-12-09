@@ -3,8 +3,8 @@
 // import 'element-ui/lib/theme-chalk/index.css';
 // import Vant from 'vant';
 // import 'vant/lib/index.css';
-import BegdaUI from '../../dist/begda-ui';
-import '../../dist/begda-ui/theme/index.css';
+import BegdaUI from 'begda-ui';
+import 'begda-ui/lib/theme/index.css';
 console.log(BegdaUI);
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数

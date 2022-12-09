@@ -32,7 +32,7 @@ export default [
         input: "packages/index.js",
         output: [
             {
-                file: "dist/begda-ui/index.js",
+                file: "lib/index.js",
                 format: "umd",
                 name: "BegdaUI",
                 sourcemap: true,
@@ -83,11 +83,7 @@ export default [
                 targets: [
                     {
                         src: "packages/theme/src/images",
-                        dest: "dist/theme",
-                    },
-                    {
-                        src: "packages/theme/src/images",
-                        dest: "dist/begda-ui/theme",
+                        dest: "lib/theme",
                     },
                 ],
             }),

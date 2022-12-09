@@ -50,7 +50,11 @@
                             </template>
                             <!--                          没有文件列表的时候显示 md文档的内部标题-->
                             <template v-else>
-                                <van-cell is-link @click="onClick(item.path)" v-for="(item3, key3) in item.headers">
+                                <van-cell
+                                    is-link
+                                    @click="onClick(item.path + '#' + item3.title)"
+                                    v-for="(item3, key3) in item.headers"
+                                >
                                     <template #title> {{ key3 + 1 }}.{{ item3.title }} </template>
                                 </van-cell>
                             </template>
@@ -115,7 +119,7 @@ export default {
         this.Copyright = new Date().getFullYear();
         this.author = this.$site.themeConfig.author;
         this.nav = this.$site.themeConfig.nav;
-        // console.log(this.$site);
+        console.log(this.$site);
         // console.log(this.$page);
         // console.log(this.$frontmatter);
     },
@@ -156,6 +160,7 @@ export default {
                 }
             });
 
+            // document.getElementById("xxx").scrollIntoView(); 跳转到锚点
             console.log(_.orderBy(libArr, ['order'], ['asc']));
 
             // `asc` 升序排序 ,  `desc` 以降序排序。
@@ -167,6 +172,7 @@ export default {
             } else {
                 window.open(`${key}`);
             }
+            console.log(key, item);
         }
     }
 };

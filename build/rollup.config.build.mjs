@@ -32,32 +32,8 @@ export default [
         input: "packages/index.js",
         output: [
             {
-                file: "dist/begda-ui.umd.mini.js",
+                file: "lib/index.js",
                 format: "umd",
-                name: "BegdaUI",
-                // sourcemap: true,
-                banner: createBanner(),
-                globals: {
-                    vue: "Vue",
-                    lodash: "_",
-                    echarts: "echarts",
-                },
-            },
-            {
-                file: "dist/begda-ui/index.js",
-                format: "umd",
-                name: "BegdaUI",
-                sourcemap: true,
-                banner: createBanner(),
-                globals: {
-                    vue: "Vue",
-                    lodash: "_",
-                    echarts: "echarts",
-                },
-            },
-            {
-                file: "dist/begda-ui/es/index.js",
-                format: "es",
                 name: "BegdaUI",
                 // sourcemap: true,
                 banner: createBanner(),
@@ -89,7 +65,7 @@ export default [
             postcss({
                 // include: ['node_modules/**'],
                 // modules: true,  //具有单独命名空间的css
-                extract: "theme/index.mini.css",
+                extract: "theme/index.css",
                 // sourceMap: true,
                 minimize: true,  //压缩
                 // exclude: ['node_modules/**'],
@@ -107,11 +83,7 @@ export default [
                 targets: [
                     {
                         src: "packages/theme/src/images",
-                        dest: "dist/theme",
-                    },
-                    {
-                        src: "packages/theme/src/images",
-                        dest: "dist/begda-ui/theme",
+                        dest: "lib/theme",
                     },
                 ],
             }),
