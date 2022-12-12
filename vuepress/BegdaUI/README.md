@@ -1,4 +1,5 @@
 ---
+title: BegdaUI
 home: true
 autoIgnore: true
 heroText: BegdaUI

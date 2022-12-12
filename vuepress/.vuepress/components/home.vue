@@ -25,7 +25,7 @@
             <h1 class="text-white">
                 {{ $site.locales['/'].title }}
             </h1>
-            <div class="p-3">
+            <div class="p-3" style="background-color: #022659">
                 <template v-for="item in nav">
                     <a :href="`${item.link}`" :target="item.target" style="color: #dbedff">{{ item.text }}</a>
                     &nbsp;&nbsp;
@@ -34,15 +34,15 @@
         </div>
 
         <!--      中间区域-->
-        <div class="md:mx-auto md:w-[1200px]">
+        <div class="md:mx-auto md:w-[1200px] px-5">
             <div class="p-5 text-center mt-4">
                 <h1>我自己常用的库</h1>
                 <h4>这些库都是频繁使用或者需要查看手册的</h4>
             </div>
-            <div class="md:grid md:grid-cols-4 md:gap-0.5">
+            <div class="md:grid md:grid-cols-4 md:gap-8">
                 <!--             显示所有的 lib库-->
                 <div v-for="(item, key) in libs">
-                    <panel :is-navbar="false" :height="400" :padding="false" style="margin: 15px">
+                    <panel :is-navbar="false" :height="400" :padding="false">
                         <template #top>
                             <div class="panel-header" :style="{ background: item.background }">
                                 <div class="language">
@@ -81,21 +81,20 @@
 
             <div style="padding: 20px; text-align: center; margin-top: 30px">
                 <h1>所有文章</h1>
-
                 <h4>这是给搜索引擎用的</h4>
                 <div style="height: 20px"></div>
             </div>
-            <div class="grid grid-cols-2 gap-0.5 text-center md:grid-cols-4 md:gap-0.5">
-                <div v-for="item in $site.pages" style="order: 9999">
-                    <template v-if="item.title">
-                        <panel :is-navbar="false" style="margin: 5px" shadow="hover">
-                            <a :href="`.${item.path}`">{{ item.title }}</a>
-                        </panel>
-                    </template>
+            <!--          显示所有文章-->
+            <div class="grid grid-cols-2 gap-5 col-auto text-center md:grid-cols-4 md:gap-5">
+                <div v-for="(item, key) in $site.pages" v-if="item.title">
+                    <panel :is-navbar="false" shadow="hover">
+                        <a :href="`.${item.path}`">{{ item.title }}</a>
+                    </panel>
                 </div>
             </div>
         </div>
 
+        <!--      底部-->
         <div style="margin-top: 100px; text-align: center; padding: 20px; border-top: 1px #ececec solid">
             Copyright © {{ Copyright }} | <a :href="author.link">{{ author.name }}</a> |
             <template v-for="item in nav">
@@ -135,7 +134,7 @@ export default {
         this.Copyright = new Date().getFullYear();
         this.author = this.$site.themeConfig.author;
         this.nav = this.$site.themeConfig.nav;
-        console.log(this.$site);
+        console.log(this.$site.pages);
         // console.log(this.$page);
         // console.log(this.$frontmatter);
     },
