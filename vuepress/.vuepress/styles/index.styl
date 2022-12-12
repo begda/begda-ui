@@ -9,25 +9,41 @@ body
 
 //doc 设置
 .table-of-contents
-  background #ffffff
+  padding 20px
+  background rgba(246, 246, 246, 0.66)
+  border 1px #f1f1f1 solid
+  border-radius 10px
+  a{
+    color #595959
+  }
   width 12rem
   padding-left 1rem
   position fixed
   font-size 0.6rem
-  right 0
+  right 15px
   top $navbarHeight + 2rem
+
   .badge
     vertical-align middle
 
 //显示 doc的 侧边
-@media (min-width: (1200px))
+@media (min-width: (1100px))
   .table-of-contents
     display block
+    padding 10px
+    border-radius 5px
+
 
 //隐藏 doc的 侧边
 @media (max-width: (1200px))
   .table-of-contents
-    display none
+    width 100%
+    position relative
+    font-size 0.8rem
+    right auto
+    top auto
+    padding 20px
+    border-radius 10px
 
 
 .sidebar
@@ -59,6 +75,7 @@ h1, h2, h3, h4, h5, h6
   font-weight normal
   line-height 2.5
   color #000000
+  border none
   .content__default:not(.custom) > &
     margin-top (- 3.5rem)
 

@@ -1,6 +1,10 @@
 /** @format */
 
 const path = require('path');
+
+const tailwindcss = require('tailwindcss');
+const tailwindConfig = require('../../tailwind.config');
+const pxtorem = require('postcss-pxtorem');
 // console.log(path.resolve('public','vuepress'))
 module.exports = {
     // docs/.vuepress/theme/plugin/util/index.js
@@ -25,7 +29,9 @@ module.exports = {
         }
     },
     head: [
-        // ['link', { rel: 'stylesheet', href: './css/css.css' }],
+        ['link', { rel: 'stylesheet', href: './css/css.css' }],
+        ['viewport', { name: 'viewport', content: 'width=device-width, initial-scale=1' }]
+
         //高德地图key
         // ['script', { src: `https://cdn.bootcdn.net/ajax/libs/echarts/5.4.0/echarts.min.js` }]
         // ['script', { src: `https://webapi.amap.com/maps?v=1.4.15&key=abb89bfe34e5be2fe527764105154410` }]
@@ -49,7 +55,8 @@ module.exports = {
         'demo-container',
         [
             'vuepress-plugin-auto-sidebar' //自动侧边栏菜单生成工具
-        ]
+        ],
+        tailwindcss(tailwindConfig)
     ],
     themeConfig: {
         logo: '/images/logo.jpg',

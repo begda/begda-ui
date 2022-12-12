@@ -79,3 +79,5 @@ unpkg.com。
     </script>
 </html>
 ```
+
+npx tailwindcss -i packages/theme/src/tailwind-main.css -o ./vuepress/.vuepress/public/css/css.css --watch

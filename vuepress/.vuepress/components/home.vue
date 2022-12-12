@@ -1,11 +1,13 @@
 <template>
     <div>
-        <div style="position: absolute; top: 10px; right: 10px; color: #5ba17c">
-            <template v-for="item in nav">
-                <a :href="`${item.link}`" :target="item.target" style="color: #dbedff">{{ item.text }}</a> &nbsp;&nbsp;
-            </template>
-        </div>
-        <div class="home-header" style="">
+        <!--      大屏幕显示头部-->
+        <div class="hidden md:block home-header">
+            <div style="position: absolute; top: 10px; right: 10px; color: #5ba17c">
+                <template v-for="item in nav">
+                    <a :href="`${item.link}`" :target="item.target" style="color: #dbedff">{{ item.text }}</a>
+                    &nbsp;&nbsp;
+                </template>
+            </div>
             <img :src="logo" class="home-header-logo" />
             <div style="font-size: 40px; margin-bottom: 20px; margin-top: 10px; text-shadow: black 0.1em 0.1em 0.1em">
                 {{ $site.locales['/'].title }}
@@ -17,15 +19,29 @@
             </h3>
             <h3 style="font-size: 14px; color: #eaecef; text-shadow: black 0.1em 0.1em 0.1em">{{ headerInfo.from }}</h3>
         </div>
-        <div style="padding: 20px; text-align: center; margin-top: 30px">
-            <h1>我自己常用的库</h1>
-            <h4>这些库都是频繁使用或者需要查看手册的</h4>
+        <!--      小屏幕显示头部-->
+        <div class="md:hidden block text-center bg-[#143764] pt-8">
+            <img :src="logo" class="home-header-logo" />
+            <h1 class="text-white">
+                {{ $site.locales['/'].title }}
+            </h1>
+            <div class="p-3">
+                <template v-for="item in nav">
+                    <a :href="`${item.link}`" :target="item.target" style="color: #dbedff">{{ item.text }}</a>
+                    &nbsp;&nbsp;
+                </template>
+            </div>
         </div>
 
-        <div style="width: 1200px; margin: auto">
-            <div style="display: flex; flex-wrap: wrap">
+        <!--      中间区域-->
+        <div class="md:mx-auto md:w-[1200px]">
+            <div class="p-5 text-center mt-4">
+                <h1>我自己常用的库</h1>
+                <h4>这些库都是频繁使用或者需要查看手册的</h4>
+            </div>
+            <div class="md:grid md:grid-cols-4 md:gap-0.5">
                 <!--             显示所有的 lib库-->
-                <div v-for="(item, key) in libs" style="width: 25%">
+                <div v-for="(item, key) in libs">
                     <panel :is-navbar="false" :height="400" :padding="false" style="margin: 15px">
                         <template #top>
                             <div class="panel-header" :style="{ background: item.background }">
@@ -69,7 +85,7 @@
                 <h4>这是给搜索引擎用的</h4>
                 <div style="height: 20px"></div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); text-align: center; gap: 1rem">
+            <div class="grid grid-cols-2 gap-0.5 text-center md:grid-cols-4 md:gap-0.5">
                 <div v-for="item in $site.pages" style="order: 9999">
                     <template v-if="item.title">
                         <panel :is-navbar="false" style="margin: 5px" shadow="hover">

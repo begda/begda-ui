@@ -1,7 +1,7 @@
 ---
 title: VUE内容
 order: 1
-background: rgba(120,70,128,1)
+background: rgba(0,165,135,1)
 language:
     - js
     - vue

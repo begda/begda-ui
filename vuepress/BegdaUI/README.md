@@ -18,6 +18,8 @@ language:
     - vue
     - js
     - css
+categories:
+    - begda
 order: 1
 background: rgba(234,132,0,1)
 ---
