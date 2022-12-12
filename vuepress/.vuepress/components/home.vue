@@ -39,7 +39,7 @@
                 <h1>我自己常用的库</h1>
                 <h4>这些库都是频繁使用或者需要查看手册的</h4>
             </div>
-            <div class="md:grid md:grid-cols-4 md:gap-8">
+            <div class="md:grid md:grid-cols-4 gap-8">
                 <!--             显示所有的 lib库-->
                 <div v-for="(item, key) in libs">
                     <panel :is-navbar="false" :height="400" :padding="false">
@@ -76,6 +76,8 @@
                             </template>
                         </template>
                     </panel>
+                    <!--                  移动端站位用的-->
+                    <div class="md:hidden pb-8"></div>
                 </div>
             </div>
 
@@ -85,7 +87,7 @@
                 <div style="height: 20px"></div>
             </div>
             <!--          显示所有文章-->
-            <div class="grid grid-cols-2 gap-5 col-auto text-center md:grid-cols-4 md:gap-5">
+            <div class="grid grid-cols-2 gap-5 text-center md:grid-cols-4">
                 <div v-for="(item, key) in $site.pages" v-if="item.title">
                     <panel :is-navbar="false" shadow="hover">
                         <a :href="`.${item.path}`">{{ item.title }}</a>

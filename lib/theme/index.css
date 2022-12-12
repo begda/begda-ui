@@ -737,9 +737,6 @@ video {
 .relative {
   position: relative;
 }
-.col-auto {
-  grid-column: auto;
-}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -770,6 +767,9 @@ video {
 .flex-wrap {
   flex-wrap: wrap;
 }
+.gap-8 {
+  gap: 2rem;
+}
 .gap-5 {
   gap: 1.25rem;
 }
@@ -792,6 +792,9 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pb-8 {
+  padding-bottom: 2rem;
 }
 .text-left {
   text-align: left;
@@ -849,14 +852,6 @@ video {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:gap-8 {
-    gap: 2rem;
-  }
-
-  .md\:gap-5 {
-    gap: 1.25rem;
   }
 }
 
