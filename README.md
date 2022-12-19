@@ -1,21 +1,4 @@
----
-home: true
-autoIgnore: true
-heroText: BegdaUI
-tagline: 比较适合切换的UI组件库
-actionText: 快速上手 →
-actionLink: /BegdaUI/01.panel.md
-
-features:
-- title: 啥都不是
-details: 不一定能维护下去。
-- title: 代码挺乱
-details: 就我自己用的,别太当真。
-- title: 依赖很多
-details: 依赖element-ui datav。
----
-
-<div style="height: 30px"></div>
+# 安装 BegdaUI
 
 ### NPM 使用库
 
@@ -39,9 +22,9 @@ unpkg.com。
 
 ```shell
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.17/lib/theme/index.css">
+<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.23/lib/theme/index..css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/begda-ui@0.0.17/lib/index.js"></script>
+<script src="https://unpkg.com/begda-ui@0.0.23/lib/index.js"></script>
 
 ```
 
@@ -57,17 +40,17 @@ unpkg.com。
     <head>
         <meta charset="UTF-8" />
         <!-- import CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.17/lib/theme/index.css" />
+        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.23/lib/theme/index..css" />
     </head>
     <body>
         <div id="app">
             <ba-panel>面板</ba-panel>
         </div>
     </body>
-    <!-- import Vue before Element -->
+    <!-- import Vue before BeggedUI-->
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <!-- import JavaScript -->
-    <script src="https://unpkg.com/begda-ui@0.0.17/lib/index.js"></script>
+    <script src="https://unpkg.com/begda-ui@0.0.23/lib/index.js"></script>
 
     <script>
         new Vue({
@@ -79,5 +62,3 @@ unpkg.com。
     </script>
 </html>
 ```
-
-npx tailwindcss -i packages/theme/src/tailwind-main.css -o ./vuepress/.vuepress/public/css/css.css --watch
