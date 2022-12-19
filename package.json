@@ -1,6 +1,6 @@
 {
   "name": "begda-ui",
-  "version": "0.2.0",
+  "version": "0.0.23",
   "description": "@begda/begda-ui库",
   "title": "@begda/begda-ui库",
   "main": "lib/index.js",
@@ -17,7 +17,7 @@
     "npm-撤回上次发布的包-仅限24小时内": "npm unpublish begda-ui --force",
     "npm-查看服务器版本号": "npm view begda-ui versions",
     "npm-发布:第一次": "npm publish",
-    "npm-发布:打补丁": "npn run npm-设置官方源 && npm version patch && npm publish",
+    "npm-发布:打补丁": "npm version patch && npm publish",
     "npm-发布:小改": "npm version minor && npm publish",
     "npm-发布:重大更新": "npm version major && npm publish",
     "npm-设置官方源": "npm config set registry https://registry.npmjs.org",
