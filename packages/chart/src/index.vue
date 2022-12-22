@@ -8,7 +8,7 @@
 export default {
     name: 'BaChart',
     props: {
-        options: { required: true, type: [Object, String] },
+        options: { required: true, type: [Object] },
         height: { type: Number, default: 300 }
     },
     data() {
@@ -27,6 +27,10 @@ export default {
     },
     methods: {
         init() {
+            let type = typeof this.options === 'object' ? this.options : false;
+            if (!type) {
+                throw new Error('BaChart组件的 options属性 只能是 object类型');
+            }
             this.setOptions(this.options);
         },
         onClick() {
