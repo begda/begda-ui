@@ -6,7 +6,7 @@ node_modules
 .output
 .env
 *.zip
-
+*.map
 .idea
 /web_work/
 /.idea/
@@ -18,8 +18,6 @@ node_modules
 bower_components
 /docs/**/*
 /docs/
-/docs/BegdaUI/
 /docs
-/docs/assets/
-/docs/BegdaUI/
-/docs/Lib/
+
+
