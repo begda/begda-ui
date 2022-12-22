@@ -22,9 +22,9 @@ unpkg.com。
 
 ```shell
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.23/lib/theme/index..css">
+<link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.25/lib/theme/index.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/begda-ui@0.0.23/lib/index.js"></script>
+<script src="https://unpkg.com/begda-ui@0.0.25/lib/index.js"></script>
 
 ```
 
@@ -40,7 +40,7 @@ unpkg.com。
     <head>
         <meta charset="UTF-8" />
         <!-- import CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.23/lib/theme/index..css" />
+        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.25/lib/theme/index.css" />
     </head>
     <body>
         <div id="app">
@@ -50,7 +50,7 @@ unpkg.com。
     <!-- import Vue before BeggedUI-->
     <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <!-- import JavaScript -->
-    <script src="https://unpkg.com/begda-ui@0.0.23/lib/index.js"></script>
+    <script src="https://unpkg.com/begda-ui@0.0.25/lib/index.js"></script>
 
     <script>
         new Vue({
