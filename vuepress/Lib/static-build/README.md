@@ -43,10 +43,14 @@ npm i browser-sync  #安装 监听文件变化,自动刷新浏览器
      - dist              # 输出目录
      - src
           - ba-assets    #打包的时候会把这个目录的所有文件都copy到 dist目录里
+            - css
+              - main.css  #tailwind生成的css
           - ba-modules   #包管理器的文件目录
           - index.html   #入口文件
      - begda.config.js   #配置文件
      - package.json
+     - tailwind-main.css  #tailwind入口文件
+     - tailwind.config.js #tailwind 配置文件
 ```
 
 ## html 引入资源包例子
@@ -99,6 +103,43 @@ defineConfig({
 });
 ```
 
+## 使用 Tailwindcss
+
+> 尽量使用高版本的 `Tailwindcss`
+>
+> 运行命令 npx tailwindcss -i ./tailwind-main.css -o ./src/ba-assets/css/main.css --watch
+
+./tailwind.config.js 配置文件
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./src/**/*.{html,js,vue}'],
+    theme: {
+        extend: {}
+    },
+    plugins: []
+};
+```
+
+./tailwind-main.css 入口文件
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+./package.json 添加启动命令配置
+
+```shell
+{
+   "scripts": {
+    "tailwind:watch": "npx tailwindcss -i ./tailwind-main.css -o ./src/ba-assets/css/main.css --watch"
+  },
+}
+```
+
 ## 两个包管理目录的重要说明
 
 1. node_modules
@@ -127,7 +168,8 @@ defineConfig({
 "browser-sync:dist": "browser-sync start --server 'dist' --files 'dist'",  #启动生产测试环境浏览器
 "browser-sync:src": "browser-sync start --server 'src' --files 'src'",  #启动开发环境浏览器
 "说明": "这个可以设置这样的 --files '/**/*.css,/**/*.html,/**/*.js'",
-"pnpm-install": "pnpm install --shamefully-hoist"
+"pnpm-install": "pnpm install --shamefully-hoist",
+"tailwind:watch": "npx tailwindcss -i ./tailwind-main.css -o ./src/ba-assets/css/main.css --watch",
 ```
 
 ## 源码地址
