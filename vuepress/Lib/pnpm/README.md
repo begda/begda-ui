@@ -5,151 +5,184 @@ language:
 categories:
     - pnpm
     - lib
+    - monorepo配置
 tags:
     - pnpm
     - lib
-description:  pnpm速度快、节省磁盘空间的软件包管理器。
+    - monorepo配置
+description: pnpm速度快、节省磁盘空间的软件包管理器。
 ---
 
-[[toc]]
+## 官网
 
+> [中文官网](https://www.pnpm.cn/) [英文官网](https://pnpm.io/)
 
-### 官网
-
-> [中文官网](https://www.pnpm.cn/) > [英文官网](https://pnpm.io/)
-
-### 通过 npm 安装 pnpm
+## 安装
 
 ```shell
-npm install -g pnpm
+npm  i pnpm -g
 ```
 
-# 项目说明
-主要解决在切图时候,无法使用npm包管理器下载的资源包.解决各种资源包重复下载问题
+## 常用命令
 
-实现原理是通过扫描html文件里引用的资源文件,然后根据路径copy到dist文件夹里
+在根目录执行命令，比如在根目录安装依赖，那么这个依赖可以在所有的 packages 中使用
 
-主要是针对单纯切图的项目,不需要编译,也能完美的使用 npm下载的node_modules目录下的各种资源包
-
-# 使用说明
-
-### 安装使用
-
-需要node开发环境
+### -w 或者 --workspace-root
 
 ```shell
-npm init  #创建package.json 文件
-npm i @begda/static-build  #安装 静态html编译
-npm i browser-sync  #安装 监听文件变化,自动刷新浏览器
+pnpm i -w
 ```
 
-### 目录结构
+> 在过滤的指定包运行命令，我们可以通过下面的命令在指定的 package 安装依赖，这个依赖只可以该 package 中使用
+
+### -F 或者 --filter
 
 ```shell
-- example
-     - dist              # 输出目录
-     - src
-          - ba-assets    #打包的时候会把这个目录的所有文件都copy到 dist目录里
-          - ba-modules   #包管理器的文件目录
-          - index.html   #入口文件
-     - begda.config.js   #配置文件
-     - package.json
+pnpm -F @packages/xxx add lodash
 ```
 
-### html引入资源包例子
+## 搭建 monorepo 项目
 
-```html
+#### 创建项目
 
-<html>
-<head>
-    <link href="ba-assets/font/iconfont.css" rel="stylesheet">
-    <!--   对页面没影响,就是为了打包时候能带上elementUI字体文件用的 -->
-    <link href="ba-modules/node_modules/element-ui/lib/theme-chalk/fonts" rel="stylesheet">
-    <!--   引用自己的写css文件-->
-    <link href="ba-assets/css/main.css" rel="stylesheet">
-</head>
-<body>
-html 内容
-<!-- 引用npm包管理器的js文件-->
-<script src="ba-modules/node_modules/tasktimer/lib/tasktimer.min.js"></script>
-<!-- 引用自己的写js文件-->
-<script src="ba-assets/js/init.js"></script>
-</body>
-</html>
-
+```shell
+mkdir advance  #创建 advance 文件夹
+cd advance     #打开目录
+pnpm init      #初始化pnpm配置文件
 ```
 
-### begda.config.js 配置说明
+## 新建.npmrc 文件
 
-1. 极简配置
+在根目录下新建.npmrc，增加以下内容
+
+```text
+shamefully-hoist=true
+strict-peer-dependencies=false
+ignore-workspace-root-check=true
+```
+
+> `shamefully-hoist` 是否提升依赖，如果某些工具仅在根目录的 `node_modules` 时才有效，可以将 shamefully-hoist 设置为 true 来提升那些不在根目录的 node_modules，就是将你安装的依赖包的依赖包的依赖包的都放到同一级别（扁平化）。说白了就是不设置为 true 有些包就有可能会出问题。
+>
+> strict-peer-dependencies 当 peerDependencies 错误时，命令是否成功
+
+## pnpm-workspace.yaml
+
+在根目录下新建 pnpm-workspace.yaml，增加以下内容
+
+这个文件定义了工作空间的根目录，并能够使您从工作空间中包含或排除目录，
+
+```yaml
+packages:
+    # 包含子目录中的所有包
+    - 'packages/*'
+    # 包含组件目录中的所有包
+    - 'components/**'
+    # 排除所有目录中的 test文件夹
+    - '!**/test/**'
+```
+
+## 新建 packages 文件夹
+
+在项目根目录里面创建 /packages
+
+```shell
+mkdir advance/packages  #创建 packages 文件夹
+```
+
+## 创建子项目
+
+### 创建子项目 test-1
+
+在里面/packages，创建一个名为的新文件夹 test-1。
+
+> 创建 packages/test-1/package.json
+
+```json
+{
+    "name": "test-1",
+    "version": "0.0.1",
+    "main": "index.js"
+}
+```
+
+> 创建 packages/test-1/index.js
 
 ```js
-// 所有配置都是选填的,可以为空,如果不需要改文件夹名字,推荐极简配置
-import {defineConfig} from '@begda/static-build';
-
-defineConfig()
+export const liaohui = 99999999999999;
 ```
 
-2. 完整配置
+### 创建子项目 test-tow
+
+在里面/packages，创建一个名为的新文件夹 test-tow。
+
+导入本地 test-1 到 test-tow 里面
+
+> 创建 packages/test-tow/package.json
+
+```json
+{
+    "name": "test-tow",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {
+        "dev": "echo 'dev命令'"
+    },
+    "dependencies": {
+        "test-1": "workspace:*" //导入本地test-1包
+    }
+}
+```
+
+> 创建 packages/test-tow/index.js
 
 ```js
-import {defineConfig} from '@begda/static-build';
-
-defineConfig({
-    projectName: projectName || prName(),  //项目名称,默认会取package.json的projectName
-    entry: '/*.html',//   "/*.html"  '/index.html'  //支持 glob的 目录写法  入口文件
-    out: 'dist',  //导出文件目录
-    src: 'src',  //源码
-    assets: 'ba-assets',  //静态资源文件目录
-    commonModules: 'ba-modules',  //静态资源文件目录
-    bower_components: 'bower_components',  //公共静态资源文件目录,如果bower_components 目录没有的话,就用 node_modules目录,因为npm包是必须的
-    node_modules: 'node_modules',  //npm安装包资源文件目录
-    zip: ture || false   //是否自动打压缩包, true为自动打包 false 为不打包
-})
-
+import { liaohui } from 'test-1'; //导入本地包test-1
+export const liaohuiTow = 666666666;
+console.log(liaohui);
 ```
 
-### 两个包管理目录的重要说明
+## 安装依赖
 
-1. node_modules
-   > 通过npm 安装的包管理器目录,这个是必须有的,所有依赖都在这里面
-2. bower_components
-   > 通过bower安装的包管理目录,可以直接通过url地址下载包, 有些js css 包没有在npm里面,要用这个直接下载
-   >
-   > 如果不使用bower_components 可以不在 begda.config.js里面配置,默认会直接使用node_modules来代替
-3. bower 使用说明
+### 给所有子项目安装依赖
 
 ```shell
-   1. npm i bower -g 全局安装包管理
-   1. bower init   创建bower.json 文件
-   2  打开bower.json ,把要下载的包 名字和地址 按下面格式 ,添加到 dependencies 属性里面
-       "dependencies": {
-        "tailwindcss": "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css",
-        "jquery.3.6.1": "https://code.jquery.com/jquery-3.6.1.min.js"
-        }
-   3. bower install  安装包
+pnpm install
 ```
 
-### 运行命令
+### 给特定子项目安装依赖
+
+使用 pnpm 的-F 命令找到对应的包单独安装依赖
+
+我们这里的命名为 test-1 子项目，安装 vue-router 依赖模块
 
 ```shell
-"build": "node begda.config.js",   #编译切图好的文件,是生成一个文件夹, 可以直接发给同事
-"browser-sync:dist": "browser-sync start --server 'dist' --files 'dist'",  #启动生产测试环境浏览器
-"browser-sync:src": "browser-sync start --server 'src' --files 'src'",  #启动开发环境浏览器
-"说明": "这个可以设置这样的 --files '/**/*.css,/**/*.html,/**/*.js'",
-"pnpm-install": "pnpm install --shamefully-hoist"
+pnpm add vue-router -F test-1
 ```
 
+### 安装本地项目内的依赖包
 
-# 源码开发说明
-### 源码地址
-[https://github.com/begda/static-build](https://github.com/begda/static-build)
+比如`nuxt-app`项目需要依赖`is-liaohui2`项目的功能，那么这个时候需要互相依赖，执行下面的命令
 
-### 演示demo在 example文件夹
-> demo目录运行效果在 demo里运行命令查看
->
-> [https://github.com/begda/static-build/tree/main/example](https://github.com/begda/static-build/tree/main/example)
->
-> demo使用说明
->
-> [https://github.com/begda/static-build/blob/main/example/README.md](https://github.com/begda/static-build/blob/main/example/README.md)
+```shell
+# 这个是在项目根目录下运行
+pnpm add is-liaohui2 -F nuxt-app
+
+#这个是在 nuxt-app 子项目目录运行
+pnpm add is-liaohui2 -d
+```
+
+这条命令表示在`nuxt-app`项目安装`is-liaohui2`， 安装完成后 package.json 的依赖就有了`is-liaohui2`
+
+## 根目录下执行子项目命令
+
+根据上面操作，我们会发现我要运行 `test-tow` 的命令就到 cd 到这个目录，这样的操作太麻烦了，我们可以通过修改根目录下的 package.json 来实现在根目录下就能够执行不同包的命令
+
+```json
+{
+  ...,
+  "scripts": {
+    ...,
+    "dev:app": "pnpm -F test-tow dev"
+  },
+}
+```
