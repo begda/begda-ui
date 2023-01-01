@@ -137,12 +137,12 @@ export default {
             if (self.fullWindow) {
                 self.panelStyle.height = `${winHeight}px`; //设置为当前窗口的高度
             } else {
-                self.panelStyle.height = `${self.height}px`;
+                self.panelStyle.height = `${self.height}px`; //根据传入的高度设置
             }
 
-            self.scrollStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
-            const bodyHeight = domRef(this.$refs.body).height(); //获取中间区域的高
-            const bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
+            let bodyHeight = winHeight - otherHeight; //获取中间区域的高
+            self.scrollStyle.height = `${bodyHeight}px`; //设置中间区域高度
+            let bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
             self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
         },
         // 根据窗口大小实时改变
