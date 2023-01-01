@@ -43,7 +43,7 @@
                 </ba-scrollbar>
             </template>
             <template v-else>
-                <div class="begda-panel__body" :style="bodyStyle" ref="body" v-loading="loading">
+                <div class="begda-panel__body p-3" :style="bodyStyle" ref="body" v-loading="loading">
                     <slot></slot>
                 </div>
             </template>
@@ -142,6 +142,7 @@ export default {
 
             let bodyHeight = winHeight - otherHeight; //获取中间区域的高
             self.scrollStyle.height = `${bodyHeight}px`; //设置中间区域高度
+            self.bodyStyle.height = `${bodyHeight}px`; //设置中间区域高度
             let bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
             self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
         },
