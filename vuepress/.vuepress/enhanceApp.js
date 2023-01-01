@@ -4,9 +4,9 @@
 // import Vant from 'vant';
 // import 'vant/lib/index.css';
 
-import BegdaUI from 'begda-ui';
-import 'begda-ui/lib/theme/index.css';
-console.log(BegdaUI);
+import BegdaUI from '../../lib/index';
+import '../../lib/theme/index.css';
+// console.log(BegdaUI);
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
     options, // 附加到根实例的一些选项

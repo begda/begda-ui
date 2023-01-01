@@ -136,7 +136,7 @@ export default {
         this.Copyright = new Date().getFullYear();
         this.author = this.$site.themeConfig.author;
         this.nav = this.$site.themeConfig.nav;
-        console.log(this.$site.pages);
+        // console.log(this.$site.pages);
         // console.log(this.$page);
         // console.log(this.$frontmatter);
     },
@@ -178,7 +178,7 @@ export default {
             });
 
             // document.getElementById("xxx").scrollIntoView(); 跳转到锚点
-            console.log(_.orderBy(libArr, ['order'], ['asc']));
+            // console.log(_.orderBy(libArr, ['order'], ['asc']));
 
             // `asc` 升序排序 ,  `desc` 以降序排序。
             return _.orderBy(libArr, ['order'], ['asc']);
