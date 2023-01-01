@@ -18,6 +18,11 @@ export default {
             }
         };
     },
+    watch: {
+        height(newData, oldData) {
+            this.view();
+        }
+    },
     props: {
         src: { type: String, default: null },
         height: { type: Number, default: 0 }
@@ -37,7 +42,12 @@ export default {
             let self = this;
             const winHeight = window.innerHeight; // 窗口高度
             let webview = this.$refs.webview;
-            webview.style.height = `${self.height}px`;
+            //如果设置了高度,就用设置的, 没有的话iframe就用窗口的高度
+            if (self.height) {
+                webview.style.height = `${self.height}px`;
+            } else {
+                webview.style.height = `${winHeight}px`;
+            }
         }
     }
 };
