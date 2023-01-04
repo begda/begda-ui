@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div ref="panel" :style="panelStyle" :class="[className, isShadow]">
+        <div ref="panel" :style="{ ...panelStyle, ...background }" :class="[className, isShadow]">
             <template v-if="isNavbar">
                 <template v-if="$slots.header">
                     <div ref="header">
@@ -86,7 +86,14 @@ export default {
         loading: { type: Boolean, default: false }, //设置高度
         padding: { type: Boolean, default: true }, //中间区域默认填充
         className: { type: String, default: 'begda-panel' }, //中间区域默认填充
-
+        background: {
+            type: Object,
+            //Props在传值类型为Object/Array时，如果需要配置default值（如果没有配置default值，则不会有这个报错），
+            // 那必须要使用函数来return这个default值，而不能像基本数据类型那样直接写default：xxx
+            default: function () {
+                return { backgroundColor: '#ffffff' };
+            }
+        }, //背景,可以设置图片或者背景色
         shadow: { type: String, default: 'always' } //显示阴影
     },
     computed: {
