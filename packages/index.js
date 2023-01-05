@@ -40,11 +40,13 @@ import { BaSelect } from './select/index';
 import { BaCell } from './cell/index';
 import { BaWebView } from './webview/index';
 import { BaChart } from './chart/index';
+import { BaPlatform } from './plateform/index';
+import { Platforms } from './plateform/src/platforms';
 
 import './theme/src/tailwind-main.css'; //tailwind配置导入
 import './theme/src/index.less';
-
-const components = [Panel, BaPanel, BaPanelData, BaScrollbar, BaSelect, BaCell, BaWebView, BaChart];
+//我自己写的组件都在这里注册
+const components = [Panel, BaPanel, BaPanelData, BaScrollbar, BaSelect, BaCell, BaWebView, BaChart, BaPlatform];
 const install = function (Vue, opts = {}) {
     //datav组件库
     Vue.use(borderBox11);
@@ -85,6 +87,8 @@ const install = function (Vue, opts = {}) {
     // Vue.prototype.$prompt = MessageBox.prompt;
     // Vue.prototype.$notify = Notification;
     // Vue.prototype.$message = Message;
+
+    Vue.prototype.$BaPlatforms = Platforms; // 给vue注册运行平台判断代码
 };
 
 /* istanbul ignore if */
@@ -129,5 +133,6 @@ export default {
     BaChart,
     BaSelect,
     BaCell,
-    BaWebView
+    BaWebView,
+    BaPlatform
 };
