@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div ref="panel" :style="{ ...panelStyle, ...background }" :class="[className, isShadow]">
+        <div ref="panel" :style="panelStyle" :class="[className, isShadow]">
             <template v-if="isNavbar">
                 <template v-if="$slots.header">
                     <div ref="header">
@@ -8,7 +8,7 @@
                     </div>
                 </template>
                 <template v-else>
-                    <div class="begda-panel__header" ref="header">
+                    <div class="begda-panel__header" :style="headerStyle" ref="header">
                         <template v-if="leftText">
                             <div @click="$emit('left')" class="begda-panel__header-left">
                                 <i class="el-icon-arrow-left" v-if="leftArrow"></i>{{ leftText }}
@@ -36,14 +36,16 @@
 
             <!--    中间区域-->
             <template v-if="scroll">
-                <ba-scrollbar :style="scrollStyle">
-                    <div class="begda-panel__body" :style="bodyStyle" ref="body" v-loading="loading">
+                <!--              使用滚动条-->
+                <ba-scrollbar :style="bodyStyle">
+                    <div :class="bodyClass" ref="body" v-loading="loading">
                         <slot></slot>
                     </div>
                 </ba-scrollbar>
             </template>
             <template v-else>
-                <div class="begda-panel__body p-3" :style="bodyStyle" ref="body" v-loading="loading">
+                <!--              不使用滚动条-->
+                <div :class="[...bodyClass]" ref="body" v-loading="loading">
                     <slot></slot>
                 </div>
             </template>
@@ -67,13 +69,13 @@ export default {
     name: 'Panel',
     data() {
         return {
-            scrollStyle: { height: '' },
             bodyStyle: { height: '' },
-            panelStyle: { height: '' }
+            panelStyle: { height: '' },
+            bodyClass: ['begda-panel__body']
         };
     },
     props: {
-        isNavbar: { type: Boolean, default: true },
+        isNavbar: { type: Boolean, default: true }, //是否显示顶部
         title: { type: String, default: '' },
         titlePosition: { type: String, default: 'center' }, //标题位置, left center right 三个方向
         leftText: { type: String, default: '' }, //左侧文字
@@ -86,15 +88,15 @@ export default {
         loading: { type: Boolean, default: false }, //设置高度
         padding: { type: Boolean, default: true }, //中间区域默认填充
         className: { type: String, default: 'begda-panel' }, //中间区域默认填充
-        background: {
+        shadow: { type: String, default: 'always' }, //显示阴影
+
+        //
+        headerStyle: {
             type: Object,
-            //Props在传值类型为Object/Array时，如果需要配置default值（如果没有配置default值，则不会有这个报错），
-            // 那必须要使用函数来return这个default值，而不能像基本数据类型那样直接写default：xxx
-            default: function () {
-                return { backgroundColor: '#ffffff' };
+            default() {
+                return { background: '#ffffff' };
             }
-        }, //背景,可以设置图片或者背景色
-        shadow: { type: String, default: 'always' } //显示阴影
+        } //显示阴影
     },
     computed: {
         isShadow() {
@@ -130,27 +132,25 @@ export default {
         view() {
             let self = this;
             const winHeight = window.innerHeight; // 窗口高度
-
             const headerHeight = domRef(this.$refs.header).height(); // header高度
             const topHeight = domRef(this.$refs.top).height();
             const bottomHeight = domRef(this.$refs.bottom).height();
             const bottombarHeight = domRef(this.$refs.bottombar).height();
             const otherHeight = headerHeight + topHeight + bottomHeight + bottombarHeight; //上面所有高度的和
-            if (!self.padding) {
-                // 设置padding
-                self.bodyStyle.padding = 0;
+            let bodyHeight = winHeight - otherHeight; //获取中间区域的高
+            // 设置padding
+            if (self.padding) {
+                self.bodyClass.push('p-3');
             }
             //窗口全屏,才设置panel的高度为整个窗口的高度
             if (self.fullWindow) {
                 self.panelStyle.height = `${winHeight}px`; //设置为当前窗口的高度
             } else {
-                self.panelStyle.height = `${self.height}px`; //根据传入的高度设置
+                self.panelStyle.height = `${self.height}px`;
             }
-
-            let bodyHeight = winHeight - otherHeight; //获取中间区域的高
-            self.scrollStyle.height = `${bodyHeight}px`; //设置中间区域高度
+            // self.bodyStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
             self.bodyStyle.height = `${bodyHeight}px`; //设置中间区域高度
-            let bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
+            const bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
             self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
         },
         // 根据窗口大小实时改变
