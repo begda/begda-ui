@@ -90,13 +90,13 @@ export default {
         className: { type: String, default: 'begda-panel' }, //中间区域默认填充
         shadow: { type: String, default: 'always' }, //显示阴影
 
-        //
+        //设置头部样式
         headerStyle: {
             type: Object,
             default() {
                 return { background: '#ffffff' };
             }
-        } //显示阴影
+        }
     },
     computed: {
         isShadow() {
@@ -148,8 +148,7 @@ export default {
             } else {
                 self.panelStyle.height = `${self.height}px`;
             }
-            // self.bodyStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
-            self.bodyStyle.height = `${bodyHeight}px`; //设置中间区域高度
+            self.bodyStyle.height = `calc(100% - ${otherHeight}px)`; //设置中间区域高度
             const bodyWidth = domRef(this.$refs.body).width(); //获取中间区域的宽
             self.$emit('resize', bodyHeight, bodyWidth); //获取面板宽高事件
         },
