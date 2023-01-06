@@ -32,6 +32,7 @@ import Select from 'element-ui/lib/select.js';
 import Option from 'element-ui/lib/option.js';
 import OptionGroup from 'element-ui/lib/option-group.js';
 import 'element-ui/lib/theme-chalk/select.css';
+import 'element-ui/lib/theme-chalk/icon.css';
 
 //我自己写的组件,强依赖上面的组件
 import { Panel, BaPanel, BaPanelData } from './panel/index';

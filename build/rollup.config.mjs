@@ -85,6 +85,10 @@ export default [
                         src: "packages/theme/src/images",
                         dest: "lib/theme",
                     },
+                    {
+                        src: "node_modules/element-ui/lib/theme-chalk/fonts",
+                        dest: "lib/theme",
+                    },
                 ],
             }),
             // terser(),
