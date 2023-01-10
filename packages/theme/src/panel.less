@@ -1,13 +1,25 @@
 .begda-panel {
     @apply max-w-full  rounded-md border border-gray-100 box-border text-base transition-all duration-300;
+    .text-hover {
+        @apply hover:text-blue-500 cursor-pointer transition duration-300;
+    }
     &__header {
-        @apply flex justify-between  p-3 box-border border-b border-gray-100;
+        @apply rounded-t-md flex p-3 box-border border-b border-gray-100 relative;
         &-title {
-            @apply font-bold flex-auto;
+            @apply font-bold w-full;
+        }
+        &-title2 {
+            @apply font-bold;
         }
         &-left,
         &-right {
-            @apply hover:text-blue-500 cursor-pointer transition duration-300;
+            @apply absolute flex justify-around  min-w-min;
+        }
+        &-left {
+            @apply left-0  pl-2;
+        }
+        &-right {
+            @apply right-0 pr-2;
         }
     }
     &__body {

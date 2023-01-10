@@ -8,24 +8,34 @@
                     </div>
                 </template>
                 <template v-else>
-                    <div class="begda-panel__header" :style="headerStyle" ref="header">
-                        <template v-if="leftText">
-                            <div @click="$emit('left')" class="begda-panel__header-left">
-                                <i class="el-icon-arrow-left" v-if="leftArrow"></i>{{ leftText }}
-                            </div>
-                        </template>
-                        <template v-else>
-                            <slot name="left"></slot>
-                        </template>
+                    <div class="begda-panel__header h-[50px]" :style="headerStyle" ref="header">
+                        <div class="begda-panel__header-left">
+                            <template v-if="$slots.left">
+                                <slot name="left"></slot>
+                            </template>
+                            <template v-else>
+                                <div class="flex justify-between text-hover" @click="$emit('left')">
+                                    <div>
+                                        <i class="el-icon-arrow-left" v-if="leftArrow"></i>
+                                    </div>
+                                    <div v-if="leftText">{{ leftText }}</div>
+                                </div>
+                            </template>
+                        </div>
                         <div :class="['begda-panel__header-title', titlePositionClass]">{{ title }}</div>
-                        <template v-if="rightText">
-                            <div @click="$emit('right')" class="begda-panel__header-right">
-                                {{ rightText }}<i class="el-icon-arrow-right" v-if="rightArrow"></i>
-                            </div>
-                        </template>
-                        <template v-else>
-                            <slot name="right"></slot>
-                        </template>
+                        <div class="begda-panel__header-right">
+                            <template v-if="$slots.right">
+                                <slot name="right"></slot>
+                            </template>
+                            <template v-else>
+                                <div class="flex justify-between text-hover" @click="$emit('right')">
+                                    <div v-if="rightText">{{ rightText }}</div>
+                                    <div>
+                                        <i class="el-icon-arrow-right" v-if="rightArrow"></i>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
                     </div>
                 </template>
             </template>
@@ -92,9 +102,9 @@ export default {
 
         //设置头部样式
         headerStyle: {
-            type: Object,
+            type: [Object],
             default() {
-                return { background: '#ffffff' };
+                return { backgroundColor: '#ffffff' };
             }
         }
     },
