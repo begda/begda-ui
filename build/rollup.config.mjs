@@ -19,7 +19,7 @@ import terser from "@rollup/plugin-terser";
 const createBanner = () => {
     return `/*!
   * ${pkg.name} v${pkg.version}
-  * (c) ${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDay()}
+  * (c) ${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}
   * @license ISC
   */`;
 };
