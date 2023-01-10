@@ -8,6 +8,7 @@
                 shadow="never"
                 :headerStyle="{ background: 'transparent' }"
             >
+                <!--              循环父组件所有的插槽,然后在这个组件中使用-->
                 <template v-for="(item, key) in $slots">
                     <template :slot="key">
                         <slot :name="key" />
