@@ -17,5 +17,5 @@ export default ({
     // Vue.use(dataV);
     // Vue.use(Element);
     // Vue.use(Vant);
-    Vue.use(BegdaUI);
+    // Vue.use(BegdaUI);
 };
