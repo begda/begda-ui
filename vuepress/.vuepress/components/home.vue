@@ -61,7 +61,7 @@
                             <!--                          如果有文件列表的话就显示-->
                             <template v-if="item2">
                                 <van-cell is-link @click="onClick(item.path, item2)">
-                                    <template #title> {{ key + 1 }}.{{ item2 | paiban }} </template>
+                                    <template #title> {{ key + 1 }}.{{ item2 | paiban }}</template>
                                 </van-cell>
                             </template>
                             <!--                          没有文件列表的时候显示 md文档的内部标题-->
@@ -71,7 +71,7 @@
                                     @click="onClick(item.path + '#' + item3.title)"
                                     v-for="(item3, key3) in item.headers"
                                 >
-                                    <template #title> {{ key3 + 1 }}.{{ item3.title }} </template>
+                                    <template #title> {{ key3 + 1 }}.{{ item3.title }}</template>
                                 </van-cell>
                             </template>
                         </template>
@@ -109,6 +109,7 @@
 
 <script>
 import _ from 'lodash';
+
 export default {
     name: 'home',
     data() {
@@ -131,11 +132,12 @@ export default {
     },
     created() {
         this.logo = '.' + this.$site.themeConfig.logo;
-        this.sidebar = this.$site.themeConfig.sidebar;
+        this.sidebar = this.$site.themeConfig.sidebar; //侧边菜单列表
         this.libs = this.lib();
         this.Copyright = new Date().getFullYear();
         this.author = this.$site.themeConfig.author;
         this.nav = this.$site.themeConfig.nav;
+        // console.log(this.sidebar);
         // console.log(this.$site.pages);
         // console.log(this.$page);
         // console.log(this.$frontmatter);
@@ -149,31 +151,44 @@ export default {
             });
     },
     methods: {
+        //获取当前页面的简介
+        pagesObj(item) {
+            let pages = this.$site.pages; //获取页面数据
+
+            let aaa = '';
+            //这里的用处是, 用路径去找页面里的 简介,如果路径一样,就把简介拿出来
+            pages.map(item2 => {
+                if (item === item2.path) {
+                    //如果两个路径一样,就取出frontmatter 数据,里面有当前库的简介
+                    aaa = { ddd: item, aa: item2, frontmatter: item2.frontmatter, headers: item2.headers };
+                }
+            });
+
+            return aaa;
+        },
         //组合lib库数据,给lib添加 frontmatter 的所有数据,用于显示 每个库的简介
         lib() {
-            let pages = this.$site.pages;
+            let pages = this.$site.pages; //获取页面数据
 
             let arr = Object.keys(this.sidebar); //获取对象的名字
+
             let 置顶 = [];
             let 后面的 = [];
             let libArr = []; //存储组合好的 数据
             arr.map(item => {
                 if (item != '/Lib/') {
-                    let pageArr = []; //存储pages循环的数据
-                    pages.map(item2 => {
-                        if (item === item2.path) {
-                            //如果两个路径一样,就取出frontmatter 数据,里面有当前库的简介
-                            pageArr.push(item2);
-                        }
-                    });
-                    libArr.push({
-                        ...this.sidebar[item][0],
-                        path: item,
-                        frontmatter: pageArr[0].frontmatter,
-                        order: pageArr[0].frontmatter.order, //获取排序数值
-                        background: pageArr[0].frontmatter.background, //获取背景图,或者背景颜色
-                        headers: pageArr[0].headers //获取背景图,或者背景颜色
-                    });
+                    let pagesObj = this.pagesObj(item);
+                    //返回数据里会有空数据, 这里要判断一下
+                    if (pagesObj) {
+                        libArr.push({
+                            ...this.sidebar[item][0],
+                            path: item,
+                            frontmatter: pagesObj.frontmatter,
+                            order: pagesObj.frontmatter.order, //获取排序数值
+                            background: pagesObj.frontmatter.background, //获取背景图,或者背景颜色
+                            headers: pagesObj.headers //获取背景图,或者背景颜色
+                        });
+                    }
                 }
             });
 
@@ -200,6 +215,7 @@ h4 {
     margin: 0;
     padding: 0 !important;
 }
+
 .home-header {
     padding-bottom: 180px;
     padding-top: 180px;
@@ -225,13 +241,9 @@ h4 {
     width: 100%;
     position: relative;
     background: #02407a;
-    //font-size: 30px;
-    //font-weight: 300;
-    text-align: center;
-    //line-height: 130px;
-    border-bottom: 4px #ffcc00 solid;
-    padding-bottom: 20px;
+    //font-size: 30px; //font-weight: 300; text-align: center; //line-height: 130px; border-bottom: 4px #ffcc00 solid; padding-bottom: 20px;
 }
+
 .panel-header-title {
     display: inline-block;
     width: 100%;
@@ -241,6 +253,7 @@ h4 {
     height: 80px;
     vertical-align: bottom;
 }
+
 .panel-header-info {
     font-size: 13px;
     font-weight: 200;

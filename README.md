@@ -17,7 +17,7 @@ Vue.use(BegdaUI);
 
 ### CDN 使用库
 
-我们建议使用 CDN 引入 Element 的用户在链接地址上锁定版本，以免将来 Element 升级时受到非兼容性更新的影响。锁定版本的方法请查看
+我们建议使用 CDN 引入 BegdaUI 的用户在链接地址上锁定版本，以免将来 BegdaUI 升级时受到非兼容性更新的影响。锁定版本的方法请查看
 unpkg.com。
 
 ```shell
@@ -32,7 +32,7 @@ unpkg.com。
 
 ### Hello world
 
-通过 CDN 的方式我们可以很容易地使用 Element 写出一个 Hello world 页面。在线演示
+通过 CDN 的方式我们可以很容易地使用 BegdaUI 写出一个 Hello world 页面。在线演示
 
 ```html
 <!DOCTYPE html>
