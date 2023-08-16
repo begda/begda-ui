@@ -160,7 +160,7 @@ export default {
             pages.map(item2 => {
                 if (item === item2.path) {
                     //如果两个路径一样,就取出frontmatter 数据,里面有当前库的简介
-                    aaa = { ddd: item, aa: item2, frontmatter: item2.frontmatter, headers: item2.headers };
+                    aaa = { frontmatter: item2.frontmatter, headers: item2.headers };
                 }
             });
 
@@ -178,6 +178,7 @@ export default {
             arr.map(item => {
                 if (item != '/Lib/') {
                     let pagesObj = this.pagesObj(item);
+                    console.log(pagesObj, this.sidebar[item][0]);
                     //返回数据里会有空数据, 这里要判断一下
                     if (pagesObj) {
                         libArr.push({

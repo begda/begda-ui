@@ -19,10 +19,21 @@ tags:
 description: python学习心得
 ---
 
-[[toc]]
 
-###  PIP导航目录
 
->  [PIP配置](1.PIP配置) |  [PIP包下载地址](https://pypi.org/)
+
+
 > 
-###  Python虚拟环境
+ ## Python虚拟环境
+ 
+ 
+ 
+ ## 学习文档
+1. [Python官网学习文档](https://docs.python.org/zh-cn/3/tutorial/index.html) 
+
+2. [扩展和嵌入](https://docs.python.org/zh-cn/3/extending/index.html) 
+    给 C/C++ 程序员的教程
+
+3. [标准库参考](https://docs.python.org/zh-cn/3/library/index.html) 
+
+4. [语法学习](https://docs.python.org/zh-cn/3/reference/index.html) 
