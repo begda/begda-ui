@@ -37,3 +37,5 @@ description: python学习心得
 3. [标准库参考](https://docs.python.org/zh-cn/3/library/index.html) 
 
 4. [语法学习](https://docs.python.org/zh-cn/3/reference/index.html) 
+
+4. [数据库操作库](3.数据操作库ORM)
