@@ -26,108 +26,123 @@ Platforms.Desk(() => {
 
 * */
 
-const sUsrAg = navigator.userAgent; //获取浏览器标示
+let sUsrAg = navigator.userAgent;
+if (typeof window !== "undefined" && typeof window.navigator !== "undefined") {
+  // 浏览器环境下的代码
+  sUsrAg = "";
+}
+
 //所在平台供应商
-const _miniProgram = sUsrAg.indexOf('miniProgram') > 1 ? 'miniProgram' : false; //微信小程序平台
-const _Html5Plus = sUsrAg.indexOf('Html5Plus') > 1 ? 'Html5Plus' : false; //uniapp外壳平台
-const _Wechat = !!sUsrAg.match(/MicroMessenger/i) ? 'Wechat' : false; //微信
+const _miniProgram = sUsrAg.indexOf("miniProgram") > 1 ? "miniProgram" : false; //微信小程序平台
+const _Html5Plus = sUsrAg.indexOf("Html5Plus") > 1 ? "Html5Plus" : false; //uniapp外壳平台
+const _Wechat = !!sUsrAg.match(/MicroMessenger/i) ? "Wechat" : false; //微信
 
 //所在系统
-const _iPhone = sUsrAg.indexOf('iPhone') > 1 ? 'iPhone' : false;
-const _Android = sUsrAg.indexOf('Android') > 1 ? 'Android' : false;
-const _Windows = !!sUsrAg.match(/compatible/i) || sUsrAg.match(/Windows/i) ? 'Windows' : false;
-const _Mac = !!sUsrAg.match(/Macintosh/i) || sUsrAg.match(/Macintosh/i) ? 'Mac' : false;
+const _iPhone = sUsrAg.indexOf("iPhone") > 1 ? "iPhone" : false;
+const _Android = sUsrAg.indexOf("Android") > 1 ? "Android" : false;
+const _Windows =
+  !!sUsrAg.match(/compatible/i) || sUsrAg.match(/Windows/i) ? "Windows" : false;
+const _Mac =
+  !!sUsrAg.match(/Macintosh/i) || sUsrAg.match(/Macintosh/i) ? "Mac" : false;
 
 const platform = function (callback = () => {}) {
-    if (_miniProgram) {
-        callback('miniProgram');
-        return 'miniProgram';
-    }
-    if (_Html5Plus) {
-        callback('Html5Plus');
-        return 'Html5Plus';
-    }
-    if (_Android) {
-        callback('Android');
-        return 'Android';
-    }
-    if (_iPhone) {
-        callback('iPhone');
-        return 'iPhone';
-    }
-    if (_Windows) {
-        callback('Windows');
-        return 'Windows';
-    }
-    if (_Mac) {
-        callback('Mac');
-        return 'Mac';
-    }
-    if (_Mac || _Windows) {
-        callback('Desk');
-    }
+  if (_miniProgram) {
+    callback("miniProgram");
+    return "miniProgram";
+  }
+  if (_Html5Plus) {
+    callback("Html5Plus");
+    return "Html5Plus";
+  }
+  if (_Android) {
+    callback("Android");
+    return "Android";
+  }
+  if (_iPhone) {
+    callback("iPhone");
+    return "iPhone";
+  }
+  if (_Windows) {
+    callback("Windows");
+    return "Windows";
+  }
+  if (_Mac) {
+    callback("Mac");
+    return "Mac";
+  }
+  if (_Mac || _Windows) {
+    callback("Desk");
+  }
 
-    //不在识别返回的就返回false
-    return false;
+  //不在识别返回的就返回false
+  return false;
 };
 
 function miniProgram(callback) {
-    platform(res => {
-        if (res === 'miniProgram') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "miniProgram") {
+      callback(res);
+    }
+  });
 }
 
 function Html5Plus(callback) {
-    platform(res => {
-        if (res === 'Html5Plus') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "Html5Plus") {
+      callback(res);
+    }
+  });
 }
 
 function Android(callback) {
-    platform(res => {
-        if (res === 'Android') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "Android") {
+      callback(res);
+    }
+  });
 }
 
 function iPhone(callback) {
-    platform(res => {
-        if (res === 'iPhone') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "iPhone") {
+      callback(res);
+    }
+  });
 }
 
 function Windows(callback) {
-    platform(res => {
-        if (res === 'Windows') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "Windows") {
+      callback(res);
+    }
+  });
 }
 
 function Mac(callback) {
-    platform(res => {
-        if (res === 'Mac') {
-            callback(res);
-        }
-    });
+  platform((res) => {
+    if (res === "Mac") {
+      callback(res);
+    }
+  });
 }
 
 //桌面浏览器环境下运行,不依赖任何外壳
 function Desk(callback) {
-    platform(res => {
-        if (res === 'Mac' || res === 'Windows') {
-            callback('Desk');
-        }
-    });
+  platform((res) => {
+    if (res === "Mac" || res === "Windows") {
+      callback("Desk");
+    }
+  });
 }
 
 export const PlatformsSync = platform(() => {});
 //这个直接返回当前运行环境,一次只能返回一个
-export const Platforms = { Android, miniProgram, Html5Plus, iPhone, Windows, Mac, Desk }; //返回回调组合运行环境
+export const Platforms = {
+  Android,
+  miniProgram,
+  Html5Plus,
+  iPhone,
+  Windows,
+  Mac,
+  Desk,
+}; //返回回调组合运行环境
