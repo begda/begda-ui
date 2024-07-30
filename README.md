@@ -70,4 +70,16 @@ unpkg.com。
 
 运行 `pnpm run dev` 启动开发环境
 
-运行` pnpm run tailwind:watch` 监听 packages 文件夹内部组件样式变化,然后生成样式文件 packages/theme/src/tailwind-main.css
+运行` pnpm run tailwind:watch` 监听 packages 文件夹内部组件样式变化,然后生成样式文件
+packages/theme/src/tailwind-main.css
+
+导入 `import BegdaUI from 'lib/index.js'` 文件 ,这是编译的组件库
+
+导入 `import 'lib/theme/index.css'` 文件,这是编译的样式文件
+
+```js
+import BegdaUI from "lib/index.js"; //这是编译的组件库
+import "lib/theme/index.css"; //这是编译的样式文件
+
+Vue.use(BegdaUI); //使用组件库
+```
