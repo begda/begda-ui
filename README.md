@@ -37,28 +37,37 @@ unpkg.com。
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <!-- import CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/begda-ui@0.0.25/lib/theme/index.css" />
-    </head>
-    <body>
-        <div id="app">
-            <ba-panel>面板</ba-panel>
-        </div>
-    </body>
-    <!-- import Vue before BeggedUI-->
-    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
-    <!-- import JavaScript -->
-    <script src="https://unpkg.com/begda-ui@0.0.25/lib/index.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- import CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/begda-ui@0.0.25/lib/theme/index.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <ba-panel>面板</ba-panel>
+    </div>
+  </body>
+  <!-- import Vue before BeggedUI-->
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/begda-ui@0.0.25/lib/index.js"></script>
 
-    <script>
-        new Vue({
-            el: '#app',
-            data: function () {
-                return { visible: false };
-            }
-        });
-    </script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: function () {
+        return { visible: false };
+      },
+    });
+  </script>
 </html>
 ```
+
+## 开发
+
+运行 `pnpm run dev` 启动开发环境
+
+运行` pnpm run tailwind:watch` 监听 packages 文件夹内部组件样式变化,然后生成样式文件 packages/theme/src/tailwind-main.css

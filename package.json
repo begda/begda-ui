@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "pnpm run rollup:dev",
     "rollup:build": "rollup -c build/rollup.config.build.mjs",
-    "rollup:dev": "rollup --watch --watch.include='packages/**'   -c  build/rollup.config.mjs",
-    "tailwind-watch": "tailwindcss -c ./tailwind.config.js -i ./main.css -o ./packages/theme/src/tailwind-main.css --watch",
+    "rollup:dev": "rollup --watch --watch.include='packages/**'  -c  build/rollup.config.mjs",
+    "tailwind:watch": "tailwindcss -c ./tailwind.config.js -i ./main.css -o ./packages/theme/src/tailwind-main.css --watch",
     "pnpm-install扁平": "pnpm install --shamefully-hoist",
     "pnpm-install": "pnpm install",
     "npm-撤回上次发布的包-仅限24小时内": "npm unpublish begda-ui --force",
