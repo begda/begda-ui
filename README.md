@@ -68,10 +68,12 @@ unpkg.com。
 
 ## 开发
 
-运行 `pnpm run dev` 启动开发环境
+运行 `dev` 启动开发环境
 
-运行` pnpm run tailwind:watch` 监听 packages 文件夹内部组件样式变化,然后生成样式文件
+运行 `tailwind:watch` 监听 packages 文件夹内部组件样式变化,然后生成样式文件
 packages/theme/src/tailwind-main.css
+
+运行 `rollup:build` 编译组件库,生成 lib 文件夹的文件
 
 导入 `import BegdaUI from 'lib/index.js'` 文件 ,这是编译的组件库
 
