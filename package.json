@@ -33,7 +33,7 @@
     "type": "git",
     "url": "git@github.com/begda/begda-ui.git"
   },
-  "homepage": "https://begda.tianliaohui.com",
+  "homepage": "https://www.tianliaohui.com/BegdaUI",
   "exports": {
     ".": {
       "require": "./lib/index.js",
